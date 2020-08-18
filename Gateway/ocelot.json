@@ -1,17 +1,6 @@
 {
   "Routes": [
-    {
-      "DownstreamPathTemplate": "/weatherforecast",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44334
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/service",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
-    },
+    // Identity Service
     {
       "DownstreamPathTemplate": "/api/Auth/login",
       "DownstreamScheme": "https",
@@ -22,7 +11,8 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/login",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "Auth"
     },
     {
       "DownstreamPathTemplate": "/api/Auth/register",
@@ -34,7 +24,95 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/register",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "Auth"
+    },
+
+    // Room Booking Service
+    {
+      "DownstreamPathTemplate": "/api/Rooms",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Rooms",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Rooms/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Rooms/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Bookings",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Bookings",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Bookings/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Bookings/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "Auth",
+      "Config": [
+        {
+          "Name": "Contacts API",
+          "Version": "v1",
+          "Url": "http://localhost:5100/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "orders",
+      "Config": [
+        {
+          "Name": "Orders API",
+          "Version": "v0.9",
+          "Url": "http://localhost:5200/swagger/v0.9/swagger.json"
+        },
+        {
+          "Name": "Orders API",
+          "Version": "v1",
+          "Url": "http://localhost:5200/swagger/v1/swagger.json"
+        },
+        {
+          "Name": "Orders API",
+          "Version": "v2",
+          "Url": "http://localhost:5200/swagger/v2/swagger.json"
+        },
+        {
+          "Name": "Orders API",
+          "Version": "v3",
+          "Url": "http://localhost:5200/swagger/v3/swagger.json"
+        }
+      ]
     }
   ]
 }

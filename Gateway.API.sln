@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{1A43403F-CB3E-4B75-8034-0437A84B7818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service1", "Service1\Service1.csproj", "{61983458-1561-461D-9357-18CFF54583ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{31C46E6B-7C9D-40ED-8A7F-731AEAB2A751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{31C46E6B-7C9D-40ED-8A7F-731AEAB2A751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity", "Identity\Identity.csproj", "{9888350C-5AD5-4D96-B4B6-AAE1273CE3E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity", "Identity\Identity.csproj", "{9888350C-5AD5-4D96-B4B6-AAE1273CE3E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomBookingService", "RoomBookingService\RoomBookingService.csproj", "{34ED7BB6-56F3-486A-97BC-125464A17B40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{61983458-1561-461D-9357-18CFF54583ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61983458-1561-461D-9357-18CFF54583ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61983458-1561-461D-9357-18CFF54583ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61983458-1561-461D-9357-18CFF54583ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{31C46E6B-7C9D-40ED-8A7F-731AEAB2A751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{31C46E6B-7C9D-40ED-8A7F-731AEAB2A751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31C46E6B-7C9D-40ED-8A7F-731AEAB2A751}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,13 +25,17 @@ Global
 		{9888350C-5AD5-4D96-B4B6-AAE1273CE3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9888350C-5AD5-4D96-B4B6-AAE1273CE3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9888350C-5AD5-4D96-B4B6-AAE1273CE3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34ED7BB6-56F3-486A-97BC-125464A17B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34ED7BB6-56F3-486A-97BC-125464A17B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34ED7BB6-56F3-486A-97BC-125464A17B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34ED7BB6-56F3-486A-97BC-125464A17B40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{61983458-1561-461D-9357-18CFF54583ED} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
 		{9888350C-5AD5-4D96-B4B6-AAE1273CE3E3} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
+		{34ED7BB6-56F3-486A-97BC-125464A17B40} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C018896-E0B1-4F18-86F8-124427555325}

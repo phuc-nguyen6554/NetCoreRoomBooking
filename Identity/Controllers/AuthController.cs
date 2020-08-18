@@ -53,7 +53,7 @@ namespace Identity.Controllers
             else
             {
                 await userManager.AddToRoleAsync(registrationUser, "User");
-                string JWT_token = GenerateJWT(user.UserName, "User");
+                string JWT_token = GenerateJWT(user.UserName, "User", user.Email);
 
                 ReturnUserDTO returnUser = mapper.Map<ReturnUserDTO>(registrationUser);
                 returnUser.Token = JWT_token;
@@ -74,7 +74,7 @@ namespace Identity.Controllers
             if (user != null && await userManager.CheckPasswordAsync(user, modelUser.Password))
             {
                 var roles = await userManager.GetRolesAsync(user);
-                string JWT_Token = GenerateJWT(modelUser.UserName, roles[0]);
+                string JWT_Token = GenerateJWT(modelUser.UserName, roles[0], user.Email);
 
                 ReturnUserDTO returnUser = mapper.Map<ReturnUserDTO>(user);
                 returnUser.Token = JWT_Token;
@@ -85,7 +85,7 @@ namespace Identity.Controllers
             return Unauthorized("Username or Password is not correct");
         }
 
-        private string GenerateJWT(string UserName, string Role)
+        private string GenerateJWT(string UserName, string Role, string Email)
         {
             string JWTKey = configuration["JWT:secretKey"];
             string issuer = "localhost:5000";
@@ -97,7 +97,8 @@ namespace Identity.Controllers
             var authClaim = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, UserName),
-                    new Claim(ClaimTypes.Role, Role)
+                    new Claim(ClaimTypes.Role, Role),
+                    new Claim(ClaimTypes.Email, Email)
                 };
 
             var token = new JwtSecurityToken(
