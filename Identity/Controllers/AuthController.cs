@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Google.Apis.Auth;
 using Identity.Models.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -30,59 +31,58 @@ namespace Identity.Controllers
             userManager = _userManager;
         }
 
-        [HttpPost("Register")]
-        public async Task<ActionResult<ReturnUserDTO>> Register(RegistrationUserModel user)
+        [HttpPost("Login")]
+        public async Task<ActionResult<ReturnUserDTO>> Login([FromBody] string token_id)
         {
-            if (user == null)
+            try
             {
-                return Unauthorized();
+                // Validate token
+                var payload = GoogleJsonWebSignature.ValidateAsync(token_id, new GoogleJsonWebSignature.ValidationSettings()).Result;
+
+                var user = await FindOrAddUser(payload);
+
+                return user;
             }
-
-            if (!ModelState.IsValid)
+            catch (Exception ex)
             {
-                return BadRequest(user);
-            }
-
-            var registrationUser = mapper.Map<ApplicationUser>(user);
-            var result = await userManager.CreateAsync(registrationUser, user.Password);
-
-            if (!result.Succeeded)
-            {
-                return BadRequest("Registration not success");
-            }
-            else
-            {
-                await userManager.AddToRoleAsync(registrationUser, "User");
-                string JWT_token = GenerateJWT(user.UserName, "User", user.Email);
-
-                ReturnUserDTO returnUser = mapper.Map<ReturnUserDTO>(registrationUser);
-                returnUser.Token = JWT_token;
-                return returnUser;
+                return BadRequest(ex);
             }
         }
 
-        [HttpPost("Login")]
-        public async Task<ActionResult<ReturnUserDTO>> Login(LoginUser modelUser)
+        private async Task<ReturnUserDTO> FindOrAddUser(GoogleJsonWebSignature.Payload payload)
         {
-            if (!ModelState.IsValid)
+            // Find user
+            var user = await userManager.FindByEmailAsync(payload.Email);
+
+            // If not exist => add to db
+            if(user == null)
             {
-                return BadRequest("User is required");
+                var userData = new RegistrationUserModel
+                {
+                    Email = payload.Email,
+                    UserName = payload.Name
+                };
+
+                var registrationUser = mapper.Map<ApplicationUser>(userData);
+
+                var result = await userManager.CreateAsync(registrationUser);
+
+                if(result.Succeeded)
+                {
+                    var returnUser = mapper.Map<ReturnUserDTO>(registrationUser);
+                    returnUser.Token = GenerateJWT(returnUser.UserName, "User", returnUser.Email);
+
+                    return returnUser;
+                }
+                else
+                {
+                    return null;
+                }
             }
+            var return_User = mapper.Map<ReturnUserDTO>(user);
+            return_User.Token = GenerateJWT(return_User.UserName, "User", return_User.Email);
 
-            var user = await userManager.FindByNameAsync(modelUser.UserName);
-
-            if (user != null && await userManager.CheckPasswordAsync(user, modelUser.Password))
-            {
-                var roles = await userManager.GetRolesAsync(user);
-                string JWT_Token = GenerateJWT(modelUser.UserName, roles[0], user.Email);
-
-                ReturnUserDTO returnUser = mapper.Map<ReturnUserDTO>(user);
-                returnUser.Token = JWT_Token;
-
-                return returnUser;
-            }
-
-            return Unauthorized("Username or Password is not correct");
+            return return_User;
         }
 
         private string GenerateJWT(string UserName, string Role, string Email)

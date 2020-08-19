@@ -36,11 +36,20 @@ namespace Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<IdentityContext>();
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default User settings.
+                options.User.AllowedUserNameCharacters =
+                        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ ";
+                options.User.RequireUniqueEmail = false;
+
+            });
+
             string secretKey = Configuration["JWT:secretKey"];
             services.ConfigureJWT(secretKey);
 
             services.ConfigureSwagger();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             
         }
 

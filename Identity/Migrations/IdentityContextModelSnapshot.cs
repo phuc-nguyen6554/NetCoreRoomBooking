@@ -38,12 +38,6 @@ namespace Identity.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Firstname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Lastname")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -119,15 +113,15 @@ namespace Identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "65a3f65d-0871-4985-8645-2f25adad8e07",
-                            ConcurrencyStamp = "e35864f5-dc56-4bd5-ad6f-86a844dfa9e8",
+                            Id = "f954cb0b-bb77-4edb-b4c9-69f1083a9b4c",
+                            ConcurrencyStamp = "66986273-707a-4c31-9888-dcfa9ea99673",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "535259a1-353a-465d-b68c-3faf5ffb2649",
-                            ConcurrencyStamp = "bfedccf9-2234-486e-a7c6-a6c5c686a04f",
+                            Id = "e9cf6996-e324-42a3-a826-fb37ed686bf6",
+                            ConcurrencyStamp = "18180cc8-ec2e-4c9a-b6d2-4b5331a2ff84",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

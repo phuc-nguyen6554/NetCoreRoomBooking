@@ -27,13 +27,11 @@ namespace RoomBookingService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> Getbookings()
         {
-            //return await _context.bookings.ToListAsync();
-
             // Get Upcomming Booking event
-            return await _context.bookings.
-                Include(b => b.Room).
-                Where(b => b.BookTime.CompareTo(DateTime.Now) > 0)
-                .OrderBy(b => b.BookTime)
+            return await _context.bookings
+                .Include(b => b.Room)
+                .Where(b => b.From.CompareTo(DateTime.Now) > 0)
+                .OrderBy(b => b.From)
                 .ToListAsync();
         }
 
@@ -51,45 +49,24 @@ namespace RoomBookingService.Controllers
             return booking;
         }
 
-        // PUT: api/Bookings/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBooking(int id, Booking booking)
-        {
-            if (id != booking.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(booking).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookingExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/Bookings
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Authorize]
         [HttpPost]
         public async Task<ActionResult<Booking>> PostBooking(Booking booking)
-        {
+        {           
+            var ExistedBookings = await _context.bookings
+                .Where(b => 
+                    (b.From.CompareTo(booking.From) <= 0 && b.To.CompareTo(booking.From) >= 0) || 
+                    (b.From.CompareTo(booking.To) <= 0 && b.To.CompareTo(booking.To) >= 0))
+                .ToListAsync();
+
+            if(ExistedBookings.Count > 0)
+            {
+                return BadRequest("Time is not correct");
+            }
+
             // Get info from JWT
             string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
             string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
@@ -101,6 +78,18 @@ namespace RoomBookingService.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBooking", new { id = booking.Id }, booking);
+        }
+
+        [HttpGet("Test")]
+        public async Task<IEnumerable<Booking>> GetData()
+        {
+            DateTime From = DateTime.Parse("2020-8-19 15:15");
+            DateTime To = DateTime.Parse("2020-8-19 15:30");
+
+            var bookings = await _context.bookings.Where(b => (b.From.CompareTo(From) <= 0 && b.To.CompareTo(From) >= 0) || (b.From.CompareTo(To) <= 0 && b.To.CompareTo(To) >= 0))
+                .ToListAsync();
+
+            return bookings;
         }
 
         // DELETE: api/Bookings/5

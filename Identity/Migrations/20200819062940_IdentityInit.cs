@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Identity.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class IdentityInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,9 +39,7 @@ namespace Identity.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    Firstname = table.Column<string>(nullable: true),
-                    Lastname = table.Column<string>(nullable: true)
+                    AccessFailedCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,12 +155,12 @@ namespace Identity.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "65a3f65d-0871-4985-8645-2f25adad8e07", "e35864f5-dc56-4bd5-ad6f-86a844dfa9e8", "User", "USER" });
+                values: new object[] { "f954cb0b-bb77-4edb-b4c9-69f1083a9b4c", "66986273-707a-4c31-9888-dcfa9ea99673", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "535259a1-353a-465d-b68c-3faf5ffb2649", "bfedccf9-2234-486e-a7c6-a6c5c686a04f", "Admin", "ADMIN" });
+                values: new object[] { "e9cf6996-e324-42a3-a826-fb37ed686bf6", "18180cc8-ec2e-4c9a-b6d2-4b5331a2ff84", "Admin", "ADMIN" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

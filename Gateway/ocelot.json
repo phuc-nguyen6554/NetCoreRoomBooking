@@ -51,7 +51,7 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Rooms/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
     },
     {
       "DownstreamPathTemplate": "/api/Bookings",

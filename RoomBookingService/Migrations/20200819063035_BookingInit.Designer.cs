@@ -10,8 +10,8 @@ using RoomBookingService.Models;
 namespace RoomBookingService.Migrations
 {
     [DbContext(typeof(BookingServiceContext))]
-    [Migration("20200818083913_AddRoomBookingTable")]
-    partial class AddRoomBookingTable
+    [Migration("20200819063035_BookingInit")]
+    partial class BookingInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace RoomBookingService.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("BookTime")
+                    b.Property<DateTime>("From")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("MemberEmail")
@@ -39,6 +39,9 @@ namespace RoomBookingService.Migrations
 
                     b.Property<int>("RoomID")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("To")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

@@ -29,6 +29,15 @@ namespace Gateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOcelot();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyDefault", builder =>
+               {
+                   builder.WithOrigins("http://localhost:4200");
+                   builder.AllowAnyHeader();
+               });
+            });
             
             string secretKey = _configuration["JWT:secretKey"];
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
@@ -68,6 +77,8 @@ namespace Gateway
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyDefault");
 
             app.UseRouting();
             app.UseSwagger();

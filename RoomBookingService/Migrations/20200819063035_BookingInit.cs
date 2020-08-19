@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RoomBookingService.Migrations
 {
-    public partial class AddRoomBookingTable : Migration
+    public partial class BookingInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,8 @@ namespace RoomBookingService.Migrations
                     RoomID = table.Column<int>(nullable: false),
                     MemberName = table.Column<string>(nullable: true),
                     MemberEmail = table.Column<string>(nullable: true),
-                    BookTime = table.Column<DateTime>(nullable: false)
+                    From = table.Column<DateTime>(nullable: false),
+                    To = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
