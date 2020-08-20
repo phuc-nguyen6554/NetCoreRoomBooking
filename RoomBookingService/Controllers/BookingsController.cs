@@ -12,6 +12,7 @@ using RoomBookingService.Models.Bookings;
 
 namespace RoomBookingService.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookingsController : ControllerBase
@@ -30,7 +31,7 @@ namespace RoomBookingService.Controllers
             // Get Upcomming Booking event
             return await _context.bookings
                 .Include(b => b.Room)
-                .Where(b => b.From.CompareTo(DateTime.Now) > 0)
+                .Where(b => b.To.CompareTo(DateTime.Now) > 0)
                 .OrderBy(b => b.From)
                 .ToListAsync();
         }
@@ -52,14 +53,13 @@ namespace RoomBookingService.Controllers
         // POST: api/Bookings
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Booking>> PostBooking(Booking booking)
         {           
             var ExistedBookings = await _context.bookings
-                .Where(b => 
-                    (b.From.CompareTo(booking.From) <= 0 && b.To.CompareTo(booking.From) >= 0) || 
-                    (b.From.CompareTo(booking.To) <= 0 && b.To.CompareTo(booking.To) >= 0))
+                .Where(b => b.RoomID == booking.RoomID &&
+                    ((b.From.CompareTo(booking.From) <= 0 && b.To.CompareTo(booking.From) >= 0) ||
+                    (b.From.CompareTo(booking.To) <= 0 && b.To.CompareTo(booking.To) >= 0)))
                 .ToListAsync();
 
             if(ExistedBookings.Count > 0)
@@ -80,20 +80,7 @@ namespace RoomBookingService.Controllers
             return CreatedAtAction("GetBooking", new { id = booking.Id }, booking);
         }
 
-        [HttpGet("Test")]
-        public async Task<IEnumerable<Booking>> GetData()
-        {
-            DateTime From = DateTime.Parse("2020-8-19 15:15");
-            DateTime To = DateTime.Parse("2020-8-19 15:30");
-
-            var bookings = await _context.bookings.Where(b => (b.From.CompareTo(From) <= 0 && b.To.CompareTo(From) >= 0) || (b.From.CompareTo(To) <= 0 && b.To.CompareTo(To) >= 0))
-                .ToListAsync();
-
-            return bookings;
-        }
-
         // DELETE: api/Bookings/5
-        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Booking>> DeleteBooking(int id)
         {
@@ -101,6 +88,13 @@ namespace RoomBookingService.Controllers
             if (booking == null)
             {
                 return NotFound();
+            }
+
+            string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+
+            if(booking.MemberEmail != email)
+            {
+                return Unauthorized("You don't have permission to delete this booking");
             }
 
             _context.bookings.Remove(booking);

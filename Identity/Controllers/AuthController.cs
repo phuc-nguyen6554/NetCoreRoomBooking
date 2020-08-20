@@ -7,10 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Google.Apis.Auth;
+using Identity.Models;
 using Identity.Models.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -22,13 +24,13 @@ namespace Identity.Controllers
     {
         private readonly IConfiguration configuration;
         private readonly IMapper mapper;
-        private UserManager<ApplicationUser> userManager;
+        private readonly IdentityContext context;
 
-        public AuthController(IConfiguration _configuration, IMapper _mapper, UserManager<ApplicationUser> _userManager)
+        public AuthController(IConfiguration _configuration, IMapper _mapper, IdentityContext _context)
         {
             configuration = _configuration;
             mapper = _mapper;
-            userManager = _userManager;
+            context = _context;
         }
 
         [HttpPost("Login")]
@@ -51,41 +53,33 @@ namespace Identity.Controllers
 
         private async Task<ReturnUserDTO> FindOrAddUser(GoogleJsonWebSignature.Payload payload)
         {
-            // Find user
-            var user = await userManager.FindByEmailAsync(payload.Email);
+            var user = await context.UserData.Where(user => user.Email == payload.Email).FirstOrDefaultAsync();
 
-            // If not exist => add to db
-            if(user == null)
+            // User is existed
+            if(user != null)
             {
-                var userData = new RegistrationUserModel
-                {
-                    Email = payload.Email,
-                    UserName = payload.Name
-                };
+                string jwt = this.GenerateJWT(user);
 
-                var registrationUser = mapper.Map<ApplicationUser>(userData);
+                var userDTO = mapper.Map<ReturnUserDTO>(user);
+                userDTO.Token = jwt;
 
-                var result = await userManager.CreateAsync(registrationUser);
-
-                if(result.Succeeded)
-                {
-                    var returnUser = mapper.Map<ReturnUserDTO>(registrationUser);
-                    returnUser.Token = GenerateJWT(returnUser.UserName, "User", returnUser.Email);
-
-                    return returnUser;
-                }
-                else
-                {
-                    return null;
-                }
+                return userDTO;
             }
-            var return_User = mapper.Map<ReturnUserDTO>(user);
-            return_User.Token = GenerateJWT(return_User.UserName, "User", return_User.Email);
 
-            return return_User;
+            // User is not existed
+            user = new User { Name = payload.Name, Email = payload.Email, Avatar = payload.Picture };
+            context.UserData.Add(user);
+            await context.SaveChangesAsync();
+
+            string token = this.GenerateJWT(user);
+
+            var user_DTO = mapper.Map<ReturnUserDTO>(user);
+            user_DTO.Token = token;
+
+            return user_DTO;
         }
 
-        private string GenerateJWT(string UserName, string Role, string Email)
+        private string GenerateJWT(User user)
         {
             string JWTKey = configuration["JWT:secretKey"];
             string issuer = "localhost:5000";
@@ -96,9 +90,9 @@ namespace Identity.Controllers
 
             var authClaim = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, UserName),
-                    new Claim(ClaimTypes.Role, Role),
-                    new Claim(ClaimTypes.Email, Email)
+                    new Claim(ClaimTypes.Name, user.Name),
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim("Avatar", user.Avatar)
                 };
 
             var token = new JwtSecurityToken(

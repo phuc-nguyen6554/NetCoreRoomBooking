@@ -14,6 +14,8 @@ namespace Identity.Models
     {
         public IdentityContext(DbContextOptions options) : base(options) { }
 
+        public DbSet<User> UserData { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

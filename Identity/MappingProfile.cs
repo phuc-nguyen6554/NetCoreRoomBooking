@@ -13,6 +13,7 @@ namespace Identity
         {
             CreateMap<RegistrationUserModel, ApplicationUser>();
             CreateMap<ApplicationUser, ReturnUserDTO>();
+            CreateMap<User, ReturnUserDTO>();
         }
     }
 }

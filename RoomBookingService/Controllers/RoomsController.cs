@@ -12,6 +12,7 @@ using RoomBookingService.Models.Rooms;
 
 namespace RoomBookingService.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RoomsController : ControllerBase
