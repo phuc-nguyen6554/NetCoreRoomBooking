@@ -12,7 +12,7 @@
       ],
       "UpstreamPathTemplate": "/gateway/login",
       "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "Auth"
+      "SwaggerKey": "auth"
     },
     {
       "DownstreamPathTemplate": "/api/Auth/register",
@@ -25,7 +25,7 @@
       ],
       "UpstreamPathTemplate": "/gateway/register",
       "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "Auth"
+      "SwaggerKey": "auth"
     },
 
     // Room Booking Service
@@ -39,7 +39,8 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Rooms",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "room"
     },
     {
       "DownstreamPathTemplate": "/api/Rooms/{id}",
@@ -51,7 +52,8 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Rooms/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "SwaggerKey": "room"
     },
     {
       "DownstreamPathTemplate": "/api/Bookings",
@@ -63,7 +65,8 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Bookings",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "booking"
     },
     {
       "DownstreamPathTemplate": "/api/Bookings/{id}",
@@ -75,42 +78,38 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Bookings/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "SwaggerKey": "booking"
     }
   ],
   "SwaggerEndPoints": [
     {
-      "Key": "Auth",
+      "Key": "auth",
       "Config": [
         {
-          "Name": "Contacts API",
+          "Name": "Auth API",
           "Version": "v1",
-          "Url": "http://localhost:5100/swagger/v1/swagger.json"
+          "Url": "https://localhost:44328/swagger/v1/swagger.json"
         }
       ]
     },
     {
-      "Key": "orders",
+      "Key": "room",
       "Config": [
         {
-          "Name": "Orders API",
-          "Version": "v0.9",
-          "Url": "http://localhost:5200/swagger/v0.9/swagger.json"
-        },
-        {
-          "Name": "Orders API",
+          "Name": "Room API",
           "Version": "v1",
-          "Url": "http://localhost:5200/swagger/v1/swagger.json"
-        },
+          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "booking",
+      "Config": [
         {
-          "Name": "Orders API",
-          "Version": "v2",
-          "Url": "http://localhost:5200/swagger/v2/swagger.json"
-        },
-        {
-          "Name": "Orders API",
-          "Version": "v3",
-          "Url": "http://localhost:5200/swagger/v3/swagger.json"
+          "Name": "Booking API",
+          "Version": "v1",
+          "Url": "https://localhost:44366/swagger/v1/swagger.json"
         }
       ]
     }

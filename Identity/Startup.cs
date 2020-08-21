@@ -31,6 +31,7 @@ namespace Identity
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IdentityContext>(option => option.UseSqlServer(Configuration.GetConnectionString("IdentityContext")));
+            
             services.AddAutoMapper(typeof(Startup));
 
             services.Configure<IdentityOptions>(options =>
@@ -66,7 +67,7 @@ namespace Identity
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Identity API V1");
             });
 
             app.UseAuthentication();
