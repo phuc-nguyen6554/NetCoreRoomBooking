@@ -11,8 +11,6 @@ namespace Identity
     {
         public MappingProfile()
         {
-            CreateMap<RegistrationUserModel, ApplicationUser>();
-            CreateMap<ApplicationUser, ReturnUserDTO>();
             CreateMap<User, ReturnUserDTO>();
         }
     }

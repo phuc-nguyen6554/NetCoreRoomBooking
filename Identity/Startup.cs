@@ -33,9 +33,6 @@ namespace Identity
             services.AddDbContext<IdentityContext>(option => option.UseSqlServer(Configuration.GetConnectionString("IdentityContext")));
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<IdentityContext>();
-
             services.Configure<IdentityOptions>(options =>
             {
                 // Default User settings.

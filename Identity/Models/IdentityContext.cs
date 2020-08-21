@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Identity.Models
 {
-    public class IdentityContext : IdentityDbContext<ApplicationUser>
+    public class IdentityContext : DbContext
     {
         public IdentityContext(DbContextOptions options) : base(options) { }
 
@@ -19,7 +19,6 @@ namespace Identity.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration(new RoleConfigurations());
         }
     }
 }
