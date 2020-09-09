@@ -1,0 +1,71 @@
+2020-09-08 13:18:36.176 +07:00 [ERR] IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:20:59.051 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:22:05.636 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:29:39.535 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:29:45.422 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:47:36.997 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:04:37.213 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:05:03.320 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:05:04.458 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:05:09.464 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:12:49.058 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:13:05.755 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:13:08.824 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:46:18.547 +07:00 [ERR] IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 15:00:04.658 +07:00 [INF] 
+2020-09-08 15:00:21.674 +07:00 [INF] /gateway/Bookings/test
+2020-09-08 15:00:36.716 +07:00 [INF] /gateway/Bookings/1
+2020-09-08 15:00:41.384 +07:00 [INF] /gateway/Bookings/2
+2020-09-08 15:06:40.249 +07:00 [INF] /gateway/Bookings/{id}
+2020-09-08 15:06:57.872 +07:00 [INF] /gateway/Bookings/{id}
+2020-09-08 15:07:06.986 +07:00 [INF] /gateway/Bookings/test
+2020-09-08 15:07:40.845 +07:00 [INF] /gateway/Bookings/{id}
+2020-09-09 08:38:00.890 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:39:29.768 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:41:32.301 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:41:39.746 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:44:00.716 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:44:29.522 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:52:53.373 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:53:25.215 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:55:33.845 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 09:16:07.636 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:17:08.515 +07:00 [INF] GET/gateway/Bookings/1
+2020-09-09 09:22:56.701 +07:00 [INF] GET/gateway/Bookings/
+2020-09-09 09:22:56.773 +07:00 [INF] /gateway/Bookings/ Response: 404
+2020-09-09 09:23:10.951 +07:00 [INF] GET/gateway/Bookings
+2020-09-09 09:23:15.605 +07:00 [INF] /gateway/Bookings Response: 200
+2020-09-09 09:23:30.407 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:23:30.497 +07:00 [INF] /gateway/Bookings/test Response: 200
+2020-09-09 09:23:36.343 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:23:36.476 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 09:23:36.480 +07:00 [INF] /gateway/Bookings/test Response: 401
+2020-09-09 09:23:39.107 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:23:39.150 +07:00 [INF] /gateway/Bookings/test Response: 200
+2020-09-09 09:30:50.627 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 09:31:39.386 +07:00 [INF] POST /gateway/Login []
+2020-09-09 09:31:39.390 +07:00 [INF] Response /gateway/Login is 404 []
+2020-09-09 09:31:43.358 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 09:31:43.359 +07:00 [INF] Response /gateway/Bookings is 404 []
+2020-09-09 09:31:51.629 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 09:31:51.629 +07:00 [INF] Response /gateway/Bookings/test is 404 []
+2020-09-09 09:32:29.362 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 09:32:29.362 +07:00 [INF] Response /gateway/Bookings/test is 404 []
+2020-09-09 09:33:36.832 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 09:33:39.938 +07:00 [INF] Response /gateway/Bookings/test is 200 []

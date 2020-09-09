@@ -12,10 +12,12 @@
       ],
       "UpstreamPathTemplate": "/gateway/login",
       "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "auth"
+      "SwaggerKey": "auth",
+      "Auth": false
     },
+
     {
-      "DownstreamPathTemplate": "/api/Auth/register",
+      "DownstreamPathTemplate": "/api/Auth/get-user",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -23,8 +25,8 @@
           "Port": 44328
         }
       ],
-      "UpstreamPathTemplate": "/gateway/register",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/gateway/get-user",
+      "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "auth"
     },
 
@@ -66,7 +68,11 @@
       ],
       "UpstreamPathTemplate": "/gateway/Bookings",
       "UpstreamHttpMethod": [ "GET", "POST" ],
-      "SwaggerKey": "booking"
+      "SwaggerKey": "booking",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Bookings/{id}",
@@ -79,6 +85,19 @@
       ],
       "UpstreamPathTemplate": "/gateway/Bookings/{id}",
       "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "SwaggerKey": "booking"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Bookings/test",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Bookings/test",
+      "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "booking"
     }
   ],
