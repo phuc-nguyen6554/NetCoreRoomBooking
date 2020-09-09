@@ -1,6 +1,5 @@
 {
   "Routes": [
-    // Leave Request
     {
       "DownstreamPathTemplate": "/api/LeaveRequest",
       "DownstreamScheme": "https",
@@ -33,7 +32,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44366
+          "Port": 44314
         }
       ],
       "UpstreamPathTemplate": "/api/LeaveRequest",
@@ -41,16 +40,29 @@
       "SwaggerKey": "leaving"
     },
     {
-      "DownstreamPathTemplate": "/api/LeaveTypes/{id}",
+      "DownstreamPathTemplate": "/api/LeaveType/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44366
+          "Port": 44314
         }
       ],
-      "UpstreamPathTemplate": "/gateway/LeaveTypes/{id}",
+      "UpstreamPathTemplate": "/gateway/LeaveType/{id}",
       "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "SwaggerKey": "leaving"
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaveType",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44314
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/LeaveType",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "leaving"
     },
     // Identity Service

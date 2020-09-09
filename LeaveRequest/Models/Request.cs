@@ -15,6 +15,8 @@ namespace LeaveRequest.Models
 
         public String LeaveTime { get; set; }
 
+        public LeaveType leaveTypes { get; set; }
+
         public int LeaveTypeId { get; set; }
 
         public String Reason { get; set; }
