@@ -28,7 +28,7 @@ namespace LeaveRequestController.Controllers
         public async Task<ActionResult<IEnumerable<Request>>> GetLeaveRequests()
         {
             // Get Upcomming Booking event
-            return await _context.leaveRequests.ToListAsync();
+            return await _context.leaveRequests.Include(b => b.leaveTypes).ToListAsync();
         }
 
         // GET: api/Bookings/5

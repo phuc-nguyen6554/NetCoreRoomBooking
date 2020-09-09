@@ -14,8 +14,6 @@ namespace RoomBookingService.Models
 
         public DbSet<Room> rooms { get; set; }
         public DbSet<Booking> bookings { get; set; }
-        public DbSet<LeaveRequest> leaveRequests { get; set; }
-        public DbSet<LeaveType> leaveTypes { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

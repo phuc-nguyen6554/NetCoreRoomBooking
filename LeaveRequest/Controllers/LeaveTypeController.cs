@@ -63,7 +63,7 @@ namespace LeaveRequest.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RoomExists(id))
+                if (!LeaveTypeExists(id))
                 {
                     return NotFound();
                 }
@@ -111,9 +111,9 @@ namespace LeaveRequest.Controllers
             return Ok(new { email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value});
         }
 
-        private bool RoomExists(int id)
+        private bool LeaveTypeExists(int id)
         {
-            return _context.rooms.Any(e => e.Id == id);
+            return _context.leaveTypes.Any(e => e.Id == id);
         }
     }
 }

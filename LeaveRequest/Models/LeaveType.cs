@@ -12,5 +12,7 @@ namespace LeaveRequest.Models
  
         public string Name { get; set; }
 
+        public List<Request> requests { get; set; }
+
     }
 }
