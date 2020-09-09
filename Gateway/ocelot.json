@@ -1,5 +1,58 @@
 {
   "Routes": [
+    // Leave Request
+    {
+      "DownstreamPathTemplate": "/api/LeaveRequest",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44314
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/LeaveRequest",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "leaving"
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaveRequest/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44314
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/LeaveRequest/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "SwaggerKey": "leave"
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaveRequest",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/api/LeaveRequest",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "leaving"
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaveTypes/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44366
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/LeaveTypes/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "SwaggerKey": "leaving"
+    },
     // Identity Service
     {
       "DownstreamPathTemplate": "/api/Auth/login",
@@ -108,6 +161,16 @@
       "Config": [
         {
           "Name": "Booking API",
+          "Version": "v1",
+          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "leave",
+      "Config": [
+        {
+          "Name": "Leave Request API",
           "Version": "v1",
           "Url": "https://localhost:44366/swagger/v1/swagger.json"
         }
