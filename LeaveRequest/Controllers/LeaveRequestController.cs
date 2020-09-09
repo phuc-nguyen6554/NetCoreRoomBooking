@@ -50,11 +50,14 @@ namespace LeaveRequestController.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Request>> PostLeaveQuest(Request leaveRequests)
-        {           
-           
+        {
+
             // Get info from JWT
-            string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
-            string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+            //string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
+            //string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+
+            string username = Request.Headers["X-Forwarded-Username"];
+            string email = Request.Headers["X-Forwarded-Email"];
 
             leaveRequests.MemberName = username;
             leaveRequests.MemberEmail = email;
@@ -75,9 +78,10 @@ namespace LeaveRequestController.Controllers
                 return NotFound();
             }
 
-            string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+            //string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+            string email = Request.Headers["X-Forwarded-Email"];
 
-            if(leave.MemberEmail != email)
+            if (leave.MemberEmail != email)
             {
                 return Unauthorized("You don't have permission to delete this booking");
             }

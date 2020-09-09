@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RoomBookingService.Models;
@@ -12,7 +9,6 @@ using RoomBookingService.Models.Bookings;
 
 namespace RoomBookingService.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookingsController : ControllerBase
@@ -67,9 +63,8 @@ namespace RoomBookingService.Controllers
                 return BadRequest("Time is not correct");
             }
 
-            // Get info from JWT
-            string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
-            string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+            string username = Request.Headers["X-Forwarded-Username"];
+            string email = Request.Headers["X-Forwarded-Email"];
 
             booking.MemberName = username;
             booking.MemberEmail = email;
@@ -90,9 +85,9 @@ namespace RoomBookingService.Controllers
                 return NotFound();
             }
 
-            string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+            string email = Request.Headers["X-Forwarded-Email"];
 
-            if(booking.MemberEmail != email)
+            if (booking.MemberEmail != email)
             {
                 return Unauthorized("You don't have permission to delete this booking");
             }
@@ -101,6 +96,13 @@ namespace RoomBookingService.Controllers
             await _context.SaveChangesAsync();
 
             return booking;
+        }
+
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            string username = Request.Headers["X-Forwarded-Username"];
+            return Ok(new { Username = username, Header = Request.Headers});
         }
 
         private bool BookingExists(int id)

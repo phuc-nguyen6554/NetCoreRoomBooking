@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Gateway.Middleware;
+using Gateway.OcelotAuth;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Serilog;
 
 namespace Gateway
 {
@@ -62,10 +68,6 @@ namespace Gateway
                     x.TokenValidationParameters = tokenValidationParameters;
                 });
             services.AddSwaggerForOcelot(_configuration);
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-            //});
             services.AddControllers();
         }
 
@@ -96,8 +98,8 @@ namespace Gateway
             {
                 endpoints.MapControllers();
             });
-
-            await app.UseOcelot();
+            app.UseMiddleware<LogRequestMiddleware>();
+            await app.UseOcelot(new OcelotConfiguration(_configuration).CreateConfig());      
         }
     }
 }

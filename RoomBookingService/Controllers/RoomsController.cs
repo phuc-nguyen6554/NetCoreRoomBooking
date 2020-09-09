@@ -12,7 +12,6 @@ using RoomBookingService.Models.Rooms;
 
 namespace RoomBookingService.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RoomsController : ControllerBase
@@ -103,13 +102,6 @@ namespace RoomBookingService.Controllers
             await _context.SaveChangesAsync();
 
             return room;
-        }
-
-        [Authorize]
-        [HttpGet("Test")]
-        public ActionResult Test()
-        {
-            return Ok(new { email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value});
         }
 
         private bool RoomExists(int id)

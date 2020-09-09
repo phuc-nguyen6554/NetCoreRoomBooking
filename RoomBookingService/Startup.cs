@@ -36,25 +36,25 @@ namespace RoomBookingService
                 options.UseSqlServer(Configuration.GetConnectionString("BookingServiceContext"));
             });
 
-            string secretKey = Configuration["JWT:secretKey"];
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidateLifetime = true,
+            //string secretKey = Configuration["JWT:secretKey"];
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //    .AddJwtBearer(options =>
+            //    {
+            //        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters {
+            //            ValidateIssuer = true,
+            //            ValidateAudience = true,
+            //            ValidateIssuerSigningKey = true,
+            //            ValidateLifetime = true,
 
-                        ValidIssuer = "localhost:5000",
-                        ValidAudience = "localhost:5000",
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
-                    };
-                });
+            //            ValidIssuer = "localhost:5000",
+            //            ValidAudience = "localhost:5000",
+            //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+            //        };
+            //    });
 
             services.AddSwaggerGen(c =>
             {
@@ -89,8 +89,8 @@ namespace RoomBookingService
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Booking API V1");
             });
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthentication();
+            ///app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
