@@ -9,6 +9,7 @@ using AutoMapper;
 using Google.Apis.Auth;
 using Identity.Models;
 using Identity.Models.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -49,6 +50,25 @@ namespace Identity.Controllers
             {
                 return BadRequest(ex);
             }
+        }
+
+        [Authorize]
+        [HttpGet("get-user")]
+        public ActionResult<ReturnUserDTO> GetUserData()
+        {
+            string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
+            string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
+            string avatar = User.Claims.Where(x => x.Type == "Avatar").FirstOrDefault()?.Value;
+
+            var user = new ReturnUserDTO
+            {
+                Name = username,
+                Email = email,
+                Avatar = avatar,
+                Token = Request.Headers["Authorization"]
+            };
+
+            return user;
         }
 
         private async Task<ReturnUserDTO> FindOrAddUser(GoogleJsonWebSignature.Payload payload)

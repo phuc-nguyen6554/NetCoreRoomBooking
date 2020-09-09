@@ -113,7 +113,7 @@ namespace LeaveRequest.Controllers
 
         private bool RoomExists(int id)
         {
-            return _context.rooms.Any(e => e.Id == id);
+            return _context.leaveTypes.Any(e => e.Id == id);
         }
     }
 }
