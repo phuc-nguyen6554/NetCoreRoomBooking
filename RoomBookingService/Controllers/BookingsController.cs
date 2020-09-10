@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RoomBookingService.Models;
 using RoomBookingService.Models.Bookings;
+using AutoMapper;
+using RoomBookingService.DTO.Bookings;
 
 namespace RoomBookingService.Controllers
 {
@@ -14,27 +16,32 @@ namespace RoomBookingService.Controllers
     public class BookingsController : ControllerBase
     {
         private readonly BookingServiceContext _context;
+        private readonly IMapper _mapper;
 
-        public BookingsController(BookingServiceContext context)
+        public BookingsController(BookingServiceContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Bookings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Booking>>> Getbookings()
+        public async Task<ActionResult<IEnumerable<BookingResponse>>> Getbookings()
         {
             // Get Upcomming Booking event
-            return await _context.bookings
+            var booking =  await _context.bookings
                 .Include(b => b.Room)
                 .Where(b => b.To.CompareTo(DateTime.Now) > 0)
                 .OrderBy(b => b.From)
                 .ToListAsync();
+
+            var result = _mapper.Map<BookingResponse[]>(booking);
+            return result;
         }
 
         // GET: api/Bookings/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Booking>> GetBooking(int id)
+        public async Task<ActionResult<BookingResponse>> GetBooking(int id)
         {
             var booking = await _context.bookings.FindAsync(id);
 
@@ -43,7 +50,9 @@ namespace RoomBookingService.Controllers
                 return NotFound();
             }
 
-            return booking;
+            var result = _mapper.Map<BookingResponse>(booking);
+
+            return result;
         }
 
         // POST: api/Bookings
@@ -77,7 +86,7 @@ namespace RoomBookingService.Controllers
 
         // DELETE: api/Bookings/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Booking>> DeleteBooking(int id)
+        public async Task<ActionResult<BookingResponse>> DeleteBooking(int id)
         {
             var booking = await _context.bookings.FindAsync(id);
             if (booking == null)
@@ -95,14 +104,8 @@ namespace RoomBookingService.Controllers
             _context.bookings.Remove(booking);
             await _context.SaveChangesAsync();
 
-            return booking;
-        }
-
-        [HttpGet("test")]
-        public IActionResult Test()
-        {
-            string username = Request.Headers["X-Forwarded-Username"];
-            return Ok(new { Username = username, Header = Request.Headers});
+            var result = _mapper.Map<BookingResponse>(booking);
+            return result;
         }
 
         private bool BookingExists(int id)

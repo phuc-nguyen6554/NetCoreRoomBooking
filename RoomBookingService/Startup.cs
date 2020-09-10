@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RoomBookingService.Models;
 using Shared.Serilog;
+using AutoMapper;
 
 namespace RoomBookingService
 {
@@ -27,6 +28,7 @@ namespace RoomBookingService
                 options.UseSqlServer(Configuration.GetConnectionString("BookingServiceContext"));
             });
             services.AddSerilogMiddleware();
+            services.AddAutoMapper(typeof(Startup));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
