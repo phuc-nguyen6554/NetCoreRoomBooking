@@ -11,7 +11,6 @@ using LeaveRequest.Models;
 
 namespace LeaveRequest.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LeaveTypeController : ControllerBase

@@ -120,7 +120,7 @@ namespace Identity.Controllers
                 audience: audience,
                 claims: authClaim,
                 signingCredentials: credential,
-                expires: DateTime.Now.AddHours(1)
+                expires: DateTime.Now.AddDays(3)
             );
 
             var TokenString = new JwtSecurityTokenHandler().WriteToken(token);
