@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using LeaveRequest.Models;
+using Shared.Serilog;
 
 namespace LeaveRequest
 {
@@ -36,26 +37,7 @@ namespace LeaveRequest
                 options.UseSqlServer(Configuration.GetConnectionString("LeaveRequestServiceContext"));
             });
 
-            string secretKey = Configuration["JWT:secretKey"];
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidateLifetime = true,
-
-                        ValidIssuer = "localhost:5000",
-                        ValidAudience = "localhost:5000",
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
-                    };
-                });
+            services.AddSerilogMiddleware();
 
             services.AddSwaggerGen(c =>
             {
@@ -84,6 +66,8 @@ namespace LeaveRequest
             app.UseRouting();
 
             app.UseSwagger();
+
+            app.UseSerilogMiddleware();
 
             app.UseSwaggerUI(c =>
             {
