@@ -98,7 +98,7 @@ namespace Gateway
             {
                 endpoints.MapControllers();
             });
-            app.UseMiddleware<LogRequestMiddleware>();
+
             await app.UseOcelot(new OcelotConfiguration(_configuration).CreateConfig());      
         }
     }

@@ -43,9 +43,16 @@ namespace Gateway.OcelotAuth
                         return;
                     }
 
-                    var url = _configuration["AuthEndpoint"];
-                    HttpClient client = new HttpClient();
                     string token = ctx.Request.Headers["Authorization"];
+
+                    if(token == null)
+                    {
+                        ctx.Items.SetError(new UnauthenticatedError("No Token Provided"));
+                        return;
+                    }
+
+                    var url = _configuration["AuthEndpoint"];
+                    HttpClient client = new HttpClient();                   
                     HttpRequestMessage message = new HttpRequestMessage
                     {             
                         RequestUri = new Uri(url),
