@@ -243,3 +243,363 @@ WHERE [b].[Id] = @__p_0
 2020-09-10 09:34:51.004 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.GetBooking (RoomBookingService) in 106.9754ms
 2020-09-10 09:34:51.004 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.GetBooking (RoomBookingService)'
 2020-09-10 09:34:51.005 +07:00 [INF] Request finished in 147.5832ms 200 application/json; charset=utf-8
+2020-09-14 08:32:14.893 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-14 08:32:14.916 +07:00 [INF] Hosting environment: Development
+2020-09-14 08:32:14.918 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\RoomBookingService
+2020-09-14 08:32:14.922 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:32:14.992 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:32:15.033 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:32:15.847 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:32:16.552 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:32:16.677 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:32:16.844 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 1801.0151ms
+2020-09-14 08:32:16.846 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:32:16.855 +07:00 [INF] Request finished in 1941.8783ms 200 application/json; charset=utf-8
+2020-09-14 08:33:22.384 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:33:22.394 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:33:22.397 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:33:22.429 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:33:22.444 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:33:22.448 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:33:22.449 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 51.8783ms
+2020-09-14 08:33:22.450 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:33:22.450 +07:00 [INF] Request finished in 71.4086ms 200 application/json; charset=utf-8
+2020-09-14 08:33:26.198 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Rooms application/json 0
+2020-09-14 08:33:26.204 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-14 08:33:26.213 +07:00 [INF] Route matched with {action = "Getrooms", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.Models.Rooms.Room]]] Getrooms() on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-14 08:33:26.224 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:33:26.235 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[RoomName]
+FROM [rooms] AS [r]
+2020-09-14 08:33:26.237 +07:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RoomBookingService.Models.Rooms.Room, RoomBookingService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-09-14 08:33:26.248 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService) in 34.8861ms
+2020-09-14 08:33:26.248 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-14 08:33:26.249 +07:00 [INF] Request finished in 51.5638ms 200 application/json; charset=utf-8
+2020-09-14 08:33:43.519 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:44366/api/Bookings application/json 64
+2020-09-14 08:33:43.521 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService)'
+2020-09-14 08:33:43.533 +07:00 [INF] Route matched with {action = "PostBooking", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.Models.Bookings.Booking]] PostBooking(RoomBookingService.Models.Bookings.Booking) on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:33:43.600 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:33:43.657 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__booking_RoomID_0='?' (DbType = Int32), @__booking_From_1='?' (DbType = DateTime2), @__booking_To_2='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To]
+FROM [bookings] AS [b]
+WHERE ([b].[RoomID] = @__booking_RoomID_0) AND (((CASE
+    WHEN [b].[From] = @__booking_From_1 THEN 0
+    WHEN [b].[From] > @__booking_From_1 THEN 1
+    WHEN [b].[From] < @__booking_From_1 THEN -1
+END <= 0) AND (CASE
+    WHEN [b].[To] = @__booking_From_1 THEN 0
+    WHEN [b].[To] > @__booking_From_1 THEN 1
+    WHEN [b].[To] < @__booking_From_1 THEN -1
+END >= 0)) OR ((CASE
+    WHEN [b].[From] = @__booking_To_2 THEN 0
+    WHEN [b].[From] > @__booking_To_2 THEN 1
+    WHEN [b].[From] < @__booking_To_2 THEN -1
+END <= 0) AND (CASE
+    WHEN [b].[To] = @__booking_To_2 THEN 0
+    WHEN [b].[To] > @__booking_To_2 THEN 1
+    WHEN [b].[To] < @__booking_To_2 THEN -1
+END >= 0)))
+2020-09-14 08:33:43.820 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [bookings] ([Description], [From], [MemberEmail], [MemberName], [RoomID], [To])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [bookings]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2020-09-14 08:33:43.866 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.Models.Bookings.Booking'.
+2020-09-14 08:33:43.904 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService) in 370.7808ms
+2020-09-14 08:33:43.904 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService)'
+2020-09-14 08:33:43.905 +07:00 [INF] Request finished in 386.058ms 201 application/json; charset=utf-8
+2020-09-14 08:33:43.987 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:33:43.987 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:33:43.988 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:33:43.988 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:33:43.991 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:33:43.992 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:33:43.993 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 5.1394ms
+2020-09-14 08:33:43.993 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:33:43.993 +07:00 [INF] Request finished in 6.3412ms 200 application/json; charset=utf-8
+2020-09-14 08:38:43.948 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-14 08:38:43.970 +07:00 [INF] Hosting environment: Development
+2020-09-14 08:38:43.972 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\RoomBookingService
+2020-09-14 08:38:43.974 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:38:44.050 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:38:44.085 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:38:44.998 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:38:45.739 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:38:45.894 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:38:46.122 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 2022.2103ms
+2020-09-14 08:38:46.124 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:38:46.139 +07:00 [INF] Request finished in 2172.393ms 200 application/json; charset=utf-8
+2020-09-14 08:39:14.590 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:39:14.613 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:39:14.614 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:39:14.654 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:39:14.668 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:39:14.672 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:39:14.674 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 59.2702ms
+2020-09-14 08:39:14.674 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:39:14.674 +07:00 [INF] Request finished in 84.8025ms 200 application/json; charset=utf-8
+2020-09-14 08:39:55.446 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:39:55.450 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:39:55.451 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:39:55.474 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:39:55.485 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:39:55.489 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:39:55.492 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 40.4676ms
+2020-09-14 08:39:55.492 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:39:55.493 +07:00 [INF] Request finished in 48.8903ms 200 application/json; charset=utf-8
+2020-09-14 08:40:25.225 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:40:25.230 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:40:25.237 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:40:25.238 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:40:25.244 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:40:25.246 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:40:25.247 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 9.5044ms
+2020-09-14 08:40:25.251 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:40:25.252 +07:00 [INF] Request finished in 28.1137ms 200 application/json; charset=utf-8
+2020-09-14 08:44:29.948 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-14 08:44:29.969 +07:00 [INF] Hosting environment: Development
+2020-09-14 08:44:29.971 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\RoomBookingService
+2020-09-14 08:44:29.972 +07:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:44366/api/Bookings/2012 application/json 0
+2020-09-14 08:44:30.033 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService)'
+2020-09-14 08:44:30.078 +07:00 [INF] Route matched with {action = "DeleteBooking", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.DTO.Bookings.BookingResponse]] DeleteBooking(Int32) on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:44:30.902 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:44:31.609 +07:00 [INF] Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To]
+FROM [bookings] AS [b]
+WHERE [b].[Id] = @__p_0
+2020-09-14 08:44:31.818 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [bookings]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2020-09-14 08:44:31.863 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse'.
+2020-09-14 08:44:32.034 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService) in 1948.8727ms
+2020-09-14 08:44:32.038 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService)'
+2020-09-14 08:44:32.051 +07:00 [INF] Request finished in 2086.2912ms 200 application/json; charset=utf-8
+2020-09-14 08:44:34.096 +07:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:44366/api/Bookings/2011 application/json 0
+2020-09-14 08:44:34.102 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService)'
+2020-09-14 08:44:34.103 +07:00 [INF] Route matched with {action = "DeleteBooking", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.DTO.Bookings.BookingResponse]] DeleteBooking(Int32) on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:44:34.131 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:44:34.138 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To]
+FROM [bookings] AS [b]
+WHERE [b].[Id] = @__p_0
+2020-09-14 08:44:34.141 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [bookings]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2020-09-14 08:44:34.144 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse'.
+2020-09-14 08:44:34.145 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService) in 42.5507ms
+2020-09-14 08:44:34.145 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService)'
+2020-09-14 08:44:34.146 +07:00 [INF] Request finished in 50.0174ms 200 application/json; charset=utf-8
+2020-09-14 08:44:35.236 +07:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:44366/api/Bookings/2014 application/json 0
+2020-09-14 08:44:35.239 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService)'
+2020-09-14 08:44:35.240 +07:00 [INF] Route matched with {action = "DeleteBooking", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.DTO.Bookings.BookingResponse]] DeleteBooking(Int32) on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:44:35.251 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:44:35.259 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To]
+FROM [bookings] AS [b]
+WHERE [b].[Id] = @__p_0
+2020-09-14 08:44:35.263 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [bookings]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2020-09-14 08:44:35.266 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse'.
+2020-09-14 08:44:35.267 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService) in 26.9288ms
+2020-09-14 08:44:35.267 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.DeleteBooking (RoomBookingService)'
+2020-09-14 08:44:35.268 +07:00 [INF] Request finished in 32.2066ms 200 application/json; charset=utf-8
+2020-09-14 08:44:47.127 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Rooms application/json 0
+2020-09-14 08:44:47.130 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-14 08:44:47.135 +07:00 [INF] Route matched with {action = "Getrooms", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.Models.Rooms.Room]]] Getrooms() on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-14 08:44:47.143 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:44:47.151 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[RoomName]
+FROM [rooms] AS [r]
+2020-09-14 08:44:47.158 +07:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RoomBookingService.Models.Rooms.Room, RoomBookingService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-09-14 08:44:47.175 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService) in 39.5294ms
+2020-09-14 08:44:47.175 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-14 08:44:47.176 +07:00 [INF] Request finished in 49.1923ms 200 application/json; charset=utf-8
+2020-09-14 08:44:54.824 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:44366/api/Bookings application/json 64
+2020-09-14 08:44:54.826 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService)'
+2020-09-14 08:44:54.834 +07:00 [INF] Route matched with {action = "PostBooking", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.Models.Bookings.Booking]] PostBooking(RoomBookingService.Models.Bookings.Booking) on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:44:54.892 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:44:54.925 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__booking_RoomID_0='?' (DbType = Int32), @__booking_From_1='?' (DbType = DateTime2), @__booking_To_2='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To]
+FROM [bookings] AS [b]
+WHERE ([b].[RoomID] = @__booking_RoomID_0) AND (((CASE
+    WHEN [b].[From] = @__booking_From_1 THEN 0
+    WHEN [b].[From] > @__booking_From_1 THEN 1
+    WHEN [b].[From] < @__booking_From_1 THEN -1
+END <= 0) AND (CASE
+    WHEN [b].[To] = @__booking_From_1 THEN 0
+    WHEN [b].[To] > @__booking_From_1 THEN 1
+    WHEN [b].[To] < @__booking_From_1 THEN -1
+END >= 0)) OR ((CASE
+    WHEN [b].[From] = @__booking_To_2 THEN 0
+    WHEN [b].[From] > @__booking_To_2 THEN 1
+    WHEN [b].[From] < @__booking_To_2 THEN -1
+END <= 0) AND (CASE
+    WHEN [b].[To] = @__booking_To_2 THEN 0
+    WHEN [b].[To] > @__booking_To_2 THEN 1
+    WHEN [b].[To] < @__booking_To_2 THEN -1
+END >= 0)))
+2020-09-14 08:44:54.963 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [bookings] ([Description], [From], [MemberEmail], [MemberName], [RoomID], [To])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [bookings]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2020-09-14 08:44:54.992 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.Models.Bookings.Booking'.
+2020-09-14 08:44:55.029 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService) in 194.8188ms
+2020-09-14 08:44:55.029 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService)'
+2020-09-14 08:44:55.030 +07:00 [INF] Request finished in 205.31ms 201 application/json; charset=utf-8
+2020-09-14 08:44:55.099 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:44:55.099 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:44:55.104 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:44:55.107 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:44:55.162 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:44:55.185 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:44:55.187 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 82.2856ms
+2020-09-14 08:44:55.187 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:44:55.187 +07:00 [INF] Request finished in 88.5318ms 200 application/json; charset=utf-8
+2020-09-14 08:45:32.301 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Rooms application/json 0
+2020-09-14 08:45:32.302 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-14 08:45:32.303 +07:00 [INF] Route matched with {action = "Getrooms", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.Models.Rooms.Room]]] Getrooms() on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-14 08:45:32.307 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:45:32.311 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[RoomName]
+FROM [rooms] AS [r]
+2020-09-14 08:45:32.312 +07:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RoomBookingService.Models.Rooms.Room, RoomBookingService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-09-14 08:45:32.313 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService) in 10.1905ms
+2020-09-14 08:45:32.313 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-14 08:45:32.314 +07:00 [INF] Request finished in 14.7519ms 200 application/json; charset=utf-8
+2020-09-14 08:45:41.735 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:44366/api/Bookings application/json 64
+2020-09-14 08:45:41.736 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService)'
+2020-09-14 08:45:41.737 +07:00 [INF] Route matched with {action = "PostBooking", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.Models.Bookings.Booking]] PostBooking(RoomBookingService.Models.Bookings.Booking) on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:45:41.740 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:45:41.747 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__booking_RoomID_0='?' (DbType = Int32), @__booking_From_1='?' (DbType = DateTime2), @__booking_To_2='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To]
+FROM [bookings] AS [b]
+WHERE ([b].[RoomID] = @__booking_RoomID_0) AND (((CASE
+    WHEN [b].[From] = @__booking_From_1 THEN 0
+    WHEN [b].[From] > @__booking_From_1 THEN 1
+    WHEN [b].[From] < @__booking_From_1 THEN -1
+END <= 0) AND (CASE
+    WHEN [b].[To] = @__booking_From_1 THEN 0
+    WHEN [b].[To] > @__booking_From_1 THEN 1
+    WHEN [b].[To] < @__booking_From_1 THEN -1
+END >= 0)) OR ((CASE
+    WHEN [b].[From] = @__booking_To_2 THEN 0
+    WHEN [b].[From] > @__booking_To_2 THEN 1
+    WHEN [b].[From] < @__booking_To_2 THEN -1
+END <= 0) AND (CASE
+    WHEN [b].[To] = @__booking_To_2 THEN 0
+    WHEN [b].[To] > @__booking_To_2 THEN 1
+    WHEN [b].[To] < @__booking_To_2 THEN -1
+END >= 0)))
+2020-09-14 08:45:41.770 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [bookings] ([Description], [From], [MemberEmail], [MemberName], [RoomID], [To])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [bookings]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2020-09-14 08:45:41.774 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.Models.Bookings.Booking'.
+2020-09-14 08:45:41.775 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService) in 38.0775ms
+2020-09-14 08:45:41.775 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.PostBooking (RoomBookingService)'
+2020-09-14 08:45:41.776 +07:00 [INF] Request finished in 40.5995ms 201 application/json; charset=utf-8
+2020-09-14 08:45:41.836 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:44366/api/Bookings application/json 0
+2020-09-14 08:45:41.837 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:45:41.837 +07:00 [INF] Route matched with {action = "Getbookings", controller = "Bookings"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[RoomBookingService.DTO.Bookings.BookingResponse]]] Getbookings() on controller RoomBookingService.Controllers.BookingsController (RoomBookingService).
+2020-09-14 08:45:41.837 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-14 08:45:41.840 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Description], [b].[From], [b].[MemberEmail], [b].[MemberName], [b].[RoomID], [b].[To], [r].[Id], [r].[RoomName]
+FROM [bookings] AS [b]
+INNER JOIN [rooms] AS [r] ON [b].[RoomID] = [r].[Id]
+WHERE CASE
+    WHEN [b].[To] = GETDATE() THEN 0
+    WHEN [b].[To] > GETDATE() THEN 1
+    WHEN [b].[To] < GETDATE() THEN -1
+END > 0
+ORDER BY [b].[From]
+2020-09-14 08:45:41.842 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Bookings.BookingResponse[]'.
+2020-09-14 08:45:41.843 +07:00 [INF] Executed action RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService) in 5.861ms
+2020-09-14 08:45:41.844 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.BookingsController.Getbookings (RoomBookingService)'
+2020-09-14 08:45:41.844 +07:00 [INF] Request finished in 8.5153ms 200 application/json; charset=utf-8
