@@ -9,8 +9,10 @@ namespace RoomBookingService.Models.Rooms
     public class Room
     {
         public int Id { get; set; }
+
         public string RoomName {get;set;}
 
-        public List<Booking> Bookings { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
+            = new List<Booking>();
     }
 }

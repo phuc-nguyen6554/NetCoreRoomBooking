@@ -27,14 +27,14 @@ namespace RoomBookingService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Room>>> Getrooms()
         {
-            return await _context.rooms.ToListAsync();
+            return await _context.Rooms.ToListAsync();
         }
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> GetRoom(int id)
         {
-            var room = await _context.rooms.FindAsync(id);
+            var room = await _context.Rooms.FindAsync(id);
 
             if (room == null)
             {
@@ -82,7 +82,7 @@ namespace RoomBookingService.Controllers
         [HttpPost]
         public async Task<ActionResult<Room>> PostRoom(Room room)
         {
-            _context.rooms.Add(room);
+            _context.Rooms.Add(room);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRoom", new { id = room.Id }, room);
@@ -92,13 +92,13 @@ namespace RoomBookingService.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Room>> DeleteRoom(int id)
         {
-            var room = await _context.rooms.FindAsync(id);
+            var room = await _context.Rooms.FindAsync(id);
             if (room == null)
             {
                 return NotFound();
             }
 
-            _context.rooms.Remove(room);
+            _context.Rooms.Remove(room);
             await _context.SaveChangesAsync();
 
             return room;
@@ -106,7 +106,7 @@ namespace RoomBookingService.Controllers
 
         private bool RoomExists(int id)
         {
-            return _context.rooms.Any(e => e.Id == id);
+            return _context.Rooms.Any(e => e.Id == id);
         }
     }
 }

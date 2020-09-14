@@ -1,68 +1,16 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/LeaveRequest",
+      "DownstreamPathTemplate": "/{everything}", /* api/leave-request */
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44314
+          "Port": 1002
         }
       ],
-      "UpstreamPathTemplate": "/gateway/LeaveRequest",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
-      "SwaggerKey": "leaving"
-    },
-    {
-      "DownstreamPathTemplate": "/api/LeaveRequest/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44314
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/LeaveRequest/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
-      "SwaggerKey": "leave"
-    },
-    {
-      "DownstreamPathTemplate": "/api/LeaveRequest",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44314
-        }
-      ],
-      "UpstreamPathTemplate": "/api/LeaveRequest",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
-      "SwaggerKey": "leaving"
-    },
-    {
-      "DownstreamPathTemplate": "/api/LeaveType/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44314
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/LeaveType/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ],
-      "SwaggerKey": "leaving"
-    },
-    {
-      "DownstreamPathTemplate": "/api/LeaveType",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44314
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/LeaveType",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamPathTemplate": "/leaves/{everything}", /* PUT => /leave/api/leave-request/1 */
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
       "SwaggerKey": "leaving"
     },
     // Identity Service
@@ -72,98 +20,42 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44328
+          "Port": 1000
         }
       ],
-      "UpstreamPathTemplate": "/gateway/login",
+      "UpstreamPathTemplate": "/login",
       "UpstreamHttpMethod": [ "POST" ],
       "SwaggerKey": "auth",
       "Auth": false
     },
 
     {
-      "DownstreamPathTemplate": "/api/Auth/get-user",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44328
+          "Port": 1000
         }
       ],
-      "UpstreamPathTemplate": "/gateway/get-user",
+      "UpstreamPathTemplate": "/identities/{everything}",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "auth"
     },
 
     // Room Booking Service
     {
-      "DownstreamPathTemplate": "/api/Rooms",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44366
+          "Port": 1001
         }
       ],
-      "UpstreamPathTemplate": "/gateway/Rooms",
+      "UpstreamPathTemplate": "/bookings/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "room"
-    },
-    {
-      "DownstreamPathTemplate": "/api/Rooms/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Rooms/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ],
-      "SwaggerKey": "room"
-    },
-    {
-      "DownstreamPathTemplate": "/api/Bookings",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Bookings",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
-      "SwaggerKey": "booking",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "TestKey",
-        "AllowedScopes": []
-      }
-    },
-    {
-      "DownstreamPathTemplate": "/api/Bookings/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Bookings/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
-      "SwaggerKey": "booking"
-    },
-    {
-      "DownstreamPathTemplate": "/api/Bookings/test",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Bookings/test",
-      "UpstreamHttpMethod": [ "GET" ],
-      "SwaggerKey": "booking"
     }
   ],
   "SwaggerEndPoints": [

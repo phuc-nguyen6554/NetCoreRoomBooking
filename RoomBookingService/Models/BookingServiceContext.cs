@@ -10,15 +10,15 @@ namespace RoomBookingService.Models
 {
     public class BookingServiceContext : DbContext
     {
-        public BookingServiceContext(DbContextOptions options) :base(options) { }
+        public BookingServiceContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Room> rooms { get; set; }
-        public DbSet<Booking> bookings { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.Entity<Booking>().HasOne(b => b.Room).WithMany(r => r.Bookings);
+           
         }
     }
 }

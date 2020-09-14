@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using RoomBookingService.Models;
 using Shared.Serilog;
 using AutoMapper;
+using RoomBookingService.Services;
+using RoomBookingService.Services.Implements;
 
 namespace RoomBookingService
 {
@@ -37,15 +39,18 @@ namespace RoomBookingService
                     Title = "Booking API",
                     Description = "Room Booking API"
                 });
-            });           
+            });
+
+            services.AddScoped<IBookingService, BookingService>();
+
 
             services.AddControllers().AddNewtonsoftJson(options =>
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {            
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -62,7 +67,7 @@ namespace RoomBookingService
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Booking API V1");
-            });           
+            });
 
             app.UseEndpoints(endpoints =>
             {
