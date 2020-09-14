@@ -82,7 +82,8 @@ namespace Gateway.OcelotAuth
                         return;
                     }
                     await next.Invoke();
-                }
+                },
+                
             };
 
             return configuration;

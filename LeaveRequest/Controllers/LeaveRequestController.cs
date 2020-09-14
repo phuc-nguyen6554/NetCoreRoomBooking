@@ -11,6 +11,7 @@ using LeaveRequest.Models;
 
 namespace LeaveRequestController.Controllers
 {
+    // POST => api/leave-request
     [Route("api/[controller]")]
     [ApiController]
     public class LeaveRequestController : ControllerBase
@@ -27,14 +28,14 @@ namespace LeaveRequestController.Controllers
         public async Task<ActionResult<IEnumerable<Request>>> GetLeaveRequests()
         {
             // Get Upcomming Booking event
-            return await _context.leaveRequests.Include(b => b.leaveTypes).ToListAsync();
+            return await _context.LeaveRequests.Include(b => b.leaveTypes).ToListAsync();
         }
 
         // GET: api/Bookings/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Request>> GetLeaveRequest(int id)
         {
-            var reQuest = await _context.leaveRequests.FindAsync(id);
+            var reQuest = await _context.LeaveRequests.FindAsync(id);
 
             if (reQuest == null)
             {
@@ -61,7 +62,7 @@ namespace LeaveRequestController.Controllers
             leaveRequests.MemberName = username;
             leaveRequests.MemberEmail = email;
 
-            _context.leaveRequests.Add(leaveRequests);
+            _context.LeaveRequests.Add(leaveRequests);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetLeaveRequest", new { id = leaveRequests.Id }, leaveRequests);
@@ -71,7 +72,7 @@ namespace LeaveRequestController.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Request>> DeleteLeaveRequest(int id)
         {
-            var leave = await _context.leaveRequests.FindAsync(id);
+            var leave = await _context.LeaveRequests.FindAsync(id);
             if (leave == null)
             {
                 return NotFound();
@@ -85,7 +86,7 @@ namespace LeaveRequestController.Controllers
                 return Unauthorized("You don't have permission to delete this booking");
             }
 
-            _context.leaveRequests.Remove(leave);
+            _context.LeaveRequests.Remove(leave);
             await _context.SaveChangesAsync();
 
             return leave;
@@ -93,7 +94,7 @@ namespace LeaveRequestController.Controllers
 
         private bool BookingExists(int id)
         {
-            return _context.leaveRequests.Any(e => e.Id == id);
+            return _context.LeaveRequests.Any(e => e.Id == id);
         }
     }
 }

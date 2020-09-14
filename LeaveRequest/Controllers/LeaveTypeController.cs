@@ -11,7 +11,7 @@ using LeaveRequest.Models;
 
 namespace LeaveRequest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/leave-types")]
     [ApiController]
     public class LeaveTypeController : ControllerBase
     {
@@ -22,18 +22,18 @@ namespace LeaveRequest.Controllers
             _context = context;
         }
 
-        // GET: api/Rooms
+        // GET: /leave-types
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LeaveType>>> GetleaveTypes()
+        public async Task<ActionResult<IEnumerable<LeaveType>>> GeLeaveTypes()
         {
-            return await _context.leaveTypes.ToListAsync();
+            return await _context.LeaveTypes.ToListAsync();
         }
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveType>> GetLeaveType(int id)
         {
-            var lType = await _context.leaveTypes.FindAsync(id);
+            var lType = await _context.LeaveTypes.FindAsync(id);
 
             if (lType == null)
             {
@@ -81,7 +81,7 @@ namespace LeaveRequest.Controllers
         [HttpPost]
         public async Task<ActionResult<LeaveType>> PostRoom(LeaveType leavType)
         {
-            _context.leaveTypes.Add(leavType);
+            _context.LeaveTypes.Add(leavType);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetLeaveType", new { id = leavType.Id }, leavType);
@@ -91,13 +91,13 @@ namespace LeaveRequest.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<LeaveType>> DeleteRoom(int id)
         {
-            var leaveTypes = await _context.leaveTypes.FindAsync(id);
+            var leaveTypes = await _context.LeaveTypes.FindAsync(id);
             if (leaveTypes == null)
             {
                 return NotFound();
             }
 
-            _context.leaveTypes.Remove(leaveTypes);
+            _context.LeaveTypes.Remove(leaveTypes);
             await _context.SaveChangesAsync();
 
             return leaveTypes;
@@ -112,7 +112,7 @@ namespace LeaveRequest.Controllers
 
         private bool LeaveTypeExists(int id)
         {
-            return _context.leaveTypes.Any(e => e.Id == id);
+            return _context.LeaveTypes.Any(e => e.Id == id);
         }
     }
 }

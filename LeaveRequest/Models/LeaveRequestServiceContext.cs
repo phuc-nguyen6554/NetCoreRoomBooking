@@ -10,8 +10,8 @@ namespace LeaveRequest.Models
     public class LeaveRequestServiceContext : DbContext
     {
         public LeaveRequestServiceContext(DbContextOptions options) :base(options) { }
-        public DbSet<Request> leaveRequests { get; set; }
-        public DbSet<LeaveType> leaveTypes { get; set; }
+        public DbSet<Request> LeaveRequests { get; set; }
+        public DbSet<LeaveType> LeaveTypes { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
