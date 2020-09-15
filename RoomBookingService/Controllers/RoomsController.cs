@@ -30,6 +30,8 @@ namespace RoomBookingService.Controllers
         [ProducesResponseType(typeof(List<RoomListResponse>), 200)]
         public async Task<ActionResult<ICollection<RoomListResponse>>> Getrooms()
         {
+            var header = Request.Headers;
+            var name = Request.Headers["X-Forwarded-Name"];
             return await _service.GetRoomListAsync();
         }
 
