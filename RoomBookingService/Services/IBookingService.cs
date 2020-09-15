@@ -8,7 +8,7 @@ namespace RoomBookingService.Services
 {
     public interface IBookingService
     {
-        Task<List<BookingListResponse>> GetBookingAsync(BookingListRequest request);
+        Task<List<BookingListResponse>> GetBookingAsync();
 
         Task<BookingDetailResponse> GetBookingDetailAsync(int id);
 
