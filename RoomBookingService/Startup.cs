@@ -8,8 +8,7 @@ using Microsoft.OpenApi.Models;
 using RoomBookingService.Models;
 using Shared.Serilog;
 using AutoMapper;
-using RoomBookingService.Services;
-using RoomBookingService.Services.Implements;
+using RoomBookingService.Extensions;
 
 namespace RoomBookingService
 {
@@ -41,8 +40,7 @@ namespace RoomBookingService
                 });
             });
 
-            services.AddScoped<IBookingService, BookingService>();
-
+            services.ConfigureService();
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);

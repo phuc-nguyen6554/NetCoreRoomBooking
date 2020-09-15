@@ -54,7 +54,7 @@
         }
       ],
       "UpstreamPathTemplate": "/bookings/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"
     }
   ],
