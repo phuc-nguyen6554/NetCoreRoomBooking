@@ -23,7 +23,7 @@ namespace Identity.Controllers
             _service = service;
         }
 
-        [HttpPost("Login")]
+        [HttpPost("login")]
         public async Task<ActionResult<UserDetailResponse>> Login([FromBody] string token_id)
         {
             try

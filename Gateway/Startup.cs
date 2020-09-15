@@ -40,16 +40,15 @@ namespace Gateway
             }
 
             string corsName = _configuration["CorsConfig"];
-            app.UseCors(corsName);
-
-            app.UseSerilogMiddleware();
+            app.UseCors(corsName);           
 
             app.UseSwaggerForOcelotUI(opt =>
             {
                 opt.PathToSwaggerGenerator = "/swagger/docs";
             });
 
-            await app.UseOcelot(new OcelotConfiguration(_configuration).CreateConfig());      
+            await app.UseOcelot(new OcelotConfiguration(_configuration).CreateConfig());
+            app.UseSerilogMiddleware();
         }
     }
 }
