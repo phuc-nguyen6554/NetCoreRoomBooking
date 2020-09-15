@@ -26,9 +26,9 @@ namespace RoomBookingService.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(List<BookingListResponse>), 200)]
-        public async Task<IActionResult> GetBookingAsync(BookingListRequest request)
+        public async Task<IActionResult> GetBookingAsync()
         {
-            return Ok(await _bookingService.GetBookingAsync(request));
+            return Ok(await _bookingService.GetBookingAsync());
         }
 
 
@@ -45,6 +45,9 @@ namespace RoomBookingService.Controllers
         {
             if (!ModelState.IsValid)
                 throw new ServiceException(400, "Model is invalid");
+
+            request.MemberName = Request.Headers["X-Forwarded-Username"];
+            request.MemberEmail = Request.Headers["X-Forwarded-Email"];
 
             return Ok(await _bookingService.CreateBookingAsync(request));
         }

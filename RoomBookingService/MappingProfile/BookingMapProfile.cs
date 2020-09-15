@@ -17,6 +17,7 @@ namespace RoomBookingService.MappingProfile
             CreateMap<Booking, BookingCreateResponse>();
             CreateMap<Booking, BookingUpdateResponse>();
             CreateMap<BookingCreateRequest, Booking>();
+            CreateMap<BookingUpdateRequest, Booking>();
         }
     }
 }
