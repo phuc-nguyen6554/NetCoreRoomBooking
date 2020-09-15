@@ -37,7 +37,7 @@ namespace Gateway.OcelotAuth
                 },
                 AuthenticationMiddleware = async (ctx, next) =>
                 {
-                    if(ctx.Request.Path == "/gateway/Login")
+                    if(ctx.Request.Path == "/login")
                     {
                         await next.Invoke();
                         return;
@@ -87,14 +87,6 @@ namespace Gateway.OcelotAuth
             };
 
             return configuration;
-        }
-
-        private string ReplaceUrl(string url)
-        {
-            string pattern = @"\d+$";
-
-            string result = Regex.Replace(url, pattern, "{id}");
-            return result;
         }
     }
 }

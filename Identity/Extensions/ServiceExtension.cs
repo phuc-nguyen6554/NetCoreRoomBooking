@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Identity.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Identity
+namespace Identity.Extensions
 {
     public static class ServiceExtension
     {
+        public static void ConfigureService(this IServiceCollection services)
+        {
+            services.AddScoped<IUserService, UserService>();
+        }
         public static void ConfigureSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
@@ -25,8 +26,11 @@ namespace Identity
                 });
             });
         }
-        public static void ConfigureJWT(this IServiceCollection services, string secretKey)
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {
+            string JWTKey = configuration["JWT:secretKey"];
+            string issuer = configuration["JWT:issuer"];
+            string audience = configuration["JWT:audience"];
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -41,9 +45,9 @@ namespace Identity
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
 
-                        ValidIssuer = "localhost:5000",
-                        ValidAudience = "localhost:5000",
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                        ValidIssuer = issuer,
+                        ValidAudience = audience,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey))
                     };
                 });
         }

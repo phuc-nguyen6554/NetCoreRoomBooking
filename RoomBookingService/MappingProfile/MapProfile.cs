@@ -12,8 +12,8 @@ namespace RoomBookingService.MappingProfile
     {
         public MapProfile()
         {
-            CreateMap<Booking, BookingResponse>()
-                .ForMember(book => book.RoomName, opt => opt.MapFrom(x => x.Room.RoomName));
+            //CreateMap<Booking, BookingResponse>()
+            //    .ForMember(book => book.RoomName, opt => opt.MapFrom(x => x.Room.RoomName));
         }
     }
 }

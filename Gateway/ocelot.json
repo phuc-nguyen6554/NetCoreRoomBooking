@@ -2,25 +2,25 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/{everything}", /* api/leave-request */
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1002
+          "Port": 2002
         }
       ],
       "UpstreamPathTemplate": "/leaves/{everything}", /* PUT => /leave/api/leave-request/1 */
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "leaving"
     },
     // Identity Service
     {
-      "DownstreamPathTemplate": "/api/Auth/login",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/identities/login",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1000
+          "Port": 2001
         }
       ],
       "UpstreamPathTemplate": "/login",
@@ -31,11 +31,11 @@
 
     {
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1000
+          "Port": 2001
         }
       ],
       "UpstreamPathTemplate": "/identities/{everything}",
@@ -46,15 +46,15 @@
     // Room Booking Service
     {
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1001
+          "Port": 2003
         }
       ],
       "UpstreamPathTemplate": "/bookings/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"
     }
   ],
@@ -65,7 +65,7 @@
         {
           "Name": "Auth API",
           "Version": "v1",
-          "Url": "https://localhost:44328/swagger/v1/swagger.json"
+          "Url": "http://localhost:2001/swagger/v1/swagger.json"
         }
       ]
     },
@@ -75,7 +75,7 @@
         {
           "Name": "Room API",
           "Version": "v1",
-          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+          "Url": "http://localhost:2003/swagger/v1/swagger.json"
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "Name": "Booking API",
           "Version": "v1",
-          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+          "Url": "http://localhost:2003/swagger/v1/swagger.json"
         }
       ]
     },
@@ -95,7 +95,7 @@
         {
           "Name": "Leave Request API",
           "Version": "v1",
-          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+          "Url": "http://localhost:2002/swagger/v1/swagger.json"
         }
       ]
     }

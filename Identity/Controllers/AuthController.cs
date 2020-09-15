@@ -3,39 +3,28 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
 using Google.Apis.Auth;
-using Identity.Models;
-using Identity.Models.Users;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
+using DTO.User;
+using Identity.Services;
 
 namespace Identity.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("identities")]
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IConfiguration configuration;
-        private readonly IMapper mapper;
-        private readonly IdentityContext context;
+        private readonly IUserService _service;
 
-        public AuthController(IConfiguration _configuration, IMapper _mapper, IdentityContext _context)
+        public AuthController(IUserService service)
         {
-            configuration = _configuration;
-            mapper = _mapper;
-            context = _context;
+            _service = service;
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<ReturnUserDTO>> Login([FromBody] string token_id)
+        public async Task<ActionResult<UserDetailResponse>> Login([FromBody] string token_id)
         {
             try
             {
@@ -54,13 +43,13 @@ namespace Identity.Controllers
 
         [Authorize]
         [HttpGet("get-user")]
-        public ActionResult<ReturnUserDTO> GetUserData()
+        public ActionResult<UserDetailResponse> GetUserData()
         {
             string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
             string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
             string avatar = User.Claims.Where(x => x.Type == "Avatar").FirstOrDefault()?.Value;
 
-            var user = new ReturnUserDTO
+            var user = new UserDetailResponse
             {
                 Name = username,
                 Email = email,
@@ -71,61 +60,16 @@ namespace Identity.Controllers
             return user;
         }
 
-        private async Task<ReturnUserDTO> FindOrAddUser(GoogleJsonWebSignature.Payload payload)
+        private async Task<UserDetailResponse> FindOrAddUser(GoogleJsonWebSignature.Payload payload)
         {
-            var user = await context.UserData.Where(user => user.Email == payload.Email).FirstOrDefaultAsync();
-
-            // User is existed
-            if(user != null)
+            var user = new UserCreateRequest
             {
-                string jwt = this.GenerateJWT(user);
+                Name = payload.Name,
+                Email = payload.Email,
+                Avatar = payload.Picture
+            };
 
-                var userDTO = mapper.Map<ReturnUserDTO>(user);
-                userDTO.Token = jwt;
-
-                return userDTO;
-            }
-
-            // User is not existed
-            user = new User { Name = payload.Name, Email = payload.Email, Avatar = payload.Picture };
-            context.UserData.Add(user);
-            await context.SaveChangesAsync();
-
-            string token = this.GenerateJWT(user);
-
-            var user_DTO = mapper.Map<ReturnUserDTO>(user);
-            user_DTO.Token = token;
-
-            return user_DTO;
-        }
-
-        private string GenerateJWT(User user)
-        {
-            string JWTKey = configuration["JWT:secretKey"];
-            string issuer = "localhost:5000";
-            string audience = "localhost:5000";
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey));
-            var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var authClaim = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim("Avatar", user.Avatar)
-                };
-
-            var token = new JwtSecurityToken(
-                issuer: issuer,
-                audience: audience,
-                claims: authClaim,
-                signingCredentials: credential,
-                expires: DateTime.Now.AddDays(3)
-            );
-
-            var TokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return TokenString;
-        }
+            return await _service.FindOrAddUserAsync(user);
+        }       
     }
 }

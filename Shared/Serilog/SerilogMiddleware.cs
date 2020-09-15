@@ -14,7 +14,6 @@ namespace Shared.Serilog
     {
         public SerilogMiddleware()
         {
-            //Log.Logger = new LoggerConfiguration().WriteTo.Console().WriteTo.File(@"D:\NetCore\Gateway.API\log.txt").CreateLogger();
         }
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
