@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using Identity.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using Shared.Serilog;
 using Shared.Exceptions;
 using Identity.Extensions;
@@ -29,14 +28,6 @@ namespace Identity
             
             services.AddAutoMapper(typeof(Startup));
 
-            //services.Configure<IdentityOptions>(options =>
-            //{
-            //    // Default User settings.
-            //    options.User.AllowedUserNameCharacters =
-            //            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ ";
-            //    options.User.RequireUniqueEmail = false;
-
-            //});
 
             services.ConfigureJWT(Configuration);
             services.ConfigureService();
@@ -58,7 +49,7 @@ namespace Identity
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -73,7 +64,7 @@ namespace Identity
             });
 
             app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
