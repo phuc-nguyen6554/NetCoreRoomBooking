@@ -5,8 +5,8 @@ using RoomBookingService.Models;
 using RoomBookingService.Models.Rooms;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Shared.Exceptions;
 
 namespace RoomBookingService.Services.Implements
 {
@@ -34,7 +34,7 @@ namespace RoomBookingService.Services.Implements
             var model = await _context.Rooms.FindAsync(id);
 
             if (model == null)
-                throw new Exception("Not Found");
+                throw new ServiceException(404, "Room is Not Found");
 
             _context.Rooms.Remove(model);
             await _context.SaveChangesAsync();
@@ -45,7 +45,7 @@ namespace RoomBookingService.Services.Implements
             var model = await _context.Rooms.FindAsync(id);
 
             if (model == null)
-                throw new Exception("Not Found");
+                throw new ServiceException(404, "Room is Not Found");
 
             return _mapper.Map<RoomDetailResponse>(model);
         }
@@ -59,7 +59,7 @@ namespace RoomBookingService.Services.Implements
         public async Task<RoomUpdateResponse> UpdateRoomAsync(int id, RoomUpdateRequest request)
         {
             if (id != request.Id)
-                throw new Exception("Bad Request");
+                throw new ServiceException(400, "Room ID is Not Valid");
 
             var model = _mapper.Map<Room>(request);
             _context.Entry(model).State = EntityState.Modified;

@@ -1228,3 +1228,132 @@ WHERE [r].[Id] = @__p_0
 2020-09-15 09:44:04.193 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService) in 1788.6655ms
 2020-09-15 09:44:04.196 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
 2020-09-15 09:44:04.205 +07:00 [INF] Request finished in 1928.0199ms 200 application/json; charset=utf-8
+2020-09-15 09:58:54.056 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 09:58:54.088 +07:00 [INF] Hosting environment: Development
+2020-09-15 09:58:54.089 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\RoomBookingService
+2020-09-15 09:58:54.092 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2003/rooms/1 application/json 51
+2020-09-15 09:58:54.101 +07:00 [WRN] Failed to determine the https port for redirect.
+2020-09-15 09:58:54.164 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
+2020-09-15 09:58:54.206 +07:00 [INF] Route matched with {action = "GetRoom", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.DTO.Rooms.RoomDetailResponse]] GetRoom(Int32) on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-15 09:58:55.079 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-15 09:58:55.775 +07:00 [INF] Executed DbCommand (71ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[RoomName]
+FROM [Rooms] AS [r]
+WHERE [r].[Id] = @__p_0
+2020-09-15 09:58:55.879 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Rooms.RoomDetailResponse'.
+2020-09-15 09:58:56.041 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService) in 1828.9989ms
+2020-09-15 09:58:56.044 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
+2020-09-15 09:58:56.053 +07:00 [INF] Request finished in 1967.2681ms 200 application/json; charset=utf-8
+2020-09-15 09:59:13.245 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2003/rooms/1 application/json 51
+2020-09-15 09:59:13.249 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
+2020-09-15 09:59:13.250 +07:00 [INF] Route matched with {action = "GetRoom", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.DTO.Rooms.RoomDetailResponse]] GetRoom(Int32) on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-15 09:59:13.286 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-15 09:59:13.298 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[RoomName]
+FROM [Rooms] AS [r]
+WHERE [r].[Id] = @__p_0
+2020-09-15 09:59:13.300 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Rooms.RoomDetailResponse'.
+2020-09-15 09:59:13.301 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService) in 50.5721ms
+2020-09-15 09:59:13.301 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
+2020-09-15 09:59:13.302 +07:00 [INF] Request finished in 57.0327ms 200 application/json; charset=utf-8
+2020-09-15 10:02:11.197 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 10:02:11.217 +07:00 [INF] Hosting environment: Development
+2020-09-15 10:02:11.219 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\RoomBookingService
+2020-09-15 10:02:11.220 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2003/rooms/1 application/json 51
+2020-09-15 10:02:11.229 +07:00 [WRN] Failed to determine the https port for redirect.
+2020-09-15 10:02:11.296 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
+2020-09-15 10:02:11.344 +07:00 [INF] Route matched with {action = "GetRoom", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RoomBookingService.DTO.Rooms.RoomDetailResponse]] GetRoom(Int32) on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-15 10:02:12.195 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-15 10:02:12.864 +07:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[RoomName]
+FROM [Rooms] AS [r]
+WHERE [r].[Id] = @__p_0
+2020-09-15 10:02:12.973 +07:00 [INF] Executing ObjectResult, writing value of type 'RoomBookingService.DTO.Rooms.RoomDetailResponse'.
+2020-09-15 10:02:13.137 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService) in 1787.9984ms
+2020-09-15 10:02:13.139 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.GetRoom (RoomBookingService)'
+2020-09-15 10:02:13.149 +07:00 [INF] Request finished in 1935.5925ms 200 application/json; charset=utf-8
+2020-09-15 10:02:22.437 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2003/rooms application/json 51
+2020-09-15 10:02:22.441 +07:00 [INF] Executing endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-15 10:02:22.446 +07:00 [INF] Route matched with {action = "Getrooms", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.ICollection`1[RoomBookingService.DTO.Rooms.RoomListResponse]]] Getrooms() on controller RoomBookingService.Controllers.RoomsController (RoomBookingService).
+2020-09-15 10:02:22.483 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-15 10:02:22.494 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[RoomName]
+FROM [Rooms] AS [r]
+2020-09-15 10:02:22.504 +07:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RoomBookingService.DTO.Rooms.RoomListResponse, RoomBookingService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-09-15 10:02:22.508 +07:00 [INF] Executed action RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService) in 62.0858ms
+2020-09-15 10:02:22.508 +07:00 [INF] Executed endpoint 'RoomBookingService.Controllers.RoomsController.Getrooms (RoomBookingService)'
+2020-09-15 10:02:22.509 +07:00 [INF] Request finished in 71.9584ms 200 application/json; charset=utf-8
+2020-09-15 10:20:18.873 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 10:20:18.909 +07:00 [INF] Hosting environment: Development
+2020-09-15 10:20:18.911 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 10:20:18.920 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 10:20:19.085 +07:00 [INF] requestId: 8000001c-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 10:20:22.175 +07:00 [INF] requestId: 8000001c-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 10:20:25.995 +07:00 [INF] requestId: 8000001c-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-15 10:20:26.035 +07:00 [INF] Request finished in 7122.5112ms 200 application/json; charset=utf-8
+2020-09-15 10:23:30.771 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 10:23:30.801 +07:00 [INF] Hosting environment: Development
+2020-09-15 10:23:30.803 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 10:23:30.808 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 10:23:30.938 +07:00 [INF] requestId: 800000a0-0002-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 10:23:33.890 +07:00 [INF] requestId: 800000a0-0002-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 10:23:37.828 +07:00 [INF] requestId: 800000a0-0002-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-15 10:23:37.872 +07:00 [INF] Request finished in 7069.8621ms 200 application/json; charset=utf-8
+2020-09-15 10:58:58.146 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 10:58:58.209 +07:00 [INF] Hosting environment: Development
+2020-09-15 10:58:58.210 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 10:58:58.254 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 10:58:58.384 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Shared.Exceptions.ServiceExceptionMiddleware' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.AspNetCore.Http.MiddlewareFactory.Create(Type middlewareType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Shared.Serilog.SerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\NetCore\Gateway.API\Shared\Serilog\SerilogMiddleware.cs:line 23
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-09-15 10:58:58.653 +07:00 [INF] Request finished in 402.6248ms 500 text/plain
+2020-09-15 11:03:04.734 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 11:03:04.775 +07:00 [INF] Hosting environment: Development
+2020-09-15 11:03:04.776 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 11:03:04.783 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:03:04.970 +07:00 [INF] requestId: 800000c1-0002-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:03:09.118 +07:00 [INF] requestId: 800000c1-0002-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 11:03:12.254 +07:00 [WRN] requestId: 800000c1-0002-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 500 (Internal Server Error) status code, request uri: http://localhost:2003/rooms
+2020-09-15 11:03:12.297 +07:00 [INF] Request finished in 7517.5125ms 500 text/plain
+2020-09-15 11:05:30.806 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 11:05:30.853 +07:00 [INF] Hosting environment: Development
+2020-09-15 11:05:30.855 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 11:05:30.870 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:05:31.002 +07:00 [INF] requestId: 8000007e-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:05:33.900 +07:00 [INF] requestId: 8000007e-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 11:05:36.474 +07:00 [WRN] requestId: 8000007e-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 500 (Internal Server Error) status code, request uri: http://localhost:2003/rooms
+2020-09-15 11:05:36.509 +07:00 [INF] Request finished in 5643.016ms 500 
+2020-09-15 11:08:11.332 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 11:08:11.357 +07:00 [INF] Hosting environment: Development
+2020-09-15 11:08:11.358 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 11:08:11.360 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:08:11.485 +07:00 [INF] requestId: 80000032-0003-fc00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:08:14.432 +07:00 [INF] requestId: 80000032-0003-fc00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 11:08:16.925 +07:00 [INF] requestId: 80000032-0003-fc00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-15 11:08:16.963 +07:00 [INF] Request finished in 5605.967ms 200 
+2020-09-15 11:10:16.302 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 11:10:16.328 +07:00 [INF] Hosting environment: Development
+2020-09-15 11:10:16.329 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 11:10:16.330 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:10:16.456 +07:00 [INF] requestId: 80000070-0002-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:10:19.536 +07:00 [INF] requestId: 80000070-0002-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 11:10:22.046 +07:00 [WRN] requestId: 80000070-0002-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: 404 (Not Found) status code, request uri: http://localhost:2003/rooms
+2020-09-15 11:10:22.084 +07:00 [INF] Request finished in 5758.3595ms 404 application/json
+2020-09-15 11:13:11.642 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 11:13:11.672 +07:00 [INF] Hosting environment: Development
+2020-09-15 11:13:11.673 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 11:13:11.676 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:13:11.818 +07:00 [INF] requestId: 80000082-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:13:14.700 +07:00 [INF] requestId: 80000082-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 11:13:17.191 +07:00 [WRN] requestId: 80000082-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 404 (Not Found) status code, request uri: http://localhost:2003/rooms
+2020-09-15 11:13:17.227 +07:00 [INF] Request finished in 5554.5677ms 404 application/json

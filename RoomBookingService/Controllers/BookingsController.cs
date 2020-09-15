@@ -9,7 +9,7 @@ using RoomBookingService.Models.Bookings;
 using AutoMapper;
 using RoomBookingService.DTO.Bookings;
 using RoomBookingService.Services;
-using Shared;
+using Shared.Exceptions;
 
 namespace RoomBookingService.Controllers
 {

@@ -88,13 +88,5 @@ namespace Gateway.OcelotAuth
 
             return configuration;
         }
-
-        private string ReplaceUrl(string url)
-        {
-            string pattern = @"\d+$";
-
-            string result = Regex.Replace(url, pattern, "{id}");
-            return result;
-        }
     }
 }

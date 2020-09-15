@@ -9,6 +9,7 @@ using RoomBookingService.Models;
 using Shared.Serilog;
 using AutoMapper;
 using RoomBookingService.Extensions;
+using Shared.Exceptions;
 
 namespace RoomBookingService
 {
@@ -41,6 +42,7 @@ namespace RoomBookingService
             });
 
             services.ConfigureService();
+            services.RegisterServiceException();
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -51,7 +53,7 @@ namespace RoomBookingService
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+               // app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
@@ -59,6 +61,8 @@ namespace RoomBookingService
             app.UseRouting();
 
             app.UseSwagger();
+
+            app.ConfigureServiceException();
 
             app.UseSerilogMiddleware();
 
