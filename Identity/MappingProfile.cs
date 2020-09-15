@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DTO.User;
 using Identity.Models.Users;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Identity
     {
         public MappingProfile()
         {
-            CreateMap<User, ReturnUserDTO>();
+            CreateMap<User, UserDetailResponse>();
         }
     }
 }

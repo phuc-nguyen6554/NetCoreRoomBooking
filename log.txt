@@ -1357,3 +1357,113 @@ System.InvalidOperationException: No service for type 'Shared.Exceptions.Service
 2020-09-15 11:13:14.700 +07:00 [INF] requestId: 80000082-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
 2020-09-15 11:13:17.191 +07:00 [WRN] requestId: 80000082-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 404 (Not Found) status code, request uri: http://localhost:2003/rooms
 2020-09-15 11:13:17.227 +07:00 [INF] Request finished in 5554.5677ms 404 application/json
+2020-09-15 11:31:33.256 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 11:31:33.281 +07:00 [INF] Hosting environment: Development
+2020-09-15 11:31:33.283 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 11:31:33.286 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:31:33.408 +07:00 [INF] requestId: 8000003e-0002-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:31:36.095 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-15 11:31:36.105 +07:00 [WRN] requestId: 8000003e-0002-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: Error Code: UnauthenticatedError Message: Response status code does not indicate success: 401 (Unauthorized). errors found in ResponderMiddleware. Setting error response for request path:/bookings/rooms, request method: GET
+2020-09-15 11:31:36.124 +07:00 [INF] Request finished in 2842.6294ms 401 
+2020-09-15 11:34:10.466 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-15 11:34:10.516 +07:00 [INF] CORS policy execution successful.
+2020-09-15 11:34:10.522 +07:00 [INF] Request finished in 61.835ms 204 
+2020-09-15 11:34:10.529 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-15 11:34:10.531 +07:00 [INF] CORS policy execution successful.
+2020-09-15 11:34:10.546 +07:00 [INF] requestId: 80000089-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Auth/login
+2020-09-15 11:34:10.553 +07:00 [INF] requestId: 80000089-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /api/Auth/login route does not require user to be authorised
+2020-09-15 11:34:13.932 +07:00 [INF] requestId: 80000089-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/api/Auth/login
+2020-09-15 11:34:13.962 +07:00 [INF] Request finished in 3432.6883ms 200 application/json; charset=utf-8
+2020-09-15 11:34:38.384 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 51
+2020-09-15 11:34:38.388 +07:00 [INF] requestId: 80000026-0003-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-15 11:34:38.714 +07:00 [INF] requestId: 80000026-0003-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-15 11:34:42.854 +07:00 [INF] requestId: 80000026-0003-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-15 11:34:42.859 +07:00 [INF] Request finished in 4478.7091ms 200 application/json; charset=utf-8
+2020-09-15 12:56:49.967 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 12:56:50.005 +07:00 [INF] Hosting environment: Development
+2020-09-15 12:56:50.007 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 12:56:50.009 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-15 12:56:50.037 +07:00 [INF] CORS policy execution successful.
+2020-09-15 12:56:50.053 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-15 12:56:50.053 +07:00 [INF] Request finished in 47.3305ms 204 
+2020-09-15 12:56:50.054 +07:00 [INF] CORS policy execution successful.
+2020-09-15 12:56:50.252 +07:00 [INF] requestId: 80000075-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Auth/login
+2020-09-15 12:56:50.259 +07:00 [INF] requestId: 80000075-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: /api/Auth/login route does not require user to be authorised
+2020-09-15 12:56:53.041 +07:00 [INF] requestId: 80000075-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: 400 (Bad Request) status code, request uri: http://localhost:2001/api/Auth/login
+2020-09-15 12:56:53.077 +07:00 [INF] Request finished in 3023.7722ms 400 application/json
+2020-09-15 12:59:58.579 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 12:59:58.616 +07:00 [INF] Hosting environment: Development
+2020-09-15 12:59:58.617 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 12:59:58.619 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-15 12:59:58.647 +07:00 [INF] CORS policy execution successful.
+2020-09-15 12:59:58.666 +07:00 [INF] Request finished in 49.5454ms 204 
+2020-09-15 12:59:58.666 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-15 12:59:58.666 +07:00 [INF] CORS policy execution successful.
+2020-09-15 12:59:58.774 +07:00 [INF] requestId: 8000006f-0000-fa00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Auth/login
+2020-09-15 12:59:58.781 +07:00 [INF] requestId: 8000006f-0000-fa00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /api/Auth/login route does not require user to be authorised
+2020-09-15 13:00:04.260 +07:00 [INF] requestId: 8000006f-0000-fa00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/api/Auth/login
+2020-09-15 13:00:04.293 +07:00 [INF] Request finished in 5627.306ms 200 application/json; charset=utf-8
+2020-09-15 13:00:10.017 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/login  
+2020-09-15 13:00:10.024 +07:00 [WRN] requestId: 8000001f-0003-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /login, verb: GET.
+2020-09-15 13:00:10.025 +07:00 [WRN] requestId: 8000001f-0003-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /login, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/login, request method: GET
+2020-09-15 13:00:10.028 +07:00 [INF] Request finished in 11.6296ms 404 
+2020-09-15 13:03:15.890 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 13:03:15.932 +07:00 [INF] Hosting environment: Development
+2020-09-15 13:03:15.933 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 13:03:15.945 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-15 13:03:15.975 +07:00 [INF] CORS policy execution successful.
+2020-09-15 13:03:15.993 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-15 13:03:15.993 +07:00 [INF] Request finished in 51.6258ms 204 
+2020-09-15 13:03:15.993 +07:00 [INF] CORS policy execution successful.
+2020-09-15 13:03:16.099 +07:00 [INF] requestId: 8000008d-0002-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Auth/login
+2020-09-15 13:03:16.109 +07:00 [INF] requestId: 8000008d-0002-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: /api/Auth/login route does not require user to be authorised
+2020-09-15 13:08:05.566 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 13:08:05.603 +07:00 [INF] Hosting environment: Development
+2020-09-15 13:08:05.605 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 13:08:05.609 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-15 13:08:05.634 +07:00 [INF] CORS policy execution successful.
+2020-09-15 13:08:05.656 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-15 13:08:05.656 +07:00 [INF] Request finished in 50.149ms 204 
+2020-09-15 13:08:05.656 +07:00 [INF] CORS policy execution successful.
+2020-09-15 13:08:05.789 +07:00 [INF] requestId: 800000a5-0001-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/Auth/login
+2020-09-15 13:08:05.796 +07:00 [INF] requestId: 800000a5-0001-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: /api/Auth/login route does not require user to be authorised
+2020-09-15 13:08:10.434 +07:00 [INF] requestId: 800000a5-0001-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/api/Auth/login
+2020-09-15 13:08:10.468 +07:00 [INF] Request finished in 4812.1414ms 200 application/json; charset=utf-8
+2020-09-15 13:13:46.952 +07:00 [INF] User profile is available. Using 'C:\Users\haile\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-09-15 13:13:47.355 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 13:13:47.356 +07:00 [INF] Hosting environment: Development
+2020-09-15 13:13:47.356 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Identity
+2020-09-15 13:13:47.405 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/api/Auth/get-user  
+2020-09-15 13:13:47.415 +07:00 [WRN] Failed to determine the https port for redirect.
+2020-09-15 13:13:47.559 +07:00 [INF] Request finished in 158.7138ms 404 
+2020-09-15 13:13:48.490 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/api/Auth/get-user  
+2020-09-15 13:13:48.496 +07:00 [INF] Request finished in 6.2968ms 404 
+2020-09-15 13:13:48.599 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/api/Auth/get-user  
+2020-09-15 13:13:48.604 +07:00 [INF] Request finished in 5.3828ms 404 
+2020-09-15 13:13:48.733 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/api/Auth/get-user  
+2020-09-15 13:13:48.738 +07:00 [INF] Request finished in 5.2023ms 404 
+2020-09-15 13:13:48.845 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/api/Auth/get-user  
+2020-09-15 13:13:48.846 +07:00 [INF] Request finished in 1.5165ms 404 
+2020-09-15 13:13:49.506 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/api/Auth/get-user  
+2020-09-15 13:13:49.508 +07:00 [INF] Request finished in 2.47ms 404 
+2020-09-15 13:13:59.223 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2001/identities/login application/json 1304
+2020-09-15 13:13:59.227 +07:00 [INF] Executing endpoint 'Identity.Controllers.AuthController.Login (Identity)'
+2020-09-15 13:13:59.263 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DTO.User.UserDetailResponse]] Login(System.String) on controller Identity.Controllers.AuthController (Identity).
+2020-09-15 13:14:00.603 +07:00 [INF] Entity Framework Core 3.1.7 initialized 'IdentityContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-15 13:14:01.183 +07:00 [INF] Executed DbCommand (74ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Avatar], [u].[Email], [u].[Name]
+FROM [UserData] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2020-09-15 13:14:01.358 +07:00 [INF] Executing ObjectResult, writing value of type 'DTO.User.UserDetailResponse'.
+2020-09-15 13:14:01.390 +07:00 [INF] Executed action Identity.Controllers.AuthController.Login (Identity) in 2120.5846ms
+2020-09-15 13:14:01.391 +07:00 [INF] Executed endpoint 'Identity.Controllers.AuthController.Login (Identity)'
+2020-09-15 13:14:01.400 +07:00 [INF] Request finished in 2177.7188ms 200 application/json; charset=utf-8
+2020-09-15 13:14:22.910 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2001/identities/get-user  
+2020-09-15 13:14:22.950 +07:00 [INF] Successfully validated the token.
+2020-09-15 13:14:22.958 +07:00 [INF] Authorization was successful.
+2020-09-15 13:14:22.958 +07:00 [INF] Executing endpoint 'Identity.Controllers.AuthController.GetUserData (Identity)'
+2020-09-15 13:14:22.969 +07:00 [INF] Route matched with {action = "GetUserData", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DTO.User.UserDetailResponse] GetUserData() on controller Identity.Controllers.AuthController (Identity).
+2020-09-15 13:14:22.974 +07:00 [INF] Executing ObjectResult, writing value of type 'DTO.User.UserDetailResponse'.
+2020-09-15 13:14:22.975 +07:00 [INF] Executed action Identity.Controllers.AuthController.GetUserData (Identity) in 5.2648ms
+2020-09-15 13:14:22.975 +07:00 [INF] Executed endpoint 'Identity.Controllers.AuthController.GetUserData (Identity)'
+2020-09-15 13:14:22.975 +07:00 [INF] Request finished in 64.9706ms 200 application/json; charset=utf-8

@@ -15,7 +15,7 @@
     },
     // Identity Service
     {
-      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamPathTemplate": "/identities/login",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
