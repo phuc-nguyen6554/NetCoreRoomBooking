@@ -241,3 +241,7 @@ token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]
 2020-09-10 09:16:58.540 +07:00 [INF] Response /gateway/Rooms is 401 []
 2020-09-10 09:17:02.561 +07:00 [INF] GET /gateway/Rooms []
 2020-09-10 09:17:02.675 +07:00 [INF] Response /gateway/Rooms is 200 []
+2020-09-14 17:32:56.360 +07:00 [ERR] No connection could be made because the target machine actively refused it.
+2020-09-14 17:33:07.360 +07:00 [ERR] No connection could be made because the target machine actively refused it.
+2020-09-15 08:33:13.606 +07:00 [ERR] No connection could be made because the target machine actively refused it.
+2020-09-15 08:35:04.107 +07:00 [ERR] The SSL connection could not be established, see inner exception.

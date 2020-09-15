@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/{everything}", /* api/leave-request */
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1002
+          "Port": 2002
         }
       ],
       "UpstreamPathTemplate": "/leaves/{everything}", /* PUT => /leave/api/leave-request/1 */
@@ -16,11 +16,11 @@
     // Identity Service
     {
       "DownstreamPathTemplate": "/api/Auth/login",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1000
+          "Port": 2001
         }
       ],
       "UpstreamPathTemplate": "/login",
@@ -31,11 +31,11 @@
 
     {
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1000
+          "Port": 2001
         }
       ],
       "UpstreamPathTemplate": "/identities/{everything}",
@@ -46,11 +46,11 @@
     // Room Booking Service
     {
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1001
+          "Port": 2003
         }
       ],
       "UpstreamPathTemplate": "/bookings/{everything}",

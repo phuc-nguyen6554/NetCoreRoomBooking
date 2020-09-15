@@ -37,7 +37,7 @@ namespace Gateway.OcelotAuth
                 },
                 AuthenticationMiddleware = async (ctx, next) =>
                 {
-                    if(ctx.Request.Path == "/gateway/Login")
+                    if(ctx.Request.Path == "/login")
                     {
                         await next.Invoke();
                         return;

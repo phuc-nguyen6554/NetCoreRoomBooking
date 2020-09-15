@@ -10,7 +10,7 @@ namespace RoomBookingService.Services
     {
         Task<List<BookingListResponse>> GetBookingAsync(BookingListRequest request);
 
-        Task<BookingListResponse> GetBookingDetailAsync(int id);
+        Task<BookingDetailResponse> GetBookingDetailAsync(int id);
 
         Task<BookingCreateResponse> CreateBookingAsync(BookingCreateRequest request);
 

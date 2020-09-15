@@ -51,48 +51,6 @@ namespace RoomBookingService.Migrations
                     b.ToTable("bookings");
                 });
 
-            modelBuilder.Entity("RoomBookingService.Models.Bookings.LeaveRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("LeaveDates")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LeaveTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LeaveTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Reason")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("leaveRequests");
-                });
-
-            modelBuilder.Entity("RoomBookingService.Models.Bookings.LeaveType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("leaveTypes");
-                });
-
             modelBuilder.Entity("RoomBookingService.Models.Rooms.Room", b =>
                 {
                     b.Property<int>("Id")
