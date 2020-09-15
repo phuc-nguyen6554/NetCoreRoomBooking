@@ -1467,3 +1467,39 @@ WHERE [u].[Email] = @__request_Email_0
 2020-09-15 13:14:22.975 +07:00 [INF] Executed action Identity.Controllers.AuthController.GetUserData (Identity) in 5.2648ms
 2020-09-15 13:14:22.975 +07:00 [INF] Executed endpoint 'Identity.Controllers.AuthController.GetUserData (Identity)'
 2020-09-15 13:14:22.975 +07:00 [INF] Request finished in 64.9706ms 200 application/json; charset=utf-8
+2020-09-15 13:23:13.044 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-15 13:23:13.078 +07:00 [INF] Hosting environment: Development
+2020-09-15 13:23:13.080 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-15 13:23:13.084 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/  
+2020-09-15 13:23:13.138 +07:00 [WRN] requestId: 80000098-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /, verb: GET.
+2020-09-15 13:23:13.140 +07:00 [WRN] requestId: 80000098-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/, request method: GET
+2020-09-15 13:23:13.162 +07:00 [INF] Request finished in 80.5958ms 404 
+2020-09-15 13:23:17.733 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/swagger/index.html  
+2020-09-15 13:23:17.799 +07:00 [INF] Request finished in 66.0031ms 200 text/html;charset=utf-8
+2020-09-15 13:23:18.024 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/swagger/docs/v1/auth  
+2020-09-15 13:23:18.088 +07:00 [INF] Start processing HTTP request GET "http://localhost:2001/swagger/v1/swagger.json"
+2020-09-15 13:23:18.093 +07:00 [INF] Sending HTTP request GET "http://localhost:2001/swagger/v1/swagger.json"
+2020-09-15 13:23:20.491 +07:00 [INF] Received HTTP response after 2392.9609ms - "OK"
+2020-09-15 13:23:20.493 +07:00 [INF] End processing HTTP request after 2417.3306ms - "OK"
+2020-09-15 13:23:20.769 +07:00 [INF] Request finished in 2744.9106ms 200 
+2020-09-15 13:23:32.973 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json-patch+json 6
+2020-09-15 13:23:32.982 +07:00 [INF] CORS policy execution failed.
+2020-09-15 13:23:32.989 +07:00 [INF] Request origin http://localhost:2000 does not have permission to access the resource.
+2020-09-15 13:23:33.065 +07:00 [INF] requestId: 8000009b-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /identities/login
+2020-09-15 13:23:33.074 +07:00 [INF] requestId: 8000009b-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: /identities/login route does not require user to be authorised
+2020-09-15 13:23:33.829 +07:00 [INF] requestId: 8000009b-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: 400 (Bad Request) status code, request uri: http://localhost:2001/identities/login
+2020-09-15 13:23:33.858 +07:00 [INF] Request finished in 885.2212ms 400 application/problem+json; charset=utf-8
+2020-09-15 13:24:12.139 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json-patch+json 8
+2020-09-15 13:24:12.141 +07:00 [INF] CORS policy execution failed.
+2020-09-15 13:24:12.143 +07:00 [INF] Request origin http://localhost:2000 does not have permission to access the resource.
+2020-09-15 13:24:12.149 +07:00 [INF] requestId: 8000009c-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /identities/login
+2020-09-15 13:24:12.150 +07:00 [INF] requestId: 8000009c-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: /identities/login route does not require user to be authorised
+2020-09-15 13:24:12.214 +07:00 [INF] requestId: 8000009c-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: 400 (Bad Request) status code, request uri: http://localhost:2001/identities/login
+2020-09-15 13:24:12.216 +07:00 [INF] Request finished in 77.16ms 400 application/problem+json; charset=utf-8
+2020-09-15 13:24:13.660 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json-patch+json 8
+2020-09-15 13:24:13.662 +07:00 [INF] CORS policy execution failed.
+2020-09-15 13:24:13.662 +07:00 [INF] Request origin http://localhost:2000 does not have permission to access the resource.
+2020-09-15 13:24:13.664 +07:00 [INF] requestId: 8000009d-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /identities/login
+2020-09-15 13:24:13.665 +07:00 [INF] requestId: 8000009d-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: /identities/login route does not require user to be authorised
+2020-09-15 13:24:13.679 +07:00 [INF] requestId: 8000009d-0003-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: 400 (Bad Request) status code, request uri: http://localhost:2001/identities/login
+2020-09-15 13:24:13.680 +07:00 [INF] Request finished in 20.9689ms 400 application/problem+json; charset=utf-8
