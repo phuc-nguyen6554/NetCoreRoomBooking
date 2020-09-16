@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Ocelot.Middleware;
 using Serilog;
+using Shared.Cache;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -33,6 +35,8 @@ namespace Gateway.OcelotAuth
                 {
                     var guid = Guid.NewGuid();
                     ctx.Items.DownstreamRequest().Headers.Add("request-correlation-id", guid.ToString());
+                    var scopedCache = ctx.RequestServices.GetRequiredService<IScopedCache>();
+                    scopedCache.RCID = guid;
                     await next.Invoke();
                 },
                 AuthenticationMiddleware = async (ctx, next) =>
@@ -73,7 +77,8 @@ namespace Gateway.OcelotAuth
 
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Username", user.Name);
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Email", user.Email);
-                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);                        
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);      
+                       
                     }
                     catch(Exception ex)
                     {
