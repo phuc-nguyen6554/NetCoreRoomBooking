@@ -8,6 +8,7 @@ using Identity.Models;
 using Microsoft.EntityFrameworkCore;
 using Shared.Serilog;
 using Shared.Exceptions;
+using Shared.Cache;
 using Identity.Extensions;
 
 namespace Identity
@@ -36,6 +37,7 @@ namespace Identity
 
             services.AddSerilogMiddleware();
             services.RegisterServiceException();
+            services.AddScopedCacheService();
 
             services.AddControllers().AddNewtonsoftJson();
             
@@ -57,6 +59,7 @@ namespace Identity
 
             app.UseSerilogMiddleware();
             app.ConfigureServiceException();
+            app.UseScopedCacheMiddleware();
 
             app.UseSwaggerUI(c =>
             {

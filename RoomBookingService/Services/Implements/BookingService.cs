@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using RoomBookingService.DTO.Bookings;
 using RoomBookingService.Models;
 using RoomBookingService.Models.Bookings;
-using Shared;
+using Shared.Cache;
 using Shared.Exceptions;
 
 namespace RoomBookingService.Services.Implements
@@ -16,32 +16,22 @@ namespace RoomBookingService.Services.Implements
     {
         private readonly BookingServiceContext _context;
         private readonly IMapper _mapper;
+        private readonly IScopedCache _cache;
 
-        public BookingService(BookingServiceContext context, IMapper mapper)
+        public BookingService(BookingServiceContext context, IMapper mapper, IScopedCache cache)
         {
             _context = context;
             _mapper = mapper;
+            _cache = cache;
         }
 
-        public async Task<List<BookingResponse>> GetBookingsAsync()
-        {
-            var booking = await _context.Bookings
-                .Include(b => b.Room)
-                .Where(b => b.To.CompareTo(DateTime.Now) > 0)
-                .OrderBy(b => b.From)
-                .ToListAsync();
-
-            return _mapper.Map<List<BookingResponse>>(booking);
-        }
-
-        public async Task<List<BookingListResponse>> GetBookingAsync()
+        public async Task<List<BookingListResponse>> GetBookingAsync(/*BookingListRequest request*/)
         {
             var bookings = await _context.Bookings
                 .Include(b => b.Room)
                 .Where(b => b.To.CompareTo(DateTime.Now) > 0)
                 .OrderBy(b => b.From)
                 .ToListAsync();
-
             return _mapper.Map<List<BookingListResponse>>(bookings);
         }
 
@@ -57,6 +47,8 @@ namespace RoomBookingService.Services.Implements
                 throw new ServiceException(400, "Duplicate Entry");
 
             var booking = _mapper.Map<Booking>(request);
+            booking.MemberName = _cache.Username;
+            booking.MemberEmail = _cache.Email;
 
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
@@ -94,7 +86,9 @@ namespace RoomBookingService.Services.Implements
             var ExistedBookings =await _context.Bookings
                 .Where(b => b.RoomId == roomID &&
                     ((b.From.CompareTo(from) <= 0 && b.To.CompareTo(from) >= 0) ||
-                    (b.From.CompareTo(to) <= 0 && b.To.CompareTo(to) >= 0)))
+                    (b.From.CompareTo(to) <= 0 && b.To.CompareTo(to) >= 0) ||
+                    (b.From.CompareTo(from) >= 0 && b.To.CompareTo(to) <= 0)))
+                .AsNoTracking()
                 .ToListAsync();
 
             if(isUpdate)
