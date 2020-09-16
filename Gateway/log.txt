@@ -1,0 +1,243 @@
+2020-09-08 13:18:36.176 +07:00 [ERR] IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:20:59.051 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:22:05.636 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:29:39.535 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:29:45.422 +07:00 [ERR] IDX10501: Signature validation failed. Unable to match key: 
+kid: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Exceptions caught:
+ '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. 
+token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 13:47:36.997 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:04:37.213 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:05:03.320 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:05:04.458 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:05:09.464 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:12:49.058 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:13:05.755 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:13:08.824 +07:00 [ERR] IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')
+2020-09-08 14:46:18.547 +07:00 [ERR] IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-09-08 15:00:04.658 +07:00 [INF] 
+2020-09-08 15:00:21.674 +07:00 [INF] /gateway/Bookings/test
+2020-09-08 15:00:36.716 +07:00 [INF] /gateway/Bookings/1
+2020-09-08 15:00:41.384 +07:00 [INF] /gateway/Bookings/2
+2020-09-08 15:06:40.249 +07:00 [INF] /gateway/Bookings/{id}
+2020-09-08 15:06:57.872 +07:00 [INF] /gateway/Bookings/{id}
+2020-09-08 15:07:06.986 +07:00 [INF] /gateway/Bookings/test
+2020-09-08 15:07:40.845 +07:00 [INF] /gateway/Bookings/{id}
+2020-09-09 08:38:00.890 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:39:29.768 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:41:32.301 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:41:39.746 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:44:00.716 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:44:29.522 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:52:53.373 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:53:25.215 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 08:55:33.845 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 09:16:07.636 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:17:08.515 +07:00 [INF] GET/gateway/Bookings/1
+2020-09-09 09:22:56.701 +07:00 [INF] GET/gateway/Bookings/
+2020-09-09 09:22:56.773 +07:00 [INF] /gateway/Bookings/ Response: 404
+2020-09-09 09:23:10.951 +07:00 [INF] GET/gateway/Bookings
+2020-09-09 09:23:15.605 +07:00 [INF] /gateway/Bookings Response: 200
+2020-09-09 09:23:30.407 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:23:30.497 +07:00 [INF] /gateway/Bookings/test Response: 200
+2020-09-09 09:23:36.343 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:23:36.476 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 09:23:36.480 +07:00 [INF] /gateway/Bookings/test Response: 401
+2020-09-09 09:23:39.107 +07:00 [INF] GET/gateway/Bookings/test
+2020-09-09 09:23:39.150 +07:00 [INF] /gateway/Bookings/test Response: 200
+2020-09-09 09:30:50.627 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 09:31:39.386 +07:00 [INF] POST /gateway/Login []
+2020-09-09 09:31:39.390 +07:00 [INF] Response /gateway/Login is 404 []
+2020-09-09 09:31:43.358 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 09:31:43.359 +07:00 [INF] Response /gateway/Bookings is 404 []
+2020-09-09 09:31:51.629 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 09:31:51.629 +07:00 [INF] Response /gateway/Bookings/test is 404 []
+2020-09-09 09:32:29.362 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 09:32:29.362 +07:00 [INF] Response /gateway/Bookings/test is 404 []
+2020-09-09 09:33:36.832 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 09:33:39.938 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-09 10:47:29.540 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 10:47:30.097 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 10:47:30.117 +07:00 [INF] Response /gateway/Bookings/test is 401 []
+2020-09-09 10:47:46.148 +07:00 [INF] POST /gateway/Login []
+2020-09-09 10:47:51.647 +07:00 [INF] GET /gateway/Login []
+2020-09-09 10:47:51.657 +07:00 [INF] Response /gateway/Login is 404 []
+2020-09-09 10:48:33.277 +07:00 [INF] POST /gateway/Login []
+2020-09-09 10:50:33.010 +07:00 [INF] GET /gateway/login []
+2020-09-09 10:50:33.080 +07:00 [INF] Response /gateway/login is 404 []
+2020-09-09 10:50:51.726 +07:00 [INF] GET /gateway/login []
+2020-09-09 10:50:51.732 +07:00 [INF] Response /gateway/login is 404 []
+2020-09-09 10:51:01.496 +07:00 [INF] POST /gateway/Login []
+2020-09-09 10:54:31.449 +07:00 [INF] POST /gateway/Login []
+2020-09-09 10:55:24.024 +07:00 [INF] POST /gateway/Login []
+2020-09-09 10:55:34.379 +07:00 [INF] Response /gateway/Login is 200 []
+2020-09-09 10:55:34.446 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 10:56:02.028 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 10:56:09.735 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 10:56:17.080 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 10:56:17.189 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-09 11:00:57.022 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-09 11:01:01.624 +07:00 [INF] Response /gateway/LeaveRequest is 200 []
+2020-09-09 11:03:12.078 +07:00 [INF] POST /gateway/LeaveRequest []
+2020-09-09 11:03:12.703 +07:00 [INF] Response /gateway/LeaveRequest is 201 []
+2020-09-09 11:03:19.285 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-09 11:03:19.629 +07:00 [INF] Response /gateway/LeaveRequest is 500 []
+2020-09-09 11:05:17.238 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-09 11:05:21.668 +07:00 [INF] Response /gateway/LeaveRequest is 200 []
+2020-09-09 16:27:51.282 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:27:51.888 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 16:27:51.911 +07:00 [INF] Response /gateway/Bookings is 401 []
+2020-09-09 16:29:13.645 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:29:14.193 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 16:29:14.213 +07:00 [INF] Response /gateway/Bookings is 401 []
+2020-09-09 16:30:12.757 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:30:13.337 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 16:30:13.361 +07:00 [INF] Response /gateway/Bookings is 401 []
+2020-09-09 16:35:40.998 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:35:41.575 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-09 16:35:41.601 +07:00 [INF] Response /gateway/Bookings is 401 []
+2020-09-09 16:36:05.807 +07:00 [INF] POST /gateway/Login []
+2020-09-09 16:36:08.377 +07:00 [INF] Response /gateway/Login is 200 []
+2020-09-09 16:36:08.479 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:36:23.996 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:38:06.784 +07:00 [INF] POST /gateway/Login []
+2020-09-09 16:38:09.124 +07:00 [INF] Response /gateway/Login is 200 []
+2020-09-09 16:38:09.186 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:38:12.692 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:41:06.142 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:41:06.334 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:42:54.325 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:42:58.918 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:46:35.384 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:46:40.210 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:47:14.876 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:47:30.689 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:48:23.898 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:48:36.085 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:50:27.557 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:50:32.205 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:52:53.562 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:52:58.103 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 16:53:38.842 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 16:53:38.992 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-09 16:53:53.293 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 16:53:53.344 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-09 16:54:10.164 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 16:54:10.353 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 16:55:32.569 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 16:55:37.107 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 16:55:53.820 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-09 16:55:53.958 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-09 16:56:15.390 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 16:56:15.642 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:01:42.196 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:01:46.633 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:01:54.983 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:01:55.103 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:02:12.191 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:02:12.455 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 17:05:16.943 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:05:21.552 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 17:05:29.618 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:05:29.847 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:07:05.880 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:07:15.842 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:07:17.599 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:07:32.297 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:07:42.120 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:07:50.161 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:09:18.583 +07:00 [INF] GET /gateway/Bookings []
+2020-09-09 17:09:23.446 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-09 17:09:56.297 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:10:13.711 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 17:11:19.276 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:11:23.698 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 17:12:17.256 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:13:01.783 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:15:45.235 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-09 17:15:50.053 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-09 17:16:01.586 +07:00 [INF] GET /gateway/Bookings/2 []
+2020-09-09 17:16:01.669 +07:00 [INF] Response /gateway/Bookings/2 is 404 []
+2020-09-10 08:26:27.739 +07:00 [INF] POST /gateway/Login []
+2020-09-10 08:26:31.193 +07:00 [INF] Response /gateway/Login is 200 []
+2020-09-10 08:26:31.267 +07:00 [INF] GET /gateway/Bookings []
+2020-09-10 08:26:35.915 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-10 08:26:47.489 +07:00 [INF] GET /gateway/Bookings/2 []
+2020-09-10 08:26:47.754 +07:00 [INF] Response /gateway/Bookings/2 is 404 []
+2020-09-10 08:27:59.997 +07:00 [INF] GET /gateway/Bookings/2 []
+2020-09-10 08:28:06.548 +07:00 [INF] Response /gateway/Bookings/2 is 404 []
+2020-09-10 08:35:11.529 +07:00 [INF] GET /gateway/Bookings/2 []
+2020-09-10 08:35:15.608 +07:00 [INF] Response /gateway/Bookings/2 is 404 []
+2020-09-10 08:36:47.460 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-10 08:36:47.526 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-10 08:40:20.301 +07:00 [INF] POST /gateway/Login []
+2020-09-10 08:40:23.268 +07:00 [INF] Response /gateway/Login is 200 []
+2020-09-10 08:40:23.299 +07:00 [INF] GET /gateway/Bookings []
+2020-09-10 08:40:25.601 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-10 08:40:55.326 +07:00 [INF] GET /gateway/Bookings/test []
+2020-09-10 08:40:55.404 +07:00 [INF] Response /gateway/Bookings/test is 200 []
+2020-09-10 08:47:02.027 +07:00 [INF] GET /gateway/Bookings []
+2020-09-10 08:47:05.938 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-10 08:49:13.558 +07:00 [INF] GET /gateway/Bookings []
+2020-09-10 08:49:16.940 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-10 08:52:12.575 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-10 08:52:19.341 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-10 08:58:18.769 +07:00 [INF] GET /gateway/Bookings/1 []
+2020-09-10 08:58:25.429 +07:00 [INF] Response /gateway/Bookings/1 is 404 []
+2020-09-10 08:58:35.170 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-10 08:58:37.305 +07:00 [INF] Response /gateway/LeaveRequest is 500 []
+2020-09-10 08:59:12.093 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-10 08:59:17.150 +07:00 [INF] Response /gateway/LeaveRequest is 500 []
+2020-09-10 09:00:08.174 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-10 09:00:14.728 +07:00 [INF] Response /gateway/LeaveRequest is 200 []
+2020-09-10 09:05:11.642 +07:00 [INF] GET /gateway/LeaveRequest []
+2020-09-10 09:05:18.188 +07:00 [INF] Response /gateway/LeaveRequest is 200 []
+2020-09-10 09:09:57.508 +07:00 [INF] GET /gateway/Bookings []
+2020-09-10 09:10:01.111 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-10 09:10:15.916 +07:00 [INF] POST /gateway/LeaveRequest []
+2020-09-10 09:10:16.371 +07:00 [INF] Response /gateway/LeaveRequest is 201 []
+2020-09-10 09:12:07.639 +07:00 [INF] POST /gateway/Bookings []
+2020-09-10 09:12:08.519 +07:00 [INF] Response /gateway/Bookings is 500 []
+2020-09-10 09:12:23.197 +07:00 [INF] GET /gateway/Rooms/ []
+2020-09-10 09:12:23.207 +07:00 [INF] Response /gateway/Rooms/ is 404 []
+2020-09-10 09:12:25.598 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:12:25.863 +07:00 [INF] Response /gateway/Rooms is 500 []
+2020-09-10 09:12:42.782 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:12:42.934 +07:00 [INF] Response /gateway/Rooms is 200 []
+2020-09-10 09:12:52.199 +07:00 [INF] POST /gateway/Bookings []
+2020-09-10 09:12:52.342 +07:00 [INF] Response /gateway/Bookings is 201 []
+2020-09-10 09:13:23.005 +07:00 [INF] POST /gateway/Bookings []
+2020-09-10 09:13:23.135 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-10 09:13:23.138 +07:00 [INF] Response /gateway/Bookings is 401 []
+2020-09-10 09:13:27.393 +07:00 [INF] POST /gateway/Bookings []
+2020-09-10 09:13:27.514 +07:00 [INF] Response /gateway/Bookings is 400 []
+2020-09-10 09:13:32.365 +07:00 [INF] GET /gateway/Bookings []
+2020-09-10 09:13:32.435 +07:00 [INF] Response /gateway/Bookings is 200 []
+2020-09-10 09:13:42.658 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:13:42.727 +07:00 [ERR] Response status code does not indicate success: 401 (Unauthorized).
+2020-09-10 09:13:42.731 +07:00 [INF] Response /gateway/Rooms is 401 []
+2020-09-10 09:13:47.158 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:13:47.272 +07:00 [INF] Response /gateway/Rooms is 200 []
+2020-09-10 09:16:38.086 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:16:44.473 +07:00 [INF] Response /gateway/Rooms is 200 []
+2020-09-10 09:16:49.399 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:16:49.428 +07:00 [INF] Response /gateway/Rooms is 401 []
+2020-09-10 09:16:50.786 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:16:50.795 +07:00 [INF] Response /gateway/Rooms is 401 []
+2020-09-10 09:16:58.524 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:16:58.540 +07:00 [INF] Response /gateway/Rooms is 401 []
+2020-09-10 09:17:02.561 +07:00 [INF] GET /gateway/Rooms []
+2020-09-10 09:17:02.675 +07:00 [INF] Response /gateway/Rooms is 200 []
