@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Identity.Models.Users
+namespace Gateway.OcelotAuth
 {
-    public class ReturnUserDTO
+    public class User
     {
         public string Name { get; set; }
         public string Email { get; set; }

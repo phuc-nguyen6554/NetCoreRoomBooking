@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using RoomBookingService.Models.Bookings;
 using RoomBookingService.Models.Rooms;
 using System;
@@ -10,16 +11,21 @@ namespace RoomBookingService.Models
 {
     public class BookingServiceContext : DbContext
     {
-        public BookingServiceContext(DbContextOptions options) :base(options) { }
+        public BookingServiceContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Room> rooms { get; set; }
-        public DbSet<Booking> bookings { get; set; }
+        //public static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
+
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(builder);         
+        }
 
-            builder.Entity<Booking>().HasOne(b => b.Room).WithMany(r => r.Bookings);
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            //builder.UseLoggerFactory(loggerFactory);
         }
     }
 }

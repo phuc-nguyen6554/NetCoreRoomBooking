@@ -1,5 +1,4 @@
-﻿using Identity.Configurations;
-using Identity.Models.Users;
+﻿using Identity.Models.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;

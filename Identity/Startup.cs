@@ -1,20 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Identity.Models;
 using Microsoft.EntityFrameworkCore;
-using Identity.Models.Users;
-using Microsoft.AspNetCore.Identity;
+using Shared.Serilog;
+using Shared.Exceptions;
+using Identity.Extensions;
 
 namespace Identity
 {
@@ -34,19 +28,15 @@ namespace Identity
             
             services.AddAutoMapper(typeof(Startup));
 
-            services.Configure<IdentityOptions>(options =>
-            {
-                // Default User settings.
-                options.User.AllowedUserNameCharacters =
-                        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ ";
-                options.User.RequireUniqueEmail = false;
 
-            });
-
-            string secretKey = Configuration["JWT:secretKey"];
-            services.ConfigureJWT(secretKey);
+            services.ConfigureJWT(Configuration);
+            services.ConfigureService();
 
             services.ConfigureSwagger();
+
+            services.AddSerilogMiddleware();
+            services.RegisterServiceException();
+
             services.AddControllers().AddNewtonsoftJson();
             
         }
@@ -59,11 +49,14 @@ namespace Identity
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseSwagger();
+
+            app.UseSerilogMiddleware();
+            app.ConfigureServiceException();
 
             app.UseSwaggerUI(c =>
             {

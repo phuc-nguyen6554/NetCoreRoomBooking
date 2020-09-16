@@ -1,85 +1,61 @@
 {
   "Routes": [
+    {
+      "DownstreamPathTemplate": "/{everything}", /* api/leave-request */
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2002
+        }
+      ],
+      "UpstreamPathTemplate": "/leaves/{everything}", /* PUT => /leave/api/leave-request/1 */
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "leaving"
+    },
     // Identity Service
     {
-      "DownstreamPathTemplate": "/api/Auth/login",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/identities/login",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44328
+          "Port": 2001
         }
       ],
-      "UpstreamPathTemplate": "/gateway/login",
+      "UpstreamPathTemplate": "/login",
       "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "auth"
+      "SwaggerKey": "auth",
+      "Auth": false
     },
+
     {
-      "DownstreamPathTemplate": "/api/Auth/register",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44328
+          "Port": 2001
         }
       ],
-      "UpstreamPathTemplate": "/gateway/register",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/identities/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "auth"
     },
 
     // Room Booking Service
     {
-      "DownstreamPathTemplate": "/api/Rooms",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44366
+          "Port": 2003
         }
       ],
-      "UpstreamPathTemplate": "/gateway/Rooms",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamPathTemplate": "/bookings/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"
-    },
-    {
-      "DownstreamPathTemplate": "/api/Rooms/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Rooms/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ],
-      "SwaggerKey": "room"
-    },
-    {
-      "DownstreamPathTemplate": "/api/Bookings",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Bookings",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
-      "SwaggerKey": "booking"
-    },
-    {
-      "DownstreamPathTemplate": "/api/Bookings/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44366
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/Bookings/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
-      "SwaggerKey": "booking"
     }
   ],
   "SwaggerEndPoints": [
@@ -89,7 +65,7 @@
         {
           "Name": "Auth API",
           "Version": "v1",
-          "Url": "https://localhost:44328/swagger/v1/swagger.json"
+          "Url": "http://localhost:2001/swagger/v1/swagger.json"
         }
       ]
     },
@@ -99,7 +75,7 @@
         {
           "Name": "Room API",
           "Version": "v1",
-          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+          "Url": "http://localhost:2003/swagger/v1/swagger.json"
         }
       ]
     },
@@ -109,7 +85,17 @@
         {
           "Name": "Booking API",
           "Version": "v1",
-          "Url": "https://localhost:44366/swagger/v1/swagger.json"
+          "Url": "http://localhost:2003/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "leave",
+      "Config": [
+        {
+          "Name": "Leave Request API",
+          "Version": "v1",
+          "Url": "http://localhost:2002/swagger/v1/swagger.json"
         }
       ]
     }
