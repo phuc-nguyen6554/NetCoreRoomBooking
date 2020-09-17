@@ -22,9 +22,8 @@ namespace LeaveRequest.Controllers
             _context = context;
         }
 
-        // GET: /leave-types
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<LeaveType>>> GeLeaveTypes()
+        [HttpGet("list")]
+        public async Task<ActionResult<IEnumerable<LeaveType>>> GetLeaveTypes()
         {
             return await _context.LeaveTypes.ToListAsync();
         }

@@ -9,7 +9,9 @@ namespace LeaveRequest.Services
     public interface ILeaveRequestService
     {
         Task<List<LeaveRequestResponse>> GetLeaveRequestAsync();
+
         Task<LeaveRequestCreateResponse> CreateLeaveRequestAsync(LeaveRequestCreateRequest request);
+
         Task DeleteLeaveRequestAsync(int id);
     }
 }

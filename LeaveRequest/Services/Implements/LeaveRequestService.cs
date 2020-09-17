@@ -7,6 +7,7 @@ using LeaveRequest.DTO.Leave;
 using LeaveRequest.Models;
 using Microsoft.EntityFrameworkCore;
 using Shared;
+using Shared.Exceptions;
 
 namespace LeaveRequest.Services.Implements
 {
@@ -32,31 +33,21 @@ namespace LeaveRequest.Services.Implements
         //delete leave request
         public async Task DeleteLeaveRequestAsync(int id)
         {
-            throw new NotImplementedException();
+            var leave = await _context.LeaveRequests.FindAsync(id);
+
+            _context.LeaveRequests.Remove(leave);
+            await _context.SaveChangesAsync();
         }
 
         //create leave request
-        public async Task<LeaveRequestCreateResponse> CreateLeaveRequestAsync(LeaveRequestCreateResponse request)
+        public async Task<LeaveRequestCreateResponse> CreateLeaveRequestAsync(LeaveRequestCreateRequest request)
         {
-            var booking = await _context.LeaveRequests
-                .Include(inc => inc.LeaveTypeId)
-                .FirstOrDefaultAsync();
+            var leave = _mapper.Map<Request>(request);
 
-            var validate = false;
+            _context.LeaveRequests.Add(leave);
+            await _context.SaveChangesAsync();
 
-            if (!validate)
-                throw new ServiceException(400, "Model invalid");
-
-            var isExists = false;
-            if (!isExists)
-                throw new ServiceException(404, "Model not found");
-
-            throw new NotImplementedException();
-        }
-
-        public Task<LeaveRequestCreateResponse> CreateLeaveRequestAsync(LeaveRequestCreateRequest request)
-        {
-            throw new NotImplementedException();
+            return _mapper.Map<LeaveRequestCreateResponse>(leave);
         }
     }
 }
