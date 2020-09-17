@@ -11,6 +11,11 @@ using AutoMapper;
 using RoomBookingService.Extensions;
 using Shared.Exceptions;
 using Shared.Cache;
+using Consul;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.AspNetCore.Http.Features;
+using System.Linq;
+using System;
 
 namespace RoomBookingService
 {
@@ -46,6 +51,8 @@ namespace RoomBookingService
             services.RegisterServiceException();
             services.AddScopedCacheService();
 
+            services.RegisterConsulService(Configuration); 
+
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
@@ -67,6 +74,8 @@ namespace RoomBookingService
             app.ConfigureServiceException();
             app.UseSerilogMiddleware();
             app.UseScopedCacheMiddleware();
+
+            app.UseConsul();
 
             app.UseSwaggerUI(c =>
             {

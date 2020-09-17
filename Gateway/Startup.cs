@@ -9,6 +9,7 @@ using Ocelot.Middleware;
 using Gateway.Extensions;
 using Shared.Serilog;
 using Shared.Cache;
+using Ocelot.Provider.Consul;
 
 namespace Gateway
 {
@@ -24,7 +25,7 @@ namespace Gateway
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOcelot();
+            services.AddOcelot().AddConsul();
 
             services.ConfigureCors(_configuration);
             services.AddSerilogMiddleware();

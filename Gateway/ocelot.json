@@ -47,17 +47,24 @@
     {
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 2003
-        }
-      ],
+      "ServiceName": "booking",
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 2003
+      //  }
+      //],
       "UpstreamPathTemplate": "/bookings/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"
     }
   ],
+  "ServiceDiscoveryProvider": {
+    "Scheme": "http",
+    "Host": "localhost",
+    "Port": 8500,
+    "Type": "Consul"
+  },
   "SwaggerEndPoints": [
     {
       "Key": "auth",

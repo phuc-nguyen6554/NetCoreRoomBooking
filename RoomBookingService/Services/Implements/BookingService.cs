@@ -31,6 +31,7 @@ namespace RoomBookingService.Services.Implements
                 .Include(b => b.Room)
                 .Where(b => b.To.CompareTo(DateTime.Now) > 0)
                 .OrderBy(b => b.From)
+                .AsNoTracking()
                 .ToListAsync();
             return _mapper.Map<List<BookingListResponse>>(bookings);
         }
