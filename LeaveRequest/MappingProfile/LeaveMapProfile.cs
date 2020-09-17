@@ -12,7 +12,7 @@ namespace LeaveRequest.MappingProfile
     {
         public LeaveMapProfile()
         {
-            CreateMap<Request, LeaveRequestResponse>();
+            CreateMap<Request, LeaveRequestResponse>().ForMember(x=> x.LeaveType, opt => opt.MapFrom(x => x.LeaveTypes.Name));
 
             CreateMap<Request, LeaveRequestCreateResponse>();
             CreateMap<LeaveRequestCreateRequest, Request>();
