@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using LeaveRequest.Models;
 using Shared.Serilog;
 using AutoMapper;
+using LeaveRequest.Services.Implements;
+using LeaveRequest.Services;
 
 namespace LeaveRequest
 {
@@ -27,9 +29,9 @@ namespace LeaveRequest
             {
                 options.UseSqlServer(Configuration.GetConnectionString("LeaveRequestServiceContext"));
             });
-
+            
             services.AddSerilogMiddleware();
-            //services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddSwaggerGen(c =>
             {
@@ -40,7 +42,7 @@ namespace LeaveRequest
                     Description = "Leave Request API"
                 });
             });
-
+            services.AddScoped<ILeaveRequestService,LeaveRequestService>();
             services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
