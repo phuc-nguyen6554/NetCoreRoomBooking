@@ -10,6 +10,7 @@ using Shared.Serilog;
 using AutoMapper;
 using RoomBookingService.Extensions;
 using Shared.Exceptions;
+using Shared.Cache;
 
 namespace RoomBookingService
 {
@@ -43,6 +44,7 @@ namespace RoomBookingService
 
             services.ConfigureService();
             services.RegisterServiceException();
+            services.AddScopedCacheService();
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -63,13 +65,13 @@ namespace RoomBookingService
             app.UseSwagger();
 
             app.ConfigureServiceException();
-
             app.UseSerilogMiddleware();
+            app.UseScopedCacheMiddleware();
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Booking API V1");
-            });
+            });           
 
             app.UseEndpoints(endpoints =>
             {
