@@ -8,6 +8,7 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Gateway.Extensions;
 using Shared.Serilog;
+using Shared.Cache;
 
 namespace Gateway
 {
@@ -27,7 +28,8 @@ namespace Gateway
 
             services.ConfigureCors(_configuration);
             services.AddSerilogMiddleware();
-                      
+
+            services.AddScopedCacheService();
             services.AddSwaggerForOcelot(_configuration);
         }
 
@@ -48,7 +50,7 @@ namespace Gateway
             });
 
             await app.UseOcelot(new OcelotConfiguration(_configuration).CreateConfig());
-            app.UseSerilogMiddleware();
+            app.UseSerilogMiddleware();  
         }
     }
 }
