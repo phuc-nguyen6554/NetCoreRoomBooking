@@ -29,15 +29,23 @@ namespace Identity.Services
 
         public async Task<UserDetailResponse> FindOrAddUserAsync(UserCreateRequest request)
         {
-            var user = await _context.UserData.Where(x => x.Email == request.Email).FirstOrDefaultAsync();
+            var user = await _context.UserData
+                .Where(x => x.Email == request.Email)
+                .FirstOrDefaultAsync();
 
             if(user == null)
             {
+                var employeeRole = await _context.Roles
+                    .Where(x => x.RoleName == "Employee")
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
                 user = new User
                 {
                     Email = request.Email,
                     Name = request.Name,
-                    Avatar = request.Avatar
+                    Avatar = request.Avatar,
+                    RoleId = employeeRole.Id
                 };
 
                 _context.UserData.Add(user);

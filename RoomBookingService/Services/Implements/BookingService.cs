@@ -77,6 +77,10 @@ namespace RoomBookingService.Services.Implements
         {
             var booking = await _context.Bookings.FindAsync(id);
 
+            if(booking.MemberEmail != _cache.Email)
+            {
+                throw new ServiceException(401, "You don't have permission to delete this Booking");
+            }
             _context.Bookings.Remove(booking);
             await _context.SaveChangesAsync();
         }

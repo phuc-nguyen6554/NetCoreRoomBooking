@@ -17,7 +17,12 @@ namespace Shared.Cache
         }
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            _cache.Username = context.Request.Headers["X-Forwarded-Username"];
+            string username = null;
+            if(!String.IsNullOrEmpty(context.Request.Headers["X-Forwarded-Username"]))
+            {
+                username = Uri.UnescapeDataString(context.Request.Headers["X-Forwarded-Username"]);
+            }
+            _cache.Username = username;
             _cache.Email = context.Request.Headers["X-Forwarded-Email"];
             _cache.Avatar = context.Request.Headers["X-Forwarded-Avatar"];
 

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using DTO.User;
 using Identity.Services;
+using Identity.Models.Users;
+using Identity.DTO.User;
 
 namespace Identity.Controllers
 {
