@@ -75,7 +75,9 @@ namespace Gateway.OcelotAuth
                         var body = await response.Content.ReadAsStringAsync();
                         var user = JsonConvert.DeserializeObject<User>(body);
 
-                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Username", user.Name);
+                        // Header doesn't accept UTF8
+                        var username = Uri.EscapeDataString(user.Name);
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Username", username);
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Email", user.Email);
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);      
                        
