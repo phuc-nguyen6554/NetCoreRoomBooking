@@ -22,9 +22,10 @@ namespace Identity.Controllers
         }
         
         [HttpGet]
-        public async Task<IEnumerable<RoleListResponse>> GetRoles()
+        public async Task<IActionResult> GetRoles()
         {
-            return await _service.GetRolesAsync();
+            var result = await _service.GetRolesPagedAsync();
+            return Ok(result);
         }
 
         [HttpPost]

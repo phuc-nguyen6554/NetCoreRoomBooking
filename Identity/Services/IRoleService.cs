@@ -15,5 +15,6 @@ namespace Identity.Services
         public Task<List<RoleListResponse>> GetRolesAsync();
         public Task<RoleDetailResponse> GetRoleDetail(int id);
         public Task<List<UserListResponse>> GetUserByRoleAsync(int roleId);
+        public Task<PagedListResponse<RoleListResponse>> GetRolesPagedAsync();
     }
 }

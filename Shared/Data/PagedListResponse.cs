@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Identity
+namespace Shared.Data
 {
     public class PagedListResponse<T> where T : class
     {
@@ -16,27 +14,19 @@ namespace Identity
 
         public List<T> Result { get; set; }
 
-        public PagedListResponse(){}
+        public PagedListResponse() { }
 
         public PagedListResponse(List<T> items, int total, int page, int pageSize)
         {
             Result = items;
             TotalCount = total;
+            Count = items.Count;
             CurrentPage = page;
             PageSize = pageSize;
-            TotalPages = (int)Math.Ceiling(TotalCount /(double) pageSize);
+            TotalPages = (int)Math.Ceiling(TotalCount / (double)pageSize);
         }
 
-        public PagedListResponse(PagedListResponse<T> list, List<T> result)
-        {
-            Result = result;
-            TotalCount = list.TotalCount;
-            CurrentPage = list.CurrentPage;
-            PageSize = list.PageSize;
-            TotalPages = (int)Math.Ceiling(list.TotalCount / (double)list.PageSize);
-        }
-
-        public PagedListResponse<T> Map<T>(List<T> result) where T:class
+        public PagedListResponse<T> Map<T>(List<T> result) where T : class
         {
             return new PagedListResponse<T>
             {

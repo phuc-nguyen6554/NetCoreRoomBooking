@@ -1,19 +1,14 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Shared.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Identity
+namespace Shared.Extensions
 {
-    public static class DbsetExtension
+    public static class DbSetExtension
     {
-        public static IQueryable<T> GetPage<T>(this IQueryable<T> query, int page, int take) where T : class
-        {
-            return query.Skip((page - 1) * take).Take(take);
-        }
-
         public async static Task<PagedListResponse<T>> ToPagedList<T>(this IQueryable<T> query, int page, int pageSize) where T : class
         {
             var totalEntry = query.Count();
