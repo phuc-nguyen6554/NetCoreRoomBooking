@@ -25,6 +25,7 @@ namespace Shared.Cache
             _cache.Username = username;
             _cache.Email = context.Request.Headers["X-Forwarded-Email"];
             _cache.Avatar = context.Request.Headers["X-Forwarded-Avatar"];
+            _cache.Role = context.Request.Headers["X-Forwarded-Role"];
 
             await next(context);
         }

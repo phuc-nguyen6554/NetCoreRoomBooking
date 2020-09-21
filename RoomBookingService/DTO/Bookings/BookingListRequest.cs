@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shared.Data;
 
 namespace RoomBookingService.DTO.Bookings
 {
-    public class BookingListRequest
+    public class BookingListRequest : PagedListRequest
     {
         public int Id { get; set; }
         public int RoomId { get; set; }

@@ -5,6 +5,7 @@ using Identity.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Shared.Data;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -36,7 +37,7 @@ namespace Identity.Services
             if(user == null)
             {
                 var employeeRole = await _context.Roles
-                    .Where(x => x.RoleName == "Employee")
+                    .Where(x => x.RoleName == Constrain.EmployeeRole)
                     .AsNoTracking()
                     .FirstOrDefaultAsync();
 
@@ -67,11 +68,14 @@ namespace Identity.Services
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            var userData =  _context.UserData.Where(x => x.Email == user.Email).Include(x => x.Role).First();
+
             var authClaim = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim("Avatar", user.Avatar)
+                    new Claim("Avatar", user.Avatar),
+                    new Claim(ClaimTypes.Role, userData.Role.RoleName)
                 };
 
             var token = new JwtSecurityToken(

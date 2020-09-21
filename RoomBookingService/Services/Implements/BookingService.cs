@@ -9,6 +9,8 @@ using RoomBookingService.Models;
 using RoomBookingService.Models.Bookings;
 using Shared.Cache;
 using Shared.Exceptions;
+using Shared.Data;
+using Shared.Extensions;
 
 namespace RoomBookingService.Services.Implements
 {
@@ -33,6 +35,19 @@ namespace RoomBookingService.Services.Implements
                 .OrderBy(b => b.From)
                 .ToListAsync();
             return _mapper.Map<List<BookingListResponse>>(bookings);
+        }
+
+        public async Task<PagedListResponse<BookingListResponse>> GetBookingPagedAsync(PagedListRequest request)
+        {
+
+            var bookings = await _context.Bookings
+                .Include(b => b.Room)
+                .Where(b => b.To.CompareTo(DateTime.Now) > 0)
+                .OrderBy(b => b.From)
+                .ToPagedList(request.Page, request.PageSize);
+
+            var bookingResult = _mapper.Map<List<BookingListResponse>>(bookings.Result);
+            return bookings.Map(bookingResult);
         }
 
         public async Task<BookingDetailResponse> GetBookingDetailAsync(int id)
@@ -77,7 +92,7 @@ namespace RoomBookingService.Services.Implements
         {
             var booking = await _context.Bookings.FindAsync(id);
 
-            if(booking.MemberEmail != _cache.Email)
+            if(booking.MemberEmail != _cache.Email && _cache.Role != Constrain.AdminRole)
             {
                 throw new ServiceException(401, "You don't have permission to delete this Booking");
             }

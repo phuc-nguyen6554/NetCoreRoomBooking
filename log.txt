@@ -5513,3 +5513,107 @@ VALUES (N'20200921013941_add-role-table', N'3.1.7');
 2020-09-21 11:16:20.069 +07:00 [INF] requestId: 8000006a-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
 2020-09-21 11:16:21.537 +07:00 [INF] requestId: 8000006a-0000-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
 2020-09-21 11:16:21.579 +07:00 [INF] Request finished in 5469.6263ms 200 application/json; charset=utf-8
+2020-09-21 11:25:05.318 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 11:25:05.396 +07:00 [INF] Hosting environment: Development
+2020-09-21 11:25:05.398 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 11:25:05.406 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 11:25:05.551 +07:00 [INF] requestId: 8000002f-0001-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 11:25:08.783 +07:00 [INF] requestId: 8000002f-0001-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 11:25:10.189 +07:00 [INF] requestId: 8000002f-0001-f700-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 11:25:10.229 +07:00 [INF] Request finished in 4824.9525ms 200 application/json; charset=utf-8
+2020-09-21 11:28:25.391 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 11:28:25.422 +07:00 [INF] Hosting environment: Development
+2020-09-21 11:28:25.424 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 11:28:25.422 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 11:28:25.566 +07:00 [INF] requestId: 80000039-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 11:28:28.877 +07:00 [INF] requestId: 80000039-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 11:28:48.684 +07:00 [INF] requestId: 80000039-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 11:28:48.739 +07:00 [INF] Request finished in 23322.4291ms 200 application/json; charset=utf-8
+2020-09-21 11:42:54.752 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 11:42:54.780 +07:00 [INF] Hosting environment: Development
+2020-09-21 11:42:54.779 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 11:42:54.781 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 11:42:54.966 +07:00 [INF] requestId: 8000004c-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 11:42:58.825 +07:00 [INF] requestId: 8000004c-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 11:50:32.604 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 11:50:32.632 +07:00 [INF] Hosting environment: Development
+2020-09-21 11:50:32.631 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 11:50:32.634 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 11:50:32.770 +07:00 [INF] requestId: 80000046-0002-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 11:50:35.760 +07:00 [INF] requestId: 80000046-0002-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 11:50:37.161 +07:00 [INF] requestId: 80000046-0002-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 11:50:37.200 +07:00 [INF] Request finished in 4571.5946ms 200 application/json; charset=utf-8
+2020-09-21 11:51:31.207 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 11:51:31.235 +07:00 [INF] Hosting environment: Development
+2020-09-21 11:51:31.236 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 11:51:31.234 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 11:51:31.375 +07:00 [INF] requestId: 8000006f-0001-fc00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 11:51:34.407 +07:00 [INF] requestId: 8000006f-0001-fc00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 11:51:35.811 +07:00 [INF] requestId: 8000006f-0001-fc00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 11:51:35.851 +07:00 [INF] Request finished in 4619.269ms 200 application/json; charset=utf-8
+2020-09-21 13:13:58.628 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 13:13:58.658 +07:00 [INF] Hosting environment: Development
+2020-09-21 13:13:58.657 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 13:13:58.659 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 13:13:58.835 +07:00 [INF] requestId: 80000066-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 13:14:02.992 +07:00 [INF] requestId: 80000066-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 13:14:04.644 +07:00 [INF] requestId: 80000066-0000-f500-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 13:14:04.689 +07:00 [INF] Request finished in 6034.6922ms 200 application/json; charset=utf-8
+2020-09-21 13:15:03.979 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 13:15:04.010 +07:00 [INF] Hosting environment: Development
+2020-09-21 13:15:04.009 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 13:15:04.012 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 13:15:04.144 +07:00 [INF] requestId: 80000055-0001-fa00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 13:15:07.175 +07:00 [INF] requestId: 80000055-0001-fa00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 13:15:08.532 +07:00 [INF] requestId: 80000055-0001-fa00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 13:15:08.571 +07:00 [INF] Request finished in 4565.9569ms 200 application/json; charset=utf-8
+2020-09-21 13:16:18.674 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 13:16:18.701 +07:00 [INF] Hosting environment: Development
+2020-09-21 13:16:18.699 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/identities/roles  
+2020-09-21 13:16:18.702 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 13:16:18.834 +07:00 [INF] requestId: 80000028-0002-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 13:16:21.901 +07:00 [INF] requestId: 80000028-0002-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 13:16:23.308 +07:00 [INF] requestId: 80000028-0002-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/roles
+2020-09-21 13:16:23.347 +07:00 [INF] Request finished in 4650.6907ms 200 application/json; charset=utf-8
+2020-09-21 13:47:32.905 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 13:47:32.937 +07:00 [INF] Hosting environment: Development
+2020-09-21 13:47:32.939 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 13:47:32.941 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-21 13:47:32.966 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:47:32.990 +07:00 [INF] Request finished in 56.9712ms 204 
+2020-09-21 13:47:32.998 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-21 13:47:32.999 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:47:33.146 +07:00 [INF] requestId: 80000022-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /identities/login
+2020-09-21 13:47:33.153 +07:00 [INF] requestId: 80000022-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /identities/login route does not require user to be authorised
+2020-09-21 13:47:38.087 +07:00 [INF] requestId: 80000022-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/identities/login
+2020-09-21 13:47:38.122 +07:00 [INF] Request finished in 5124.6829ms 200 application/json; charset=utf-8
+2020-09-21 13:47:38.183 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-21 13:47:38.183 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:47:38.184 +07:00 [INF] Request finished in 1.7353ms 204 
+2020-09-21 13:47:38.191 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-21 13:47:38.192 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:47:38.201 +07:00 [INF] requestId: 80000024-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 13:47:38.517 +07:00 [INF] requestId: 80000024-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 13:47:42.958 +07:00 [INF] requestId: 80000024-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-21 13:47:42.964 +07:00 [INF] Request finished in 4772.3916ms 200 application/json; charset=utf-8
+2020-09-21 13:55:17.616 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-21 13:55:17.644 +07:00 [INF] Hosting environment: Development
+2020-09-21 13:55:17.645 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-21 13:55:17.644 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/login  
+2020-09-21 13:55:17.668 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:55:17.688 +07:00 [INF] Request finished in 48.5262ms 204 
+2020-09-21 13:55:17.706 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/login application/json 1304
+2020-09-21 13:55:17.706 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:55:17.828 +07:00 [INF] requestId: 80000023-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /identities/login
+2020-09-21 13:55:17.835 +07:00 [INF] requestId: 80000023-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: /identities/login route does not require user to be authorised
+2020-09-21 13:55:22.440 +07:00 [INF] requestId: 80000023-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2001/identities/login
+2020-09-21 13:55:22.474 +07:00 [INF] Request finished in 4781.0424ms 200 application/json; charset=utf-8
+2020-09-21 13:55:22.517 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-21 13:55:22.521 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:55:22.527 +07:00 [INF] Request finished in 10.3908ms 204 
+2020-09-21 13:55:22.533 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-21 13:55:22.533 +07:00 [INF] CORS policy execution successful.
+2020-09-21 13:55:22.542 +07:00 [INF] requestId: 80000025-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-21 13:55:22.781 +07:00 [INF] requestId: 80000025-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-21 13:55:27.002 +07:00 [INF] requestId: 80000025-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-21 13:55:27.007 +07:00 [INF] Request finished in 4473.3817ms 200 application/json; charset=utf-8

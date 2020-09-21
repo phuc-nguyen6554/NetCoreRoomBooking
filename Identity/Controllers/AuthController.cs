@@ -50,13 +50,15 @@ namespace Identity.Controllers
             string username = User.Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault()?.Value;
             string email = User.Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault()?.Value;
             string avatar = User.Claims.Where(x => x.Type == "Avatar").FirstOrDefault()?.Value;
+            string role = User.Claims.Where(x => x.Type == ClaimTypes.Role).FirstOrDefault()?.Value;
 
             var user = new UserDetailResponse
             {
                 Name = username,
                 Email = email,
                 Avatar = avatar,
-                Token = Request.Headers["Authorization"]
+                Token = Request.Headers["Authorization"],
+                RoleName = role
             };
 
             return user;

@@ -79,8 +79,8 @@ namespace Gateway.OcelotAuth
                         var username = Uri.EscapeDataString(user.Name);
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Username", username);
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Email", user.Email);
-                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);      
-                       
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Role", user.Role);
                     }
                     catch(Exception ex)
                     {

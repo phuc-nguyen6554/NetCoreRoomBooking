@@ -47,11 +47,18 @@ namespace Identity.Services.Implements
 
         public async Task<List<RoleListResponse>> GetRolesAsync()
         {
-            var roles = await _context.Roles.ToPagedList(1, 10);
-            // return roles;
-            var response =  _mapper.Map<List<RoleListResponse>>(roles);
-            return new PagedList<RoleListResponse>(response, roles.TotalCount, roles.CurrentPage, roles.PageSize);
+            var roles = await _context.Roles.ToPagedList(1, 1);
+            var result = _mapper.Map<List<RoleListResponse>>(roles.Result);
+            return result;
         }
+
+        public async Task<PagedListResponse<RoleListResponse>> GetRolesPagedAsync()
+        {
+            var roles = await _context.Roles.ToPagedList(1, 1);
+            var result = _mapper.Map<List<RoleListResponse>>(roles.Result);
+            return roles.Map(result);
+        }
+
 
         public async Task<List<UserListResponse>> GetUserByRoleAsync(int roleId)
         {
