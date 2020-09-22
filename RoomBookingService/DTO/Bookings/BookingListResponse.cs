@@ -13,5 +13,6 @@ namespace RoomBookingService.DTO.Bookings
         public DateTime To { get; set; }
         public string MemberName { get; set; }
         public string MemberEmail { get; set; }
+        public string Description { get; set; }
     }
 }
