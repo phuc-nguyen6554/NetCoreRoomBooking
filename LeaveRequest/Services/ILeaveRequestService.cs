@@ -1,4 +1,5 @@
 ﻿using LeaveRequest.DTO.Leave;
+using LeaveRequest.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace LeaveRequest.Services
 {
     public interface ILeaveRequestService
     {
-        Task<List<LeaveRequestResponse>> GetLeaveRequestAsync();
+        Task<List<LeaveRequestResponse>> GetLeaveRequestAsync(LeaveRequestListRequest request);
 
         Task<LeaveRequestCreateResponse> CreateLeaveRequestAsync(LeaveRequestCreateRequest request);
 
