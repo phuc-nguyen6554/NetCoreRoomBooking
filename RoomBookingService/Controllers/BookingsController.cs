@@ -10,6 +10,7 @@ using AutoMapper;
 using RoomBookingService.DTO.Bookings;
 using RoomBookingService.Services;
 using Shared.Exceptions;
+using Shared.Mail;
 
 namespace RoomBookingService.Controllers
 {
@@ -28,6 +29,7 @@ namespace RoomBookingService.Controllers
         [ProducesResponseType(typeof(List<BookingListResponse>), 200)]
         public async Task<IActionResult> GetBookingAsync(/*[FromBody] BookingListRequest request*/)
         {
+            await MailService.SendMail("phucthanh6554@gmail.com", "Test Mail Service", "Hello tui ne");
             return Ok(await _bookingService.GetBookingAsync());
         }
 
