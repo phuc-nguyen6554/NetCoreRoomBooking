@@ -11,7 +11,7 @@ namespace LeaveRequest.Models
 
         public string Name { get; set; }
 
-        public DateTime ?LeaveDates { get; set; }
+        public DateTime LeaveDates { get; set; }
 
         public String LeaveTime { get; set; }
 
