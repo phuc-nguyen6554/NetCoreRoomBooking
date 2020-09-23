@@ -8,6 +8,8 @@ using LeaveRequest.Models;
 using Microsoft.EntityFrameworkCore;
 using Shared;
 using Shared.Cache;
+using Shared.Data;
+using Shared.Exceptions;
 
 namespace LeaveRequest.Services.Implements
 {
@@ -55,6 +57,11 @@ namespace LeaveRequest.Services.Implements
         public async Task DeleteLeaveRequestAsync(int id)
         {
             var leave = await _context.LeaveRequests.FindAsync(id);
+            
+            if (leave.MemberEmail != _cache.Email && _cache.Role != Constrain.AdminRole)
+            {
+                throw new ServiceException(401, "You don't have permission to delete this Booking");
+            }
 
             _context.LeaveRequests.Remove(leave);
             await _context.SaveChangesAsync();
