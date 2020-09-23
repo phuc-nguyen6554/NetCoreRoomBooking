@@ -8821,3 +8821,85 @@ VALUES (N'20200921013941_add-role-table', N'3.1.7');
 2020-09-22 12:15:44.694 +07:00 [INF] Request finished in 68.289ms 200 application/json; charset=utf-8
 2020-09-22 12:15:44.705 +07:00 [INF] requestId: 800000bd-0001-f000-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
 2020-09-22 12:15:44.706 +07:00 [INF] Request finished in 79.7404ms 200 application/json; charset=utf-8
+2020-09-23 15:32:15.479 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-23 15:32:15.518 +07:00 [INF] Hosting environment: Development
+2020-09-23 15:32:15.520 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-23 15:32:15.521 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/rooms  
+2020-09-23 15:32:15.521 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-23 15:32:15.545 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:32:15.545 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:32:15.569 +07:00 [INF] Request finished in 54.2959ms 204 
+2020-09-23 15:32:15.569 +07:00 [INF] Request finished in 54.1813ms 204 
+2020-09-23 15:32:16.191 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-23 15:32:16.192 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:32:16.193 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-23 15:32:16.194 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:32:16.485 +07:00 [INF] requestId: 80000119-0001-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:32:16.485 +07:00 [INF] requestId: 80000093-0002-ef00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:32:21.229 +07:00 [INF] requestId: 80000119-0001-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:32:21.229 +07:00 [INF] requestId: 80000093-0002-ef00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:32:25.751 +07:00 [INF] requestId: 80000093-0002-ef00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-23 15:32:25.791 +07:00 [INF] Request finished in 9597.6259ms 200 application/json; charset=utf-8
+2020-09-23 15:32:26.098 +07:00 [INF] requestId: 80000119-0001-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-23 15:32:26.100 +07:00 [INF] Request finished in 9909.3989ms 200 application/json; charset=utf-8
+2020-09-23 15:35:27.735 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-23 15:35:27.765 +07:00 [INF] Hosting environment: Development
+2020-09-23 15:35:27.767 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-23 15:35:27.766 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/rooms  
+2020-09-23 15:35:27.766 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-23 15:35:27.790 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:35:27.790 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:35:27.813 +07:00 [INF] Request finished in 52.9943ms 204 
+2020-09-23 15:35:27.813 +07:00 [INF] Request finished in 53.0532ms 204 
+2020-09-23 15:35:27.818 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-23 15:35:27.820 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:35:27.821 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-23 15:35:27.821 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:35:27.946 +07:00 [INF] requestId: 800000e2-0002-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:35:27.946 +07:00 [INF] requestId: 800000c3-0002-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:35:31.054 +07:00 [INF] requestId: 800000e2-0002-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:35:31.054 +07:00 [INF] requestId: 800000c3-0002-f200-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:35:45.893 +07:00 [INF] requestId: 800000e2-0002-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-23 15:35:45.928 +07:00 [INF] Request finished in 18106.4827ms 200 application/json; charset=utf-8
+2020-09-23 15:40:15.942 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-23 15:40:15.975 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/rooms  
+2020-09-23 15:40:15.977 +07:00 [INF] Hosting environment: Development
+2020-09-23 15:40:15.976 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-23 15:40:15.978 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-23 15:40:16.000 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:40:16.000 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:40:16.022 +07:00 [INF] Request finished in 52.8221ms 204 
+2020-09-23 15:40:16.022 +07:00 [INF] Request finished in 52.812ms 204 
+2020-09-23 15:40:16.027 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-23 15:40:16.028 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:40:16.037 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-23 15:40:16.042 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:40:16.150 +07:00 [INF] requestId: 80000066-0003-f900-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:40:16.150 +07:00 [INF] requestId: 800000e9-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:40:19.278 +07:00 [INF] requestId: 800000e9-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:40:19.278 +07:00 [INF] requestId: 80000066-0003-f900-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:40:22.890 +07:00 [INF] requestId: 80000066-0003-f900-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-23 15:40:22.926 +07:00 [INF] Request finished in 6898.6625ms 200 application/json; charset=utf-8
+2020-09-23 15:40:24.270 +07:00 [INF] requestId: 800000e9-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-23 15:40:24.273 +07:00 [INF] Request finished in 8236.6146ms 200 application/json; charset=utf-8
+2020-09-23 15:44:50.685 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-23 15:44:50.717 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/rooms  
+2020-09-23 15:44:50.717 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-23 15:44:50.721 +07:00 [INF] Hosting environment: Development
+2020-09-23 15:44:50.721 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-23 15:44:50.741 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:44:50.741 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:44:50.761 +07:00 [INF] Request finished in 48.5979ms 204 
+2020-09-23 15:44:50.761 +07:00 [INF] Request finished in 48.612ms 204 
+2020-09-23 15:44:50.765 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-23 15:44:50.765 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-23 15:44:50.768 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:44:50.768 +07:00 [INF] CORS policy execution successful.
+2020-09-23 15:44:50.881 +07:00 [INF] requestId: 80000057-0000-f400-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:44:50.881 +07:00 [INF] requestId: 800000ec-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-23 15:44:53.846 +07:00 [INF] requestId: 80000057-0000-f400-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:44:53.846 +07:00 [INF] requestId: 800000ec-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-23 15:44:57.483 +07:00 [INF] requestId: 800000ec-0003-f300-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-23 15:44:57.517 +07:00 [INF] Request finished in 6752.0666ms 200 application/json; charset=utf-8
+2020-09-23 15:44:58.066 +07:00 [INF] requestId: 80000057-0000-f400-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-23 15:44:58.068 +07:00 [INF] Request finished in 7302.9636ms 200 application/json; charset=utf-8
