@@ -47,12 +47,26 @@ namespace LeaveRequest.Services.Implements
             
             if (request.LeaveTime != null)
             {
-                leave = await _context.LeaveRequests.Include(b => b.LeaveTypes).Where(x => x.LeaveTime == request.LeaveTime).ToListAsync();
+                if (_cache.Role == Constrain.AdminRole)
+                {
+                    leave = await _context.LeaveRequests.Include(b => b.LeaveTypes).Where(x => x.LeaveTime == request.LeaveTime).ToListAsync();
+                }
+                else
+                {
+                    leave = await _context.LeaveRequests.Include(b => b.LeaveTypes).Where(l => l.MemberEmail == _cache.Email).Where(x => x.LeaveTime == request.LeaveTime).ToListAsync();
+                }
             }
             
             if (request.LeaveTypeId != 0)
             {
-                leave = await _context.LeaveRequests.Include(x => x.LeaveTypes).Where(x => x.LeaveTypeId == request.LeaveTypeId).ToListAsync();
+                if (_cache.Role == Constrain.AdminRole)
+                {
+                    leave = await _context.LeaveRequests.Include(x => x.LeaveTypes).Where(x => x.LeaveTypeId == request.LeaveTypeId).ToListAsync();
+                }
+                else
+                {
+                    leave = await _context.LeaveRequests.Include(x => x.LeaveTypes).Where(l => l.MemberEmail == _cache.Email).Where(x => x.LeaveTypeId == request.LeaveTypeId).ToListAsync();
+                }
             }
             //get all leave type
             if (request.LeaveTypeId == -1)
