@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RoomBookingService.Services;
 using RoomBookingService.Services.Implements;
+using MailService.MailServiceHttp;
 
 namespace RoomBookingService.Extensions
 {
@@ -10,6 +11,7 @@ namespace RoomBookingService.Extensions
         {
             service.AddScoped<IBookingService, BookingService>();
             service.AddScoped<IRoomService, RoomService>();
+            service.AddScoped<IMailHttp, MailHttp>();
         }
     }
 }

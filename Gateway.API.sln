@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBookingService", "RoomB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeaveRequest", "LeaveRequest\LeaveRequest.csproj", "{B88413CD-A2BD-445C-B7E6-128A08235C89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{BA94D4E7-37CA-471C-BBB5-0764F7A1434E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{BA94D4E7-37CA-471C-BBB5-0764F7A1434E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailService", "MailService\MailService.csproj", "{5F134CDB-9AF3-4CFB-9A8C-027F7D228C1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{BA94D4E7-37CA-471C-BBB5-0764F7A1434E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA94D4E7-37CA-471C-BBB5-0764F7A1434E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA94D4E7-37CA-471C-BBB5-0764F7A1434E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F134CDB-9AF3-4CFB-9A8C-027F7D228C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F134CDB-9AF3-4CFB-9A8C-027F7D228C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F134CDB-9AF3-4CFB-9A8C-027F7D228C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F134CDB-9AF3-4CFB-9A8C-027F7D228C1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{34ED7BB6-56F3-486A-97BC-125464A17B40} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
 		{B88413CD-A2BD-445C-B7E6-128A08235C89} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
 		{BA94D4E7-37CA-471C-BBB5-0764F7A1434E} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
+		{5F134CDB-9AF3-4CFB-9A8C-027F7D228C1E} = {1A43403F-CB3E-4B75-8034-0437A84B7818}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C018896-E0B1-4F18-86F8-124427555325}

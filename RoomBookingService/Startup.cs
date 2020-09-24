@@ -12,6 +12,7 @@ using RoomBookingService.Extensions;
 using Shared.Exceptions;
 using Shared.Cache;
 
+
 namespace RoomBookingService
 {
     public class Startup

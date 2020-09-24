@@ -11,6 +11,11 @@ using Shared.Cache;
 using Shared.Exceptions;
 using Shared.Data;
 using Shared.Extensions;
+using Shared.RabbitQueue;
+using MailService.MailServiceHttp;
+using MailService.DTO;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace RoomBookingService.Services.Implements
 {
@@ -19,12 +24,14 @@ namespace RoomBookingService.Services.Implements
         private readonly BookingServiceContext _context;
         private readonly IMapper _mapper;
         private readonly IScopedCache _cache;
+        private readonly IMailHttp _mail;
 
-        public BookingService(BookingServiceContext context, IMapper mapper, IScopedCache cache)
+        public BookingService(BookingServiceContext context, IMapper mapper, IScopedCache cache, IMailHttp mail)
         {
             _context = context;
             _mapper = mapper;
             _cache = cache;
+            _mail = mail;
         }
 
         public async Task<List<BookingListResponse>> GetBookingAsync(/*BookingListRequest request*/)
@@ -34,6 +41,9 @@ namespace RoomBookingService.Services.Implements
                 .Where(b => b.To.CompareTo(DateTime.Now) > 0)
                 .OrderBy(b => b.From)
                 .ToListAsync();
+            RabbitSender sender = new RabbitSender();
+            sender.Send("hello", "Hello I am testing rabbit");
+            //await _mail.SendMailAsync(new SingleMailRequest { Email = "phuc.nguyen@siliconstack.com.au", Subject = "Test Rabbit", Content = "Hello Rabbit "});
             return _mapper.Map<List<BookingListResponse>>(bookings);
         }
 
@@ -117,6 +127,26 @@ namespace RoomBookingService.Services.Implements
             }
 
             return ExistedBookings.Count > 0;
+        }
+
+        private void TestRabbit()
+        {
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using var connection = factory.CreateConnection();
+            using var channel = connection.CreateModel();
+            channel.QueueDeclare(queue: "hello",
+                         durable: false,
+                         exclusive: false,
+                         autoDelete: false,
+                         arguments: null);
+
+            string message = "Hello World!";
+            var body = Encoding.UTF8.GetBytes(message);
+
+            channel.BasicPublish(exchange: "",
+                                 routingKey: "hello",
+                                 basicProperties: null,
+                                 body: body);
         }
 
     }
