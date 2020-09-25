@@ -9784,3 +9784,471 @@ VALUES (N'20200921013941_add-role-table', N'3.1.7');
 2020-09-25 11:01:36.445 +07:00 [INF] requestId: 8000011c-0001-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
 2020-09-25 11:02:08.272 +07:00 [INF] requestId: 8000011c-0001-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
 2020-09-25 11:02:08.319 +07:00 [INF] Request finished in 34919.1553ms 200 application/json; charset=utf-8
+2020-09-25 13:01:31.741 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'IdentityContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:01:59.187 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'IdentityContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:01:59.577 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:01:59.608 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:01:59.611 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:01:59.613 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:01:59.635 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:01:59.655 +07:00 [INF] Applying migration '20200925060131_addTablePrefix'.
+2020-09-25 13:01:59.709 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [UserData] DROP CONSTRAINT [FK_UserData_Roles_RoleId];
+2020-09-25 13:01:59.834 +07:00 [INF] Executed DbCommand (124ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [UserData] DROP CONSTRAINT [PK_UserData];
+2020-09-25 13:01:59.867 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Roles] DROP CONSTRAINT [PK_Roles];
+2020-09-25 13:02:00.612 +07:00 [INF] Executed DbCommand (745ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[UserData]', N'ID_Users';
+2020-09-25 13:02:00.625 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Roles]', N'ID_Roles';
+2020-09-25 13:02:00.627 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[ID_Users].[IX_UserData_RoleId]', N'IX_ID_Users_RoleId', N'INDEX';
+2020-09-25 13:02:00.679 +07:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ID_Users] ADD CONSTRAINT [PK_ID_Users] PRIMARY KEY ([Id]);
+2020-09-25 13:02:00.704 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ID_Roles] ADD CONSTRAINT [PK_ID_Roles] PRIMARY KEY ([Id]);
+2020-09-25 13:02:00.710 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ID_Users] ADD CONSTRAINT [FK_ID_Users_ID_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [ID_Roles] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:02:00.723 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200925060131_addTablePrefix', N'3.1.8');
+2020-09-25 13:04:00.749 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'LeaveRequestServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:04:09.049 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'LeaveRequestServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:04:09.367 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:04:09.395 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:04:09.398 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:04:09.399 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:04:09.417 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:04:09.436 +07:00 [INF] Applying migration '20200925060400_addTablePrefix'.
+2020-09-25 13:04:09.498 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [leaveTypes] DROP CONSTRAINT [PK_leaveTypes];
+2020-09-25 13:04:09.523 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [leaveRequests] DROP CONSTRAINT [PK_leaveRequests];
+2020-09-25 13:04:10.192 +07:00 [INF] Executed DbCommand (669ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[leaveTypes]', N'LR_LeaveTypes';
+2020-09-25 13:04:10.217 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[leaveRequests]', N'LR_LeaveRequests';
+2020-09-25 13:04:10.265 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [LR_LeaveTypes] ADD CONSTRAINT [PK_LR_LeaveTypes] PRIMARY KEY ([Id]);
+2020-09-25 13:04:10.291 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [LR_LeaveRequests] ADD CONSTRAINT [PK_LR_LeaveRequests] PRIMARY KEY ([Id]);
+2020-09-25 13:04:10.317 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_LR_LeaveRequests_LeaveTypeId] ON [LR_LeaveRequests] ([LeaveTypeId]);
+2020-09-25 13:04:10.321 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [LR_LeaveRequests] ADD CONSTRAINT [FK_LR_LeaveRequests_LR_LeaveTypes_LeaveTypeId] FOREIGN KEY ([LeaveTypeId]) REFERENCES [LR_LeaveTypes] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:04:10.324 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200925060400_addTablePrefix', N'3.1.8');
+2020-09-25 13:05:49.811 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:06:09.982 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:06:10.305 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:06:10.342 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:06:10.345 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:06:10.346 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:06:10.375 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:06:10.397 +07:00 [INF] Applying migration '20200925060550_addTablePrefix'.
+2020-09-25 13:06:10.507 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [FK_bookings_rooms_RoomID];
+2020-09-25 13:06:10.563 +07:00 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [rooms] DROP CONSTRAINT [PK_rooms];
+2020-09-25 13:06:10.613 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [PK_bookings];
+2020-09-25 13:06:10.786 +07:00 [INF] Executed DbCommand (172ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[rooms]', N'BR_Rooms';
+2020-09-25 13:06:10.915 +07:00 [INF] Executed DbCommand (128ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[bookings]', N'BR_Bookings';
+2020-09-25 13:06:10.940 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[RoomID]', N'RoomId', N'COLUMN';
+2020-09-25 13:06:10.943 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[IX_bookings_RoomID]', N'IX_BR_Bookings_RoomId', N'INDEX';
+2020-09-25 13:06:10.957 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Rooms] ADD CONSTRAINT [PK_BR_Rooms] PRIMARY KEY ([Id]);
+2020-09-25 13:06:11.005 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Bookings] ADD CONSTRAINT [PK_BR_Bookings] PRIMARY KEY ([Id]);
+2020-09-25 13:06:11.070 +07:00 [ERR] Failed executing DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] ON;
+INSERT INTO [BR_Rooms] ([Id], [RoomName])
+VALUES (1, N'Meeting Room');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] OFF;
+2020-09-25 13:06:52.380 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:06:52.674 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:06:52.701 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:06:52.704 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:06:52.705 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:06:52.724 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:06:52.745 +07:00 [INF] Applying migration '20200925060550_addTablePrefix'.
+2020-09-25 13:06:52.795 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [FK_bookings_rooms_RoomID];
+2020-09-25 13:06:52.797 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [rooms] DROP CONSTRAINT [PK_rooms];
+2020-09-25 13:07:15.558 +07:00 [INF] Executed DbCommand (22,759ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [PK_bookings];
+2020-09-25 13:07:15.716 +07:00 [INF] Executed DbCommand (156ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[rooms]', N'BR_Rooms';
+2020-09-25 13:07:15.718 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[bookings]', N'BR_Bookings';
+2020-09-25 13:07:15.719 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[RoomID]', N'RoomId', N'COLUMN';
+2020-09-25 13:07:15.895 +07:00 [INF] Executed DbCommand (176ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[IX_bookings_RoomID]', N'IX_BR_Bookings_RoomId', N'INDEX';
+2020-09-25 13:07:15.899 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Rooms] ADD CONSTRAINT [PK_BR_Rooms] PRIMARY KEY ([Id]);
+2020-09-25 13:07:15.903 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Bookings] ADD CONSTRAINT [PK_BR_Bookings] PRIMARY KEY ([Id]);
+2020-09-25 13:07:15.916 +07:00 [ERR] Failed executing DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] ON;
+INSERT INTO [BR_Rooms] ([Id], [RoomName])
+VALUES (1, N'Meeting Room');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] OFF;
+2020-09-25 13:08:09.230 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:08:09.529 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:08:09.559 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:08:09.562 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:08:09.563 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:08:09.581 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:08:09.603 +07:00 [INF] Applying migration '20200925060550_addTablePrefix'.
+2020-09-25 13:08:09.711 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [FK_bookings_rooms_RoomID];
+2020-09-25 13:08:09.768 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [rooms] DROP CONSTRAINT [PK_rooms];
+2020-09-25 13:08:18.048 +07:00 [INF] Executed DbCommand (8,278ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [PK_bookings];
+2020-09-25 13:08:18.371 +07:00 [INF] Executed DbCommand (322ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[rooms]', N'BR_Rooms';
+2020-09-25 13:08:18.373 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[bookings]', N'BR_Bookings';
+2020-09-25 13:08:18.396 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[RoomID]', N'RoomId', N'COLUMN';
+2020-09-25 13:08:18.539 +07:00 [INF] Executed DbCommand (143ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[IX_bookings_RoomID]', N'IX_BR_Bookings_RoomId', N'INDEX';
+2020-09-25 13:08:18.572 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Rooms] ADD CONSTRAINT [PK_BR_Rooms] PRIMARY KEY ([Id]);
+2020-09-25 13:08:18.601 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Bookings] ADD CONSTRAINT [PK_BR_Bookings] PRIMARY KEY ([Id]);
+2020-09-25 13:08:18.638 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] ON;
+INSERT INTO [BR_Rooms] ([Id], [RoomName])
+VALUES (1, N'Meeting Room');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] OFF;
+2020-09-25 13:08:18.651 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Bookings] ADD CONSTRAINT [FK_BR_Bookings_BR_Rooms_RoomId] FOREIGN KEY ([RoomId]) REFERENCES [BR_Rooms] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:08:18.674 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200925060550_addTablePrefix', N'3.1.8');
+2020-09-25 13:11:24.870 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-25 13:11:24.936 +07:00 [INF] Hosting environment: Development
+2020-09-25 13:11:24.938 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-25 13:11:24.947 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-25 13:11:24.950 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/rooms  
+2020-09-25 13:11:24.977 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:11:24.978 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:11:25.010 +07:00 [INF] Request finished in 67.0756ms 204 
+2020-09-25 13:11:25.010 +07:00 [INF] Request finished in 64.399ms 204 
+2020-09-25 13:11:25.014 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-25 13:11:25.014 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-25 13:11:25.020 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:11:25.025 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:11:25.310 +07:00 [INF] requestId: 80000134-0002-fb00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:11:25.310 +07:00 [INF] requestId: 80000180-0000-ef00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:11:26.679 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-25 13:11:26.681 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:11:26.684 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-25 13:11:26.685 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:11:26.685 +07:00 [INF] requestId: 800000d9-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:11:26.686 +07:00 [INF] requestId: 800000ce-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:11:30.750 +07:00 [INF] requestId: 80000180-0000-ef00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:11:30.750 +07:00 [INF] requestId: 80000134-0002-fb00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:11:30.751 +07:00 [INF] requestId: 800000ce-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:11:30.751 +07:00 [INF] requestId: 800000d9-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:11:34.919 +07:00 [INF] requestId: 80000180-0000-ef00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-25 13:11:34.919 +07:00 [INF] requestId: 800000ce-0002-f800-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-25 13:11:34.959 +07:00 [INF] Request finished in 9944.9266ms 200 application/json; charset=utf-8
+2020-09-25 13:11:34.959 +07:00 [INF] Request finished in 8275.8569ms 200 application/json; charset=utf-8
+2020-09-25 13:12:00.895 +07:00 [INF] requestId: 800000d9-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-25 13:12:00.914 +07:00 [INF] Request finished in 34235.4926ms 200 application/json; charset=utf-8
+2020-09-25 13:12:00.916 +07:00 [INF] requestId: 80000134-0002-fb00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-25 13:12:00.922 +07:00 [INF] Request finished in 35907.729ms 200 application/json; charset=utf-8
+2020-09-25 13:12:15.353 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/bookings  
+2020-09-25 13:12:15.354 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:12:15.356 +07:00 [INF] Request finished in 2.5344ms 204 
+2020-09-25 13:12:15.364 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:2000/bookings/bookings application/json 126
+2020-09-25 13:12:15.365 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:12:15.371 +07:00 [INF] requestId: 800000c8-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:12:15.403 +07:00 [INF] requestId: 800000c8-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:12:16.068 +07:00 [INF] requestId: 800000c8-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-25 13:12:16.071 +07:00 [INF] Request finished in 708.6602ms 200 application/json; charset=utf-8
+2020-09-25 13:12:16.113 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-25 13:12:16.114 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:12:16.116 +07:00 [INF] requestId: 800000c9-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:12:16.147 +07:00 [INF] requestId: 800000c9-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:12:16.732 +07:00 [INF] requestId: 800000c9-0003-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
+2020-09-25 13:12:16.734 +07:00 [INF] Request finished in 621.2249ms 200 application/json; charset=utf-8
+2020-09-25 13:12:19.370 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 
+2020-09-25 13:12:19.371 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:12:19.372 +07:00 [INF] requestId: 80000010-0000-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:12:19.540 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:2000/bookings/rooms  
+2020-09-25 13:12:19.542 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:12:19.555 +07:00 [INF] Request finished in 19.5259ms 204 
+2020-09-25 13:12:19.645 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/rooms application/json 
+2020-09-25 13:12:19.646 +07:00 [INF] CORS policy execution successful.
+2020-09-25 13:12:19.647 +07:00 [INF] requestId: 8000019b-0001-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-25 13:12:19.844 +07:00 [INF] requestId: 80000010-0000-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:12:19.869 +07:00 [INF] requestId: 8000019b-0001-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-25 13:12:19.885 +07:00 [INF] requestId: 8000019b-0001-f600-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/rooms
+2020-09-25 13:12:19.887 +07:00 [INF] Request finished in 241.1584ms 200 application/json; charset=utf-8
+2020-09-25 13:17:40.727 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'IdentityContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:17:41.240 +07:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:17:41.276 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:17:41.283 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:17:41.398 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2020-09-25 13:17:41.422 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:17:41.458 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:17:41.485 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:17:41.506 +07:00 [INF] Applying migration '20200821022811_Initial'.
+2020-09-25 13:17:41.551 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserData] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [Avatar] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserData] PRIMARY KEY ([Id])
+);
+2020-09-25 13:17:41.558 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200821022811_Initial', N'3.1.8');
+2020-09-25 13:17:41.569 +07:00 [INF] Applying migration '20200921013941_add-role-table'.
+2020-09-25 13:17:41.640 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [UserData] ADD [RoleId] int NOT NULL DEFAULT 0;
+2020-09-25 13:17:41.665 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Roles] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleName] nvarchar(max) NULL,
+    [Description] nvarchar(max) NULL,
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([Id])
+);
+2020-09-25 13:17:41.718 +07:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'RoleName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] ON;
+INSERT INTO [Roles] ([Id], [Description], [RoleName])
+VALUES (1, N'Admin Role', N'Admin');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'RoleName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] OFF;
+2020-09-25 13:17:41.736 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'RoleName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] ON;
+INSERT INTO [Roles] ([Id], [Description], [RoleName])
+VALUES (2, N'Employee Role', N'Employee');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'RoleName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] OFF;
+2020-09-25 13:17:41.742 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserData_RoleId] ON [UserData] ([RoleId]);
+2020-09-25 13:17:41.749 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [UserData] ADD CONSTRAINT [FK_UserData_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:17:41.755 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200921013941_add-role-table', N'3.1.8');
+2020-09-25 13:17:41.764 +07:00 [INF] Applying migration '20200925060131_addTablePrefix'.
+2020-09-25 13:17:41.808 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [UserData] DROP CONSTRAINT [FK_UserData_Roles_RoleId];
+2020-09-25 13:17:41.824 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [UserData] DROP CONSTRAINT [PK_UserData];
+2020-09-25 13:17:41.839 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Roles] DROP CONSTRAINT [PK_Roles];
+2020-09-25 13:17:41.997 +07:00 [INF] Executed DbCommand (158ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[UserData]', N'ID_Users';
+2020-09-25 13:17:42.009 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Roles]', N'ID_Roles';
+2020-09-25 13:17:42.025 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[ID_Users].[IX_UserData_RoleId]', N'IX_ID_Users_RoleId', N'INDEX';
+2020-09-25 13:17:42.038 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ID_Users] ADD CONSTRAINT [PK_ID_Users] PRIMARY KEY ([Id]);
+2020-09-25 13:17:42.067 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ID_Roles] ADD CONSTRAINT [PK_ID_Roles] PRIMARY KEY ([Id]);
+2020-09-25 13:17:42.078 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ID_Users] ADD CONSTRAINT [FK_ID_Users_ID_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [ID_Roles] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:17:42.086 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200925060131_addTablePrefix', N'3.1.8');
+2020-09-25 13:18:06.798 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'LeaveRequestServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:18:07.127 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:18:07.156 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:18:07.163 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:18:07.170 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:18:07.194 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:18:07.213 +07:00 [INF] Applying migration '20200908081131_add-leave-request'.
+2020-09-25 13:18:07.265 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [leaveRequests] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [LeaveDates] datetime2 NOT NULL,
+    [LeaveTime] nvarchar(max) NULL,
+    [LeaveTypeId] int NOT NULL,
+    [Reason] nvarchar(max) NULL,
+    [MemberName] nvarchar(max) NULL,
+    [MemberEmail] nvarchar(max) NULL,
+    CONSTRAINT [PK_leaveRequests] PRIMARY KEY ([Id])
+);
+2020-09-25 13:18:07.273 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [leaveTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    CONSTRAINT [PK_leaveTypes] PRIMARY KEY ([Id])
+);
+2020-09-25 13:18:07.280 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200908081131_add-leave-request', N'3.1.8');
+2020-09-25 13:18:07.290 +07:00 [INF] Applying migration '20200925060400_addTablePrefix'.
+2020-09-25 13:18:07.344 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [leaveTypes] DROP CONSTRAINT [PK_leaveTypes];
+2020-09-25 13:18:07.357 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [leaveRequests] DROP CONSTRAINT [PK_leaveRequests];
+2020-09-25 13:18:07.381 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[leaveTypes]', N'LR_LeaveTypes';
+2020-09-25 13:18:07.393 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[leaveRequests]', N'LR_LeaveRequests';
+2020-09-25 13:18:07.407 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [LR_LeaveTypes] ADD CONSTRAINT [PK_LR_LeaveTypes] PRIMARY KEY ([Id]);
+2020-09-25 13:18:07.418 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [LR_LeaveRequests] ADD CONSTRAINT [PK_LR_LeaveRequests] PRIMARY KEY ([Id]);
+2020-09-25 13:18:07.436 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_LR_LeaveRequests_LeaveTypeId] ON [LR_LeaveRequests] ([LeaveTypeId]);
+2020-09-25 13:18:07.449 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [LR_LeaveRequests] ADD CONSTRAINT [FK_LR_LeaveRequests_LR_LeaveTypes_LeaveTypeId] FOREIGN KEY ([LeaveTypeId]) REFERENCES [LR_LeaveTypes] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:18:07.467 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200925060400_addTablePrefix', N'3.1.8');
+2020-09-25 13:18:16.141 +07:00 [INF] Entity Framework Core 3.1.8 initialized 'BookingServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-09-25 13:18:16.507 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:18:16.542 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:18:16.553 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2020-09-25 13:18:16.561 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2020-09-25 13:18:16.589 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2020-09-25 13:18:16.611 +07:00 [INF] Applying migration '20200819063035_BookingInit'.
+2020-09-25 13:18:16.684 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [rooms] (
+    [Id] int NOT NULL IDENTITY,
+    [RoomName] nvarchar(max) NULL,
+    CONSTRAINT [PK_rooms] PRIMARY KEY ([Id])
+);
+2020-09-25 13:18:16.695 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [bookings] (
+    [Id] int NOT NULL IDENTITY,
+    [RoomID] int NOT NULL,
+    [MemberName] nvarchar(max) NULL,
+    [MemberEmail] nvarchar(max) NULL,
+    [From] datetime2 NOT NULL,
+    [To] datetime2 NOT NULL,
+    CONSTRAINT [PK_bookings] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_bookings_rooms_RoomID] FOREIGN KEY ([RoomID]) REFERENCES [rooms] ([Id]) ON DELETE CASCADE
+);
+2020-09-25 13:18:16.700 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_bookings_RoomID] ON [bookings] ([RoomID]);
+2020-09-25 13:18:16.706 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200819063035_BookingInit', N'3.1.8');
+2020-09-25 13:18:16.719 +07:00 [INF] Applying migration '20200819063219_AddDescriptionColumn'.
+2020-09-25 13:18:16.740 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] ADD [Description] nvarchar(max) NULL;
+2020-09-25 13:18:16.746 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200819063219_AddDescriptionColumn', N'3.1.8');
+2020-09-25 13:18:16.751 +07:00 [INF] Applying migration '20200925060550_addTablePrefix'.
+2020-09-25 13:18:16.791 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [FK_bookings_rooms_RoomID];
+2020-09-25 13:18:16.801 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [rooms] DROP CONSTRAINT [PK_rooms];
+2020-09-25 13:18:16.817 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [bookings] DROP CONSTRAINT [PK_bookings];
+2020-09-25 13:18:16.825 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[rooms]', N'BR_Rooms';
+2020-09-25 13:18:16.831 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[bookings]', N'BR_Bookings';
+2020-09-25 13:18:16.840 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[RoomID]', N'RoomId', N'COLUMN';
+2020-09-25 13:18:16.856 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[BR_Bookings].[IX_bookings_RoomID]', N'IX_BR_Bookings_RoomId', N'INDEX';
+2020-09-25 13:18:16.870 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Rooms] ADD CONSTRAINT [PK_BR_Rooms] PRIMARY KEY ([Id]);
+2020-09-25 13:18:16.883 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Bookings] ADD CONSTRAINT [PK_BR_Bookings] PRIMARY KEY ([Id]);
+2020-09-25 13:18:16.905 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] ON;
+INSERT INTO [BR_Rooms] ([Id], [RoomName])
+VALUES (1, N'Meeting Room');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'RoomName') AND [object_id] = OBJECT_ID(N'[BR_Rooms]'))
+    SET IDENTITY_INSERT [BR_Rooms] OFF;
+2020-09-25 13:18:16.913 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [BR_Bookings] ADD CONSTRAINT [FK_BR_Bookings_BR_Rooms_RoomId] FOREIGN KEY ([RoomId]) REFERENCES [BR_Rooms] ([Id]) ON DELETE CASCADE;
+2020-09-25 13:18:16.922 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200925060550_addTablePrefix', N'3.1.8');

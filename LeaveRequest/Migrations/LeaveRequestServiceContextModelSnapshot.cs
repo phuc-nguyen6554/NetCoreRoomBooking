@@ -15,7 +15,7 @@ namespace LeaveRequest.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -31,7 +31,7 @@ namespace LeaveRequest.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("leaveTypes");
+                    b.ToTable("LR_LeaveTypes");
                 });
 
             modelBuilder.Entity("LeaveRequest.Models.Request", b =>
@@ -64,7 +64,18 @@ namespace LeaveRequest.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("leaveRequests");
+                    b.HasIndex("LeaveTypeId");
+
+                    b.ToTable("LR_LeaveRequests");
+                });
+
+            modelBuilder.Entity("LeaveRequest.Models.Request", b =>
+                {
+                    b.HasOne("LeaveRequest.Models.LeaveType", "LeaveTypes")
+                        .WithMany("Requests")
+                        .HasForeignKey("LeaveTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

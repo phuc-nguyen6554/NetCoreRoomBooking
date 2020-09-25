@@ -31,7 +31,7 @@ namespace MailService
             
             services.AddControllers();
             services.RegisterServiceException();
-            services.AddHostedService<MailQueueService>();
+            //services.AddHostedService<MailQueueService>();
         }
 
         public void sendMail(string message)
