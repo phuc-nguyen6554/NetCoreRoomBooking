@@ -27,7 +27,7 @@ namespace MailService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IMailService, MailJetService>();
+            services.AddScoped<IMailService, SendGridService>();
             
             services.AddControllers();
             services.RegisterServiceException();

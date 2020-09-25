@@ -7,6 +7,7 @@ using Mailjet.Client;
 using Mailjet.Client.Resources;
 using Newtonsoft.Json.Linq;
 using Shared.Exceptions;
+using Shared.Data;
 using MailService.DTO;
 
 namespace MailService.Services.Implement
@@ -62,7 +63,44 @@ namespace MailService.Services.Implement
             await SendProccess(request);
         }
 
-        
+        public async Task SendMailAsync(MailRequest mailRequest)
+        {
+            MailjetRequest request = new MailjetRequest
+            {
+                Resource = Send.Resource
+            }.Property(Send.Messages, new JArray {
+                new JObject{
+                    {
+                        "From", new JObject {
+                            {"Email", "phuc.nguyen@siliconstack.com.au" }
+                        }
+                    },
+                    {
+                        "To",
+                        new JArray
+                        {
+                            new JObject{
+                                {"Email", mailRequest.Email }
+                            }
+                        }
+                    },
+                    {
+                        "Cc",
+                        CreateArray("Email", mailRequest.Cc.ToArray())
+                    },
+                    {
+                        "Subject", mailRequest.Subject
+                    },
+                    {
+                        "TextPart", mailRequest.Content
+                    }
+                },
+
+            });
+            await SendProccess(request);
+        }
+
+
 
         public async Task SendMailAsync(MulitpleMailRequest mailRequest)
         {

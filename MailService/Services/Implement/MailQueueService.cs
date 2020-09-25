@@ -2,6 +2,8 @@
 using System;
 using System.Threading.Tasks;
 using Shared.RabbitQueue;
+using Shared.Data;
+using Newtonsoft.Json;
 
 namespace MailService.Services.Implement
 {
@@ -17,14 +19,15 @@ namespace MailService.Services.Implement
 
         public override async Task HandleWork(string message)
         {
+            var json = JsonConvert.DeserializeObject<MailRequest>(message);
             using (var scoped = _provider.CreateScope())
             {
                 var mailService = scoped.ServiceProvider.GetRequiredService<IMailService>();
                 await mailService.SendMailAsync(new DTO.SingleMailRequest
                 {
-                    Email = "phuc.nguyen@siliconstack.com.au",
-                    Subject = "Test Rabbit",
-                    Content = "Hello Rabbit edited version " + message
+                    Email = json.Email,
+                    Subject = json.Subject,
+                    Content = json.Content
                 });
             }
         }

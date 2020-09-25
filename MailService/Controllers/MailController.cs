@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MailService.DTO;
 using MailService.Services;
+using Shared.Data;
 
 namespace MailService.Controllers
 {
@@ -21,7 +22,7 @@ namespace MailService.Controllers
         }
 
         [HttpPost]
-        public async Task SendMail(SingleMailRequest request)
+        public async Task SendMail(MailRequest request)
         {
             await _service.SendMailAsync(request);
         }

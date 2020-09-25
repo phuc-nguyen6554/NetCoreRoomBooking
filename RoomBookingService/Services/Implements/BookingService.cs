@@ -12,10 +12,12 @@ using Shared.Exceptions;
 using Shared.Data;
 using Shared.Extensions;
 using Shared.RabbitQueue;
+using Shared.HttpService;
 using MailService.MailServiceHttp;
 using MailService.DTO;
 using RabbitMQ.Client;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace RoomBookingService.Services.Implements
 {
@@ -42,8 +44,10 @@ namespace RoomBookingService.Services.Implements
                 .OrderBy(b => b.From)
                 .ToListAsync();
             RabbitSender sender = new RabbitSender();
-            sender.Send("hello", "Hello I am testing rabbit");
-            //await _mail.SendMailAsync(new SingleMailRequest { Email = "phuc.nguyen@siliconstack.com.au", Subject = "Test Rabbit", Content = "Hello Rabbit "});
+            HttpClientService client = new HttpClientService();
+
+            var json = JsonConvert.SerializeObject(new MailRequest { Email = "phuc.nguyen@siliconstack.com.au", Subject = "Test", Content = "abcd" });
+            await client.Post("http://localhost:5000/mails", json);
             return _mapper.Map<List<BookingListResponse>>(bookings);
         }
 

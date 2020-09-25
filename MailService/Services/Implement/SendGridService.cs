@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SendGrid;
 using Microsoft.Extensions.Configuration;
 using SendGrid.Helpers.Mail;
+using Shared.Data;
 
 namespace MailService.Services.Implement
 {
@@ -17,7 +18,8 @@ namespace MailService.Services.Implement
         public SendGridService(IConfiguration configuration)
         {
             _configuration = configuration;
-            _client = new SendGridClient(_configuration["SendGrid:SecretKey"]);
+            var secretKey = _configuration["SendGrid:SecretKey"];
+            _client = new SendGridClient(secretKey);
         }
         public async Task SendMailAsync(SingleMailRequest request)
         {
@@ -28,14 +30,41 @@ namespace MailService.Services.Implement
                 HtmlContent = request.Content
             };
 
-            message.AddTo(request.Email);
+            message.AddTo(new EmailAddress(request.Email));
 
             List<EmailAddress> Ccs = new List<EmailAddress>();
-            foreach(var cc in request.Cc)
+            if(request.Cc != null)
             {
-                Ccs.Add(new EmailAddress(cc));
+                foreach (var cc in request.Cc)
+                {
+                    Ccs.Add(new EmailAddress(cc));
+                }
+                message.AddCcs(Ccs);
             }
-            message.AddCcs(Ccs);
+
+            await _client.SendEmailAsync(message).ConfigureAwait(false);
+        }
+
+        public async Task SendMailAsync(MailRequest request)
+        {
+            var message = new SendGridMessage
+            {
+                From = new EmailAddress("phuc.nguyen@siliconstack.com.au"),
+                Subject = request.Subject,
+                HtmlContent = request.Content
+            };
+
+            message.AddTo(new EmailAddress(request.Email));
+
+            List<EmailAddress> Ccs = new List<EmailAddress>();
+            if (request.Cc.Count > 0)
+            {
+                foreach (var cc in request.Cc)
+                {
+                    Ccs.Add(new EmailAddress(cc));
+                }
+                message.AddCcs(Ccs);
+            }
 
             await _client.SendEmailAsync(message).ConfigureAwait(false);
         }
@@ -58,11 +87,14 @@ namespace MailService.Services.Implement
             message.AddTos(emailAddresses);
 
             List<EmailAddress> Ccs = new List<EmailAddress>();
-            foreach (var cc in request.Cc)
+            if(request.Cc != null)
             {
-                Ccs.Add(new EmailAddress(cc));
+                foreach (var cc in request.Cc)
+                {
+                    Ccs.Add(new EmailAddress(cc));
+                }
+                message.AddCcs(Ccs);
             }
-            message.AddCcs(Ccs);
 
             await _client.SendEmailAsync(message).ConfigureAwait(false);
         }
