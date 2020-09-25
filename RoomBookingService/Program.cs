@@ -27,6 +27,8 @@ namespace RoomBookingService
                 .ConfigureLogging(HostBuilderExtensions.ConfigureLogging)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseKestrel();
+                    webBuilder.UseIISIntegration();
                     webBuilder.UseStartup<Startup>();
                 });
     }

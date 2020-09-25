@@ -11,6 +11,7 @@ using AutoMapper;
 using LeaveRequest.Services.Implements;
 using LeaveRequest.Services;
 using Shared.Cache;
+using Shared.Consul;
 
 namespace LeaveRequest
 {
@@ -46,6 +47,8 @@ namespace LeaveRequest
 
             services.AddScopedCacheService();
             services.AddScoped<ILeaveRequestService,LeaveRequestService>();
+            services.RegisterConsul();
+
             services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
@@ -66,6 +69,7 @@ namespace LeaveRequest
             app.UseScopedCacheMiddleware();
 
             app.UseSerilogMiddleware();
+            app.UseConsul("SS_Portal_LeaveRequest_ID", "SS_Portal_LeaveRequest");
 
             app.UseSwaggerUI(c =>
             {

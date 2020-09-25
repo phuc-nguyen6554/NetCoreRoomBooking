@@ -2,28 +2,18 @@
   "Routes": [
     // Leave Request Service
     {
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 2002
-        }
-      ],
-      "DownstreamPathTemplate": "/{any}",
       "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/{any}",
       "SwaggerKey": "leaving",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-      "UpstreamPathTemplate": "/leaves/{any}"
+      "UpstreamPathTemplate": "/leaves/{any}",
+      "ServiceName": "SS_Portal_LeaveRequest"
     },
     // Identity Service
     {
-      "DownstreamPathTemplate": "/identities/login",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 2001
-        }
-      ],
+      "DownstreamPathTemplate": "/identities/login",
+      "ServiceName": "SS_Portal_Identity",
       "UpstreamPathTemplate": "/login",
       "UpstreamHttpMethod": [ "POST" ],
       "SwaggerKey": "auth",
@@ -31,14 +21,9 @@
     },
 
     {
-      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 2001
-        }
-      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "ServiceName": "SS_Portal_Identity",
       "UpstreamPathTemplate": "/identities/{everything}",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "auth"
@@ -48,13 +33,7 @@
     {
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
-      "ServiceName": "booking",
-      //"DownstreamHostAndPorts": [
-      //  {
-      //    "Host": "localhost",
-      //    "Port": 2003
-      //  }
-      //],
+      "ServiceName": "SS_Portal_Booking",
       "UpstreamPathTemplate": "/bookings/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"

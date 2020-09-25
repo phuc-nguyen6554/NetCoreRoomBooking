@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Shared.Serilog;
 using Shared.Exceptions;
 using Shared.Cache;
+using Shared.Consul;
 using Identity.Extensions;
 
 namespace Identity
@@ -38,6 +39,7 @@ namespace Identity
             services.AddSerilogMiddleware();
             services.RegisterServiceException();
             services.AddScopedCacheService();
+            services.RegisterConsul();
 
             services.AddControllers().AddNewtonsoftJson();
             
@@ -68,6 +70,8 @@ namespace Identity
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseConsul("SS_Portal_Identity_ID", "SS_Portal_Identity");
 
             app.UseEndpoints(endpoints =>
             {
