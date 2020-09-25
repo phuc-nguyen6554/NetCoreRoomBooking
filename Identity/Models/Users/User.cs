@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Identity.Models.Users
 {
+    [Table("ID_Users")]
     public class User
     {
         public int Id { get; set; }

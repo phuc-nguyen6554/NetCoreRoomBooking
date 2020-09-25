@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace RoomBookingService.Models.Bookings
 {
+    [Table("BR_Bookings")]
     public class Booking
     {
        
