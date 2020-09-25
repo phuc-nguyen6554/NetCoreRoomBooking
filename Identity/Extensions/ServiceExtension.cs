@@ -1,4 +1,5 @@
 ﻿using Identity.Services;
+using Identity.Services.Implements;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,7 @@ namespace Identity.Extensions
         public static void ConfigureService(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
         }
         public static void ConfigureSwagger(this IServiceCollection services)
         {

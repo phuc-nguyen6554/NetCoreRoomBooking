@@ -5,6 +5,7 @@ using Identity.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Shared.Data;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -29,15 +30,23 @@ namespace Identity.Services
 
         public async Task<UserDetailResponse> FindOrAddUserAsync(UserCreateRequest request)
         {
-            var user = await _context.UserData.Where(x => x.Email == request.Email).FirstOrDefaultAsync();
+            var user = await _context.UserData
+                .Where(x => x.Email == request.Email)
+                .FirstOrDefaultAsync();
 
             if(user == null)
             {
+                var employeeRole = await _context.Roles
+                    .Where(x => x.RoleName == Constrain.EmployeeRole)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
                 user = new User
                 {
                     Email = request.Email,
                     Name = request.Name,
-                    Avatar = request.Avatar
+                    Avatar = request.Avatar,
+                    RoleId = employeeRole.Id
                 };
 
                 _context.UserData.Add(user);
@@ -59,11 +68,14 @@ namespace Identity.Services
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            var userData =  _context.UserData.Where(x => x.Email == user.Email).Include(x => x.Role).First();
+
             var authClaim = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim("Avatar", user.Avatar)
+                    new Claim("Avatar", user.Avatar),
+                    new Claim(ClaimTypes.Role, userData.Role.RoleName)
                 };
 
             var token = new JwtSecurityToken(

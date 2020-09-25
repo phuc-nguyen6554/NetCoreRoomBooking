@@ -1,22 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Ocelot.Middleware;
 using Serilog;
 using Shared.Cache;
 using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Security.Claims;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Shared.HttpService;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Gateway.OcelotAuth
 {
@@ -75,10 +66,12 @@ namespace Gateway.OcelotAuth
                         var body = await response.Content.ReadAsStringAsync();
                         var user = JsonConvert.DeserializeObject<User>(body);
 
-                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Username", user.Name);
+                        // Header doesn't accept UTF8
+                        var username = Uri.EscapeDataString(user.Name);
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Username", username);
                         ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Email", user.Email);
-                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);      
-                       
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Avatar", user.Avatar);
+                        ctx.Items.DownstreamRequest().Headers.Add("X-Forwarded-Role", user.Role);
                     }
                     catch(Exception ex)
                     {

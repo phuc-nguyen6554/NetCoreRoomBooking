@@ -1,17 +1,18 @@
 {
   "Routes": [
+    // Leave Request Service
     {
-      "DownstreamPathTemplate": "/{everything}", /* api/leave-request */
-      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 2002
         }
       ],
-      "UpstreamPathTemplate": "/leaves/{everything}", /* PUT => /leave/api/leave-request/1 */
+      "DownstreamPathTemplate": "/{any}",
+      "DownstreamScheme": "http",
+      "SwaggerKey": "leaving",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-      "SwaggerKey": "leaving"
+      "UpstreamPathTemplate": "/leaves/{any}"
     },
     // Identity Service
     {
@@ -57,6 +58,20 @@
       "UpstreamPathTemplate": "/bookings/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"
+    },
+    // Mail Service
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2004
+        }
+      ],
+      "UpstreamPathTemplate": "/mails/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "room"
     }
   ],
   "ServiceDiscoveryProvider": {
@@ -97,7 +112,7 @@
       ]
     },
     {
-      "Key": "leave",
+      "Key": "leaving",
       "Config": [
         {
           "Name": "Leave Request API",
