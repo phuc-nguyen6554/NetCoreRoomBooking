@@ -57,6 +57,20 @@
       "UpstreamPathTemplate": "/bookings/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "room"
+    },
+    // Mail Service
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2004
+        }
+      ],
+      "UpstreamPathTemplate": "/mails/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "room"
     }
   ],
   "SwaggerEndPoints": [

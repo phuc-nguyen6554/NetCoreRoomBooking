@@ -1,22 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Ocelot.Middleware;
 using Serilog;
 using Shared.Cache;
 using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Security.Claims;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Shared.HttpService;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Gateway.OcelotAuth
 {
