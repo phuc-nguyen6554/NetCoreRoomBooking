@@ -1,0 +1,13 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  leaverequest:
+    image: leaverequest
+    build:
+      context: .
+      dockerfile: LeaveRequest/Dockerfile
+    ports:
+      - 80
+      - 2002
