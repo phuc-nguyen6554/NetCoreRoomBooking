@@ -1,13 +1,98 @@
-# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
-
-version: '3.4'
-
+version: '3.8'
 services:
-  leaverequest:
-    image: leaverequest
-    build:
-      context: .
-      dockerfile: LeaveRequest/Dockerfile
-    ports:
-      - 80
-      - 2002
+
+    gateway:
+      image: ssportal-gateway:latest
+      build:
+        args:
+          buildConfig: ${BUILD_CONFIG}
+          apiName: Gateway
+          slnName: ${SLN_NAME}
+          libFolderName: ${LIB_FOLDER_NAME}
+        context: ${BASE_PATH}
+        target: runtime-env
+        dockerfile: Dockerfile.Gateway
+      dns:
+       - 8.8.8.8
+       - 8.8.4.4
+
+      environment:
+         - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+         - ASPNETCORE_URLS=http://+:${GATEWAY_PORT}
+
+      ports:
+        - "${GATEWAY_PORT}:${GATEWAY_PORT}"
+
+      restart: unless-stopped
+
+    identity-api:
+      image: ssportal-identity-api:latest
+      build:
+        args:
+          buildConfig: ${BUILD_CONFIG}
+          apiName: Identity
+          slnName: ${SLN_NAME}
+          libFolderName: ${LIB_FOLDER_NAME}
+        context: ${BASE_PATH}
+        target: runtime-env
+        dockerfile: Dockerfile.Identity
+      dns:
+       - 8.8.8.8
+       - 8.8.4.4
+
+      environment:
+         - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+         - ASPNETCORE_URLS=http://+:${IDENTITY_API_PORT}
+
+      ports:
+        - "${IDENTITY_API_PORT}:${IDENTITY_API_PORT}"
+
+      restart: unless-stopped
+
+    leaverequest-api:
+      image: ssportal-leaverequest-api:latest
+      build:
+        args:
+          buildConfig: ${BUILD_CONFIG}
+          apiName: LeaveRequest
+          slnName: ${SLN_NAME}
+          libFolderName: ${LIB_FOLDER_NAME}
+        context: ${BASE_PATH}
+        target: runtime-env
+        dockerfile: Dockerfile.LeaveRequest
+      dns:
+       - 8.8.8.8
+       - 8.8.4.4
+
+      environment:
+         - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+         - ASPNETCORE_URLS=http://+:${LEAVEREQUEST_API_PORT}
+
+      ports:
+        - "${LEAVEREQUEST_API_PORT}:${LEAVEREQUEST_API_PORT}"
+
+      restart: unless-stopped
+
+    roombookingservice-api:
+      image: ssportal-roombookingservice-api:latest
+      build:
+        args:
+          buildConfig: ${BUILD_CONFIG}
+          apiName: RoomBookingService
+          slnName: ${SLN_NAME}
+          libFolderName: ${LIB_FOLDER_NAME}
+        context: ${BASE_PATH}
+        target: runtime-env
+        dockerfile: Dockerfile.RoomBookingService
+      dns:
+       - 8.8.8.8
+       - 8.8.4.4
+
+      environment:
+         - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+         - ASPNETCORE_URLS=http://+:${ROOMBOOKINGSERVICE_API_PORT}
+
+      ports:
+        - "${ROOMBOOKINGSERVICE_API_PORT}:${ROOMBOOKINGSERVICE_API_PORT}"
+
+      restart: unless-stopped
