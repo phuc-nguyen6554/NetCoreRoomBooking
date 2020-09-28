@@ -27,7 +27,8 @@ namespace MailService.Services.Implement
                 {
                     Email = json.Email,
                     Subject = json.Subject,
-                    Content = json.Content
+                    Content = json.Content,
+                    Cc = json.Cc.ToArray()
                 });
             }
         }

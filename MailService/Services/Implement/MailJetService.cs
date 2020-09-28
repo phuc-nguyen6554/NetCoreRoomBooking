@@ -136,7 +136,7 @@ namespace MailService.Services.Implement
         private JArray CreateArray(string key, string[] items)
         {
             var jArray = new JArray();
-            if(items == null)
+            if(items == null || items.Length == 0)
             {
                 return jArray;
             }
