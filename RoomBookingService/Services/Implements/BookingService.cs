@@ -43,14 +43,6 @@ namespace RoomBookingService.Services.Implements
                 .Where(b => b.To.CompareTo(DateTime.Now) > 0)
                 .OrderBy(b => b.From)
                 .ToListAsync();
-            RabbitSender sender = new RabbitSender();
-            var mail = new MailRequest
-            {
-                Email = "phuc.nguyen@siliconstack.com.au",
-                Subject = "Hello this is test subject",
-                Content = "This is test content"
-            };
-            sender.SendObject("hello", mail);
             return _mapper.Map<List<BookingListResponse>>(bookings);
         }
 

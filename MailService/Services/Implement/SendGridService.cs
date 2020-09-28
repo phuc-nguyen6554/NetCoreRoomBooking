@@ -33,7 +33,7 @@ namespace MailService.Services.Implement
             message.AddTo(new EmailAddress(request.Email));
 
             List<EmailAddress> Ccs = new List<EmailAddress>();
-            if(request.Cc != null)
+            if(request.Cc.Length > 0)
             {
                 foreach (var cc in request.Cc)
                 {
@@ -87,7 +87,7 @@ namespace MailService.Services.Implement
             message.AddTos(emailAddresses);
 
             List<EmailAddress> Ccs = new List<EmailAddress>();
-            if(request.Cc != null)
+            if(request.Cc.Length > 0)
             {
                 foreach (var cc in request.Cc)
                 {
