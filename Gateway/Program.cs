@@ -23,7 +23,8 @@ namespace Gateway
             {
                 config
                     .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-                    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+                    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+                    .AddJsonFile("ocelot.Docker.json", optional: false, reloadOnChange: true);
             });
     }
 }
