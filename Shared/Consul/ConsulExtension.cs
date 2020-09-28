@@ -55,7 +55,8 @@ namespace Shared.Consul
                     {
                         HTTP = $"{uri.Scheme}://{uri.Host}:{uri.Port}/heathcheck",
                         Timeout = TimeSpan.FromSeconds(5) ,
-                        Interval = TimeSpan.FromSeconds(20)
+                        Interval = TimeSpan.FromSeconds(20),
+                        DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1)                       
                     }
                 };
             }
