@@ -44,10 +44,13 @@ namespace RoomBookingService.Services.Implements
                 .OrderBy(b => b.From)
                 .ToListAsync();
             RabbitSender sender = new RabbitSender();
-            HttpClientService client = new HttpClientService();
-
-            var json = JsonConvert.SerializeObject(new MailRequest { Email = "phuc.nguyen@siliconstack.com.au", Subject = "Test", Content = "abcd" });
-            await client.Post("http://localhost:5000/mails", json);
+            var mail = new MailRequest
+            {
+                Email = "phuc.nguyen@siliconstack.com.au",
+                Subject = "Hello this is test subject",
+                Content = "This is test content"
+            };
+            sender.SendObject("hello", mail);
             return _mapper.Map<List<BookingListResponse>>(bookings);
         }
 

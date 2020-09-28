@@ -9784,3 +9784,19 @@ VALUES (N'20200921013941_add-role-table', N'3.1.7');
 2020-09-25 11:01:36.445 +07:00 [INF] requestId: 8000011c-0001-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
 2020-09-25 11:02:08.272 +07:00 [INF] requestId: 8000011c-0001-fe00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 200 (OK) status code, request uri: http://localhost:2003/bookings
 2020-09-25 11:02:08.319 +07:00 [INF] Request finished in 34919.1553ms 200 application/json; charset=utf-8
+2020-09-28 16:12:51.842 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-28 16:12:51.883 +07:00 [INF] Hosting environment: Development
+2020-09-28 16:12:51.885 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-28 16:12:51.893 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 157
+2020-09-28 16:12:52.140 +07:00 [INF] requestId: 8000013e-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-28 16:12:56.250 +07:00 [INF] requestId: 8000013e-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-28 16:13:02.086 +07:00 [INF] requestId: 8000013e-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 400 (Bad Request) status code, request uri: http://localhost:2003/bookings
+2020-09-28 16:13:02.143 +07:00 [INF] Request finished in 10258.0251ms 400 application/json
+2020-09-28 16:14:14.062 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-09-28 16:14:14.098 +07:00 [INF] Hosting environment: Development
+2020-09-28 16:14:14.100 +07:00 [INF] Content root path: D:\NetCore\Gateway.API\Gateway
+2020-09-28 16:14:14.112 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:2000/bookings/bookings application/json 157
+2020-09-28 16:14:14.304 +07:00 [INF] requestId: 80000140-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /{everything}
+2020-09-28 16:14:17.917 +07:00 [INF] requestId: 80000140-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: /{everything} route does not require user to be authorised
+2020-09-28 16:14:32.641 +07:00 [INF] requestId: 80000140-0000-fd00-b63f-84710c7967bb, previousRequestId: no previous request id, message: 400 (Bad Request) status code, request uri: http://localhost:2003/bookings
+2020-09-28 16:14:32.690 +07:00 [INF] Request finished in 18588.6811ms 400 application/json
