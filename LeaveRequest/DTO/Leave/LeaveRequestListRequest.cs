@@ -22,5 +22,7 @@ namespace LeaveRequest.DTO.Leave
         public int LeaveTypeId { get; set; }
 
         public string Reason { get; set; }
+
+        public string MemberEmail { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using Identity.Models.Users;
 
 namespace Identity.Models.Roles 
 {
+    [Table("ID_Roles")]
     public class Role
     {
         public int Id { get; set; }
