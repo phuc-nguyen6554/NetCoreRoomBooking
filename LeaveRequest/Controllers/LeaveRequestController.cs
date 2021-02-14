@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using LeaveRequest.DTO.Leave;
 using Shared.Exceptions;
 using LeaveRequest.Services;
+using LeaveRequest.Models;
 
 namespace LeaveRequestController.Controllers
 {
@@ -21,9 +22,9 @@ namespace LeaveRequestController.Controllers
 
         [HttpGet("list")]
         [ProducesResponseType(typeof(List<LeaveRequestResponse>), 200)]
-        public async Task<IActionResult> GetLeaveRequestsAsync()
+        public async Task<IActionResult> GetLeaveRequestsAsync([FromQuery]LeaveRequestListRequest request)
         {
-            return Ok(await _leaveService.GetLeaveRequestAsync());
+            return Ok(await _leaveService.GetLeaveRequestAsync(request));
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for

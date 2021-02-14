@@ -10,6 +10,7 @@ using Shared.Serilog;
 using AutoMapper;
 using LeaveRequest.Services.Implements;
 using LeaveRequest.Services;
+using Shared.Cache;
 
 namespace LeaveRequest
 {
@@ -42,6 +43,8 @@ namespace LeaveRequest
                     Description = "Leave Request API"
                 });
             });
+
+            services.AddScopedCacheService();
             services.AddScoped<ILeaveRequestService,LeaveRequestService>();
             services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -60,6 +63,7 @@ namespace LeaveRequest
             app.UseRouting();
 
             app.UseSwagger();
+            app.UseScopedCacheMiddleware();
 
             app.UseSerilogMiddleware();
 

@@ -15,7 +15,7 @@ namespace RoomBookingService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -38,7 +38,7 @@ namespace RoomBookingService.Migrations
                     b.Property<string>("MemberName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoomID")
+                    b.Property<int>("RoomId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("To")
@@ -46,9 +46,9 @@ namespace RoomBookingService.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomID");
+                    b.HasIndex("RoomId");
 
-                    b.ToTable("bookings");
+                    b.ToTable("BR_Bookings");
                 });
 
             modelBuilder.Entity("RoomBookingService.Models.Rooms.Room", b =>
@@ -63,14 +63,21 @@ namespace RoomBookingService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("rooms");
+                    b.ToTable("BR_Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoomName = "Meeting Room"
+                        });
                 });
 
             modelBuilder.Entity("RoomBookingService.Models.Bookings.Booking", b =>
                 {
                     b.HasOne("RoomBookingService.Models.Rooms.Room", "Room")
                         .WithMany("Bookings")
-                        .HasForeignKey("RoomID")
+                        .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

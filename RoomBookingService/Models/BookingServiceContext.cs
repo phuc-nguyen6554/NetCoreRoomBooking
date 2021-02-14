@@ -20,7 +20,8 @@ namespace RoomBookingService.Models
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);         
+            base.OnModelCreating(builder);
+            builder.Entity<Room>(option => option.HasData(new Room { Id = 1, RoomName = "Meeting Room" }));
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)

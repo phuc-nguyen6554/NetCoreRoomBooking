@@ -12,7 +12,7 @@ namespace LeaveRequest.DTO.Leave
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime LeaveDates { get; set; }
+        public DateTime[] LeaveDates { get; set; }
         public string LeaveTime { get; set; }
         public LeaveType LeaveTypes { get; set; }
         public int LeaveTypeId { get; set; }
